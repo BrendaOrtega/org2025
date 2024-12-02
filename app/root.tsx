@@ -35,7 +35,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <NavBar />
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -65,7 +64,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
+    <main className="pt-16 p-4 container mx-auto bg-red-700">
       <h1>{message}</h1>
       <p>{details}</p>
       {stack && (

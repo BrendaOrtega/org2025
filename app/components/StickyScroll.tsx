@@ -32,12 +32,16 @@ export const StickyScrollReveal = ({
   //   console.log("index", currentIndex);
 
   return (
-    <article className={cn(currentBgColor, "transition-all")}>
+    <article className={cn(currentBgColor, "transition-all ")}>
+      <div className="relative inset-0 bg-red-500 w-full h-full">
+        <div className="w-36 h-36 rounded-full bg-brand-500/30 blur-3xl  absolute  top-96 " />
+      </div>
       <section
-        className="flex  gap-20 justify-center items-start relative py-20 h-max max-w-6xl mx-auto"
+        className="flex  gap-20 justify-center items-start relative py-20 h-max max-w-7xl mx-auto"
         ref={targetRef}
       >
-        <div className="flex flex-col flex-1 pb-40 pt-40 gap-80">
+        {" "}
+        <div className="flex flex-col flex-1 pb-40 pt-40 gap-80  ">
           {items.map(({ text, title, img }, index) => (
             <InViewDetector
               onInView={handleEnterIntoView}
@@ -48,10 +52,10 @@ export const StickyScrollReveal = ({
               <div>
                 <p
                   className={cn(
-                    "text-brand-100/40 font-light  text-xl mb-3 transition-all",
+                    "text-brand-100/40 uppercase font-light  text-xl mb-3 transition-all",
 
                     {
-                      "text-white": currentImage === img,
+                      "text-ironGray": currentImage === img,
                     }
                   )}
                 >
@@ -59,7 +63,7 @@ export const StickyScrollReveal = ({
                 </p>
                 <div
                   className={cn(
-                    "text-3xl text-white/40 font-bold transition-all leading-snug",
+                    "text-4xl text-white/40 font-bold transition-all leading-snug",
                     {
                       "text-white": currentImage === img,
                     }
@@ -71,9 +75,10 @@ export const StickyScrollReveal = ({
             </InViewDetector>
           ))}
         </div>
-        <div className="sticky top-60 mt-32 flex-1 overflow-hidden rounded-3xl aspect-square ">
+        <div className="sticky top-60 mt-32 flex-1 overflow-hidden rounded-3xl aspect-square px-0 ">
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.div
+              className="w-[80%] mx-auto"
               key={currentIndex}
               initial={{ opacity: 0, y: 40, filter: "blur(9px" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px" }}

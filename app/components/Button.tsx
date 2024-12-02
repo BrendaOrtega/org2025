@@ -16,7 +16,7 @@ export const Button = ({
   const ref = useRef(null);
 
   return (
-    <div role="button" className={cn("flex mx-auto w-fit", className)}>
+    <div role="button" className={cn("flex  w-fit", className)}>
       <div
         className={cn(
           "bg-brand-500 w-fit px-4 rounded-full  text-brand-900 font-normal h-10 flex items-center justify-center",

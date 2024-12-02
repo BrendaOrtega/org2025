@@ -3,7 +3,10 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Button } from "./Button";
 
-const navigation = [{ name: "Portafolio" }, { name: "Servicios" }];
+const navigation = [
+  { name: "Portafolio", link: "/portafolio" },
+  { name: "Servicios", link: "/servicios" },
+];
 
 export const SquigglyUnderline = () => {
   const [selectedLink, setSelectedLink] = useState("Home");
@@ -15,7 +18,7 @@ export const SquigglyUnderline = () => {
         return (
           <Link
             key={item.name}
-            to="#"
+            to={item.link}
             className={`relative text-sm leading-6 no-underline ${
               isSelected ? "font-semibold text-brand-900" : "text-brand-900"
             }`}
@@ -56,7 +59,13 @@ export const NavBar = () => {
   return (
     <section className=" w-full z-10 bg-white/20 backdrop-blur ">
       <nav className="flex max-w-7xl mx-auto py-8 items-center justify-between ">
-        <img src="/logo.svg" alt="logo" />
+        <Link to="/">
+          <img
+            className="hover:scale-95 transition-all"
+            src="/logo.svg"
+            alt="logo"
+          />
+        </Link>
         <div className="flex items-center gap-8">
           <SquigglyUnderline />
           <Button />
