@@ -33,7 +33,7 @@ export const StickyScrollReveal = ({
 
   return (
     <article className={cn(currentBgColor, "transition-all ")}>
-      <div className="relative inset-0 bg-red-500 w-full h-full">
+      <div className="relative inset-0 w-full h-full">
         <div className="w-36 h-36 rounded-full bg-brand-500/30 blur-3xl  absolute  top-96 " />
       </div>
       <section
@@ -52,10 +52,10 @@ export const StickyScrollReveal = ({
               <div>
                 <p
                   className={cn(
-                    "text-brand-100/40 uppercase font-light  text-xl mb-3 transition-all",
+                    "text-brand-100/40 uppercase font-light  text-xl mb-6 transition-all",
 
                     {
-                      "text-ironGray": currentImage === img,
+                      "text-iron": currentImage === img,
                     }
                   )}
                 >
@@ -78,7 +78,7 @@ export const StickyScrollReveal = ({
         <div className="sticky top-60 mt-32 flex-1 overflow-hidden rounded-3xl aspect-square px-0 ">
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.div
-              className="w-[80%] mx-auto"
+              className="w-[100%] mx-auto"
               key={currentIndex}
               initial={{ opacity: 0, y: 40, filter: "blur(9px" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px" }}

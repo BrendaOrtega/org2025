@@ -387,11 +387,23 @@ const Services = () => {
       <h2 className="text-brand-900 text-6xl font-bold ">
         El mejor partner Full-stack
       </h2>
-      <p className="text-ironGray text-2xl font-light mt-6">
+      <motion.p
+        initial={{ opacity: 0, y: 40, filter: "blur(9px" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px" }}
+        exit={{ opacity: 0, y: -40, filter: "blur(9px" }}
+        transition={{ type: "spring", bounce: 0, duration: 1 }}
+        className="text-ironGray text-2xl font-light mt-6"
+      >
         Nuestra experiencia en diseño y desarrollo ofrece las mejores
         experiencias digitales.
-      </p>
-      <div className="mt-12 w-fit emoji">
+      </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 40, filter: "blur(9px" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px" }}
+        exit={{ opacity: 0, y: -40, filter: "blur(9px" }}
+        transition={{ type: "spring", bounce: 0, duration: 1 }}
+        className="mt-12 w-fit emoji"
+      >
         <div className=" w-full flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all">
           <span>01</span> <p>Diseño de Producto</p>
         </div>
@@ -407,7 +419,7 @@ const Services = () => {
         <div className="w-full  flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all">
           <span>05</span> <p>Capacitación</p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

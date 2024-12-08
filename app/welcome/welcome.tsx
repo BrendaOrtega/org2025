@@ -11,6 +11,49 @@ import { GrLocationPin } from "react-icons/gr";
 import { TiSocialFacebook } from "react-icons/ti";
 import { Link } from "react-router";
 import { Secuence } from "~/icons/secuence";
+import { PhoneHero } from "~/components/PhoneHero";
+import { InfiniteMovingCards } from "~/components/InfiniteMoving";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
+import BlobCursor from "~/components/BlobCursor";
+
+const projects = [
+  {
+    image: "https://i.imgur.com/3wx9Qa4.png",
+    title: "English 4 professionals",
+  },
+  {
+    image: "https://i.imgur.com/nLH6ChB.png",
+    title: "ReformAI",
+  },
+  {
+    image: "https://i.imgur.com/JQrOEpZ.jpg",
+    title: "Deník",
+  },
+  {
+    image: "https://i.imgur.com/2nGAoyu.png",
+    title: "Formmy",
+  },
+];
+
+const testimonials = [
+  {
+    image: "https://i.imgur.com/U8dTc3C.jpg",
+    title: "Collectum Datos Panel",
+  },
+  {
+    image: "https://i.imgur.com/v5NluEA.jpg",
+    title: "LastPlay",
+  },
+  {
+    image: "https://i.imgur.com/lmSmhdB.png",
+    title: "Constructoken",
+  },
+  {
+    image: "https://i.imgur.com/nYvYjdc.png",
+    title: "Potentia",
+  },
+];
 
 export function Welcome() {
   return (
@@ -45,7 +88,7 @@ export const Banner = () => {
 
 export const Footer = () => {
   return (
-    <section className="bg-brand-900 rounded-t-5xl w-full fixed bottom-0 pt-[300px] z-10 ">
+    <section className="bg-brand-900 rounded-t-5xl w-full fixed  z-10 bottom-0 pt-[300px]  ">
       <div className=" pt-16">
         <div className="flex justify-between max-w-7xl mx-auto">
           <div className=" flex flex-col justify-start items-start">
@@ -97,7 +140,7 @@ export const Footer = () => {
           </div>
           <div className="text-white  font-normal flex flex-col gap-2">
             <h3 className="text-lightGray  ">Escríbenos</h3>
-            <a href="tel:+34623123456" title="phone" target="_blank">
+            <a href="https://wa.me/527757609276" title="phone" target="_blank">
               <p className="flex items-center gap-2 hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
                 <MdLocalPhone />
                 +52 775 760 92 76
@@ -139,7 +182,7 @@ export const Footer = () => {
               }}
               // className="text-[110px] text-left ml-12 text-[#9EC9BA]"
             >
-              Siendo creativos desde 2016
+              Siendo creativos desde 2014
             </span>
             <img className="w-32 h-32" src="/clic2.gif" />{" "}
           </div>
@@ -151,7 +194,7 @@ export const Footer = () => {
 
 const Comments = () => {
   return (
-    <main className=" h-[100vh] py-[80px] bg-white !z-30">
+    <main className=" h-[100vh] py-[80px] bg-white  relative z-30">
       <h2 className="text-5xl font-bold text-center ">
         Qué dicen nuestros clientes
       </h2>
@@ -160,10 +203,9 @@ const Comments = () => {
           <CommentCard
             company="Collectum Datos Panel"
             name="Rosalba Flores"
-            comment="  Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-          itaque quasi a, hic quae aut provident eius ea ab molestiae culpa
-          explicabo totam aliquam laudantium alias sit animi id impedit!"
+            comment="Teníamos la idea de un negocio digital, pero no sabíamos como implementarlo. Entre varias opciones fue en Fixter que encontramos la solución ideal. No solo desarrollaron exactamente lo que necesitábamos, sino que también nos ofrecieron ideas innovadoras con tecnología de vanguardia."
             date="2020 - 2024"
+            image="https://i.imgur.com/RAiyJBc.jpg"
           />
 
           <ImageCard className="bg-brand-900" image="/e4pros.svg" />
@@ -240,7 +282,9 @@ const CommentCard = ({
     >
       <p className="text-xl font-semibold">"{comment}"</p>
       <div className="flex gap-3">
-        <div className="bg-brand-900 w-12 h-12 rounded-full"></div>
+        <div className="bg-brand-900 overflow-hidden w-12 h-12 rounded-full">
+          <img className="bg-brand-900" src={image} alt={name} />{" "}
+        </div>
         <div>
           <h3>{name}</h3>
           <p className="text-ironGray font-light text-sm">
@@ -254,7 +298,7 @@ const CommentCard = ({
 
 const Tools = () => {
   return (
-    <section className="max-w-7xl mx-auto py-[160px]">
+    <section className="max-w-7xl mx-auto py-[160px] relative z-10 bg-white">
       <h2 className="text-5xl font-bold text-center ">
         Enfócate en tus clientes y déjanos el resto
       </h2>
@@ -308,7 +352,7 @@ const Item = ({
   return (
     <div
       className={twMerge(
-        "bg-white shadow-[0_8px_32px_rgba(204,204,204,.4)] border border-brand-100/40 rounded-2xl w-24 h-28 hover:shadow-none transition-all pt-4",
+        "bg-white cursor-pointer shadow-[0_8px_32px_rgba(204,204,204,.4)] border border-brand-100/40 rounded-2xl w-24 h-28 hover:shadow-none transition-all pt-4",
         className
       )}
     >
@@ -319,37 +363,24 @@ const Item = ({
 };
 
 const Work = () => {
+  const ref = useRef(null);
+  const isInview = useInView(ref);
   return (
-    <section className="text-center max-w-7xl  mx-auto py-[160px]">
-      <h2 className="text-5xl font-bold ">Nuestro trabajo</h2>
-      <div className="grid grid-cols-3 gap-10 mt-20">
-        <ProjectCard
-          title="E4Pros"
-          image="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          tags="UX/UI Design & Development"
-        />
-        <ProjectCard
-          title="E4Pros"
-          image="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        />
-        <ProjectCard
-          title="E4Pros"
-          image="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        />
-        <ProjectCard
-          title="E4Pros"
-          image="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          tags="UX/UI Design & Development"
-        />
-        <ProjectCard
-          title="E4Pros"
-          image="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        />
-        <ProjectCard
-          title="E4Pros"
-          image="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        />
+    <section className="text-center   mx-auto pt-[240px] pb-[160px] relative z-10 bg-white">
+      <h2 className="text-5xl font-bold ">
+        Nuestro trabajo es estético, interactivo y funcional{" "}
+      </h2>
+      <div className="absolute w-full h-full inset-0 ">
+        <BlobCursor />
       </div>
+      <motion.div className="mt-20 flex flex-col gap-20">
+        <InfiniteMovingCards items={projects} direction="left" speed="normal" />
+        <InfiniteMovingCards
+          items={testimonials}
+          direction="right"
+          speed="normal"
+        />
+      </motion.div>
     </section>
   );
 };
@@ -387,16 +418,16 @@ const ProjectCard = ({
 
 const Why = () => {
   return (
-    <section className="bg-brand-900 ">
+    <section className="bg-brand-900  relative z-10">
       <StickyScrollReveal
         items={[
           {
             twColor: "bg-brand-900",
             img: (
               <img
-                className="object-cover h-full w-full"
-                src="https://i.imgur.com/WpmbbPu.png"
-                alt="perro"
+                className="object-cover scale-110 h-full w-full"
+                src="/projects/proto1.gif"
+                alt="prototipo"
               />
             ),
             text: (
@@ -410,8 +441,8 @@ const Why = () => {
             twColor: "bg-brand-900",
             img: (
               <img
-                className="object-cover h-full w-full"
-                src="https://i.imgur.com/WpmbbPu.png"
+                className="object-cover scale-110 h-full w-full"
+                src="/projects/proto1.gif"
                 alt="perro"
               />
             ),
@@ -427,8 +458,8 @@ const Why = () => {
             twColor: "bg-brand-900",
             img: (
               <img
-                className="w-full h-full object-cover"
-                src="https://i.imgur.com/FOFW9Oc.png"
+                className="w-full h-full object-cover scale-110"
+                src="/projects/proto1.gif"
                 alt="perro"
               />
             ),
@@ -443,8 +474,8 @@ const Why = () => {
             twColor: "bg-brand-900",
             img: (
               <img
-                className="w-full h-full object-cover"
-                src="https://i.imgur.com/FOFW9Oc.png"
+                className="w-full h-full object-cover scale-110"
+                src="/projects/proto1.gif"
                 alt="perro"
               />
             ),
@@ -467,8 +498,27 @@ const Why = () => {
 const Hero = () => {
   return (
     <>
-      <section className=" bg-stars max-w-7xl w-full h-screen rounded-5xl mx-auto px-16 pt-20 mt-10 relative ">
-        <h1 className="text-brand-900 text-6xl font-bold text-center leading-snug">
+      <section className=" -mt-12  w-full rounded-5xl mx-auto px-16  relative ">
+        <PhoneHero
+          title={
+            <div className="w-[80%] relative z-50">
+              <h1 className=" text-brand-900 text-6xl font-bold text-center leading-snug">
+                Creamos experiencias únicas a través del diseño y desarrollo de
+                sitios web, prototipos y webapps.
+              </h1>
+              <div className="flex justify-center gap-6  mt-12">
+                <Button link="/contacto" className="!text-base " mode="white" />{" "}
+                <Link to="/portafolio">
+                  <SecondaryButton
+                    className="!text-base"
+                    title="Ver proyectos"
+                  />{" "}
+                </Link>
+              </div>
+            </div>
+          }
+        />
+        {/* <h1 className="text-brand-900 text-6xl font-bold text-center leading-snug">
           Creamos experiencias únicas a través del diseño y desarrollo de sitios
           web, prototipos y webapps.
         </h1>
@@ -490,9 +540,9 @@ const Hero = () => {
             className="absolute top-40 right-[20%] w-[240px]  "
             src="/Item-3.png"
           />
-        </div>
+        </div> */}
       </section>
-      <section className="bg-white min-h-[90vh] flex flex-col items-center justify-center px-[20%] ">
+      {/* <section className="bg-white min-h-[90vh] flex flex-col items-center justify-center px-[20%]  ">
         <div className="w-20 h-20 rounded-full bg-brand-100 flex items-center justify-center">
           <FaCodeBranch className="text-4xl font-light" />
         </div>
@@ -500,7 +550,7 @@ const Hero = () => {
           El mejor aliado para diseñar y desarrollar software para el éxito de
           tu empresa
         </h2>
-      </section>
+      </section> */}
     </>
   );
 };

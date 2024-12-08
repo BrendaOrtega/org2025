@@ -1,31 +1,42 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Link } from "react-router";
+import { Link, useLocation, useParams } from "react-router";
 import { Button } from "./Button";
 
 const navigation = [
   { name: "Portafolio", link: "/portafolio" },
   { name: "Servicios", link: "/servicios" },
+  { name: "Saas & Apps", link: "/saas" },
 ];
 
 export const SquigglyUnderline = () => {
   const [selectedLink, setSelectedLink] = useState("Home");
-
+  const [isHover, setIsHover] = useState<number | null>(null);
+  const location = useLocation();
   return (
     <div className="flex gap-16">
-      {navigation.map((item) => {
-        const isSelected = item.name === selectedLink;
+      {navigation.map((item, i) => {
+        const isCurrent = isHover === i;
+        const isCurrentRoute = location.pathname.includes(item.link);
         return (
           <Link
             key={item.name}
             to={item.link}
             className={`relative text-sm leading-6 no-underline ${
-              isSelected ? "font-semibold text-brand-900" : "text-brand-900"
+              isCurrent || isCurrentRoute
+                ? "font-semibold text-brand-900"
+                : "text-brand-900"
             }`}
             onClick={() => setSelectedLink(item.name)}
+            onMouseEnter={() => {
+              setIsHover(i);
+            }}
+            onMouseLeave={() => {
+              setIsHover(null);
+            }}
           >
             {item.name}
-            {isSelected ? (
+            {isCurrent || isCurrentRoute ? (
               <motion.div className="absolute -bottom-[1px] left-0 right-0 h-[1px]">
                 <svg width="37" height="8" viewBox="0 0 37 8" fill="none">
                   <motion.path
@@ -68,7 +79,7 @@ export const NavBar = () => {
         </Link>
         <div className="flex items-center gap-8">
           <SquigglyUnderline />
-          <Button />
+          <Button link="/contacto" />
         </div>
       </nav>
     </section>
