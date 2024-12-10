@@ -3,17 +3,25 @@ import { Banner, Footer, Welcome } from "../welcome/welcome";
 import { NavBar } from "~/components/Navbar";
 import { motion, useInView } from "motion/react";
 import { FaCirclePlay } from "react-icons/fa6";
-import { ReactNode, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
+import { Link } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Fixter.org" },
-    { name: "description", content: "Desarrollo de software a la medida" },
+    { title: "Servicios" },
+    { name: "description", content: "Conoce nuestros servicios" },
   ];
 }
 
 export default function Servicios() {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <main className="bg-white min-h-screen ">
       <div className="bg-white relative top-0 z-50">
@@ -205,95 +213,107 @@ const ServiceFive = () => {
 const ServicesList = () => {
   return (
     <section className="flex flex-col gap-40">
-      <Content img={<ServiceOne />}>
-        <div className="pr-12">
-          <h2 className="text-brand-900 text-5xl font-bold">
-            Diseño de producto
-          </h2>
-          <p className="text-ironGray text-xl font-light mt-6">
-            Creamos productos memorables para empresas y consumidores, además de
-            brindar soluciones de diseño integrales para una iteración de
-            productos escalable.
-          </p>{" "}
-          <div className=" flex flex-col gap-3 mt-12">
-            <Item text="User Research & Testing" />
-            <Item text="User Experience Design" />
-            <Item text="UI Design & Interaction Design" />
-            <Item text="Design Systems" />
-            <Item text="Prototipado" />
+      <div id="diseño">
+        <Content img={<ServiceOne />}>
+          <div className="pr-12">
+            <h2 className="text-brand-900 text-5xl font-bold">
+              Diseño de producto
+            </h2>
+            <p className="text-ironGray text-xl font-light mt-6">
+              Creamos productos memorables para empresas y consumidores, además
+              de brindar soluciones de diseño integrales para una iteración de
+              productos escalable.
+            </p>{" "}
+            <div className=" flex flex-col gap-3 mt-12">
+              <Item text="User Research & Testing" />
+              <Item text="User Experience Design" />
+              <Item text="UI Design & Interaction Design" />
+              <Item text="Design Systems" />
+              <Item text="Prototipado" />
+            </div>
           </div>
-        </div>
-      </Content>
-      <Content className="flex-row-reverse" img={<ServiceTwo />}>
-        <div className="pl-12">
-          <h2 className="text-brand-900 text-5xl font-bold">
-            Desarrollo de Software a la medida
-          </h2>
-          <p className="text-ironGray text-xl font-light mt-6">
-            Nuestros equipos de diseño y desarrollo trabajan conjuntamente para
-            crear sitios y aplicaciones web y móviles que brindan experiencias y
-            funcionalidades exepcionales basadas en tus necesidades.
-          </p>{" "}
-          <div className=" flex flex-col gap-3 mt-12">
-            <Item text="Desarrollo de aplicaciones móviles" />
-            <Item text="Desarrollo web frontend y backend" />
-            <Item text="UI Design & Interaction Design" />
-            <Item text="Integraciones API" />
-            <Item text="Conterización" />
+        </Content>{" "}
+      </div>
+      <div id="software">
+        <Content className="flex-row-reverse" img={<ServiceTwo />}>
+          <div className="pl-12">
+            <h2 className="text-brand-900 text-5xl font-bold">
+              Desarrollo de Software a la medida
+            </h2>
+            <p className="text-ironGray text-xl font-light mt-6">
+              Nuestros equipos de diseño y desarrollo trabajan conjuntamente
+              para crear sitios y aplicaciones web y móviles que brindan
+              experiencias y funcionalidades exepcionales basadas en tus
+              necesidades.
+            </p>{" "}
+            <div className=" flex flex-col gap-3 mt-12">
+              <Item text="Desarrollo de aplicaciones móviles" />
+              <Item text="Desarrollo web frontend y backend" />
+              <Item text="UI Design & Interaction Design" />
+              <Item text="Integraciones API" />
+              <Item text="Conterización" />
+            </div>
           </div>
-        </div>
-      </Content>
-      <Content img={<ServiceThree />}>
-        <div className="pr-12">
-          <h2 className="text-brand-900 text-5xl font-bold ">Sitios web</h2>
-          <p className="text-ironGray text-xl font-light mt-6">
-            Consideramos a los sitios web el canal más importante para acercar
-            tu marca a tus clientes. Así que nos enfocamos en que tu sitio
-            transmita la esencia de tu marca.
-          </p>{" "}
-          <div className=" flex flex-col gap-3 mt-12">
-            <Item text="Diseño y desarrollo web" />
-            <Item text="Interacciones y animaciones" />
-            <Item text="Integraciones API para tracking" />
-            <Item text="Optimización SEO" />
+        </Content>
+      </div>
+      <div id="web">
+        <Content img={<ServiceThree />}>
+          <div className="pr-12">
+            <h2 className="text-brand-900 text-5xl font-bold ">Sitios web</h2>
+            <p className="text-ironGray text-xl font-light mt-6">
+              Consideramos a los sitios web el canal más importante para acercar
+              tu marca a tus clientes. Así que nos enfocamos en que tu sitio
+              transmita la esencia de tu marca.
+            </p>{" "}
+            <div className=" flex flex-col gap-3 mt-12">
+              <Item text="Diseño y desarrollo web" />
+              <Item text="Interacciones y animaciones" />
+              <Item text="Integraciones API para tracking" />
+              <Item text="Optimización SEO" />
+            </div>
           </div>
-        </div>
-      </Content>
-      <Content className="flex-row-reverse" img={<ServiceFour />}>
-        <div className="pl-12">
-          <h2 className="text-brand-900 text-5xl font-bold">
-            Aplicciones Móviles
-          </h2>
-          <p className="text-ironGray text-xl font-light mt-6">
-            Ya sea una aplicación híbrida o nativa, nos encargamos de evaluar la
-            mejor solución para ti y tus clientes, diseñaremos y desarrollaremos
-            aplicaciones que mejoren tu tasa de conversión y la experiencia de
-            usuario de tus clientes al interactuar con tu marca.
-          </p>{" "}
-          <div className=" flex flex-col gap-3 mt-12">
-            <Item text="Diseño y desarrollo de apps" />
-            <Item text="Publicación" />
-            <Item text="Testing" />
+        </Content>
+      </div>
+      <div id="apps">
+        <Content className="flex-row-reverse" img={<ServiceFour />}>
+          <div className="pl-12">
+            <h2 className="text-brand-900 text-5xl font-bold">
+              Aplicciones Móviles
+            </h2>
+            <p className="text-ironGray text-xl font-light mt-6">
+              Ya sea una aplicación híbrida o nativa, nos encargamos de evaluar
+              la mejor solución para ti y tus clientes, diseñaremos y
+              desarrollaremos aplicaciones que mejoren tu tasa de conversión y
+              la experiencia de usuario de tus clientes al interactuar con tu
+              marca.
+            </p>{" "}
+            <div className=" flex flex-col gap-3 mt-12">
+              <Item text="Diseño y desarrollo de apps" />
+              <Item text="Publicación" />
+              <Item text="Testing" />
+            </div>
           </div>
-        </div>
-      </Content>
-      <Content img={<ServiceFive />}>
-        <div className="pr-12">
-          <h2 className="text-brand-900 text-5xl font-bold">Capacitación</h2>
-          <p className="text-ironGray text-xl font-light mt-6">
-            La enseñanza es algo que nos apasiona, así que de la mano de
-            nuestros desarrolladores creamos cursos personalizados adoc al stack
-            de tus proyectos. Y si la herramienta que buscas es nueva, no te
-            preocupes, seguro tendremos algo listo. Desde HTML y JS hasta Remix,
-            Astro y Kubernetes.
-          </p>{" "}
-          <div className=" flex flex-col gap-3 mt-12">
-            <Item text="Capacitación en línea" />
-            <Item text="Cursos presenciales personalizados" />
-            <Item text="Cursos pregrabados On Demand" />
+        </Content>
+      </div>
+      <div id="capacitacion">
+        <Content img={<ServiceFive />}>
+          <div className="pr-12">
+            <h2 className="text-brand-900 text-5xl font-bold">Capacitación</h2>
+            <p className="text-ironGray text-xl font-light mt-6">
+              La enseñanza es algo que nos apasiona, así que de la mano de
+              nuestros desarrolladores creamos cursos personalizados adoc al
+              stack de tus proyectos. Y si la herramienta que buscas es nueva,
+              no te preocupes, seguro tendremos algo listo. Desde HTML y JS
+              hasta Remix, Astro y Kubernetes.
+            </p>{" "}
+            <div className=" flex flex-col gap-3 mt-12">
+              <Item text="Capacitación en línea" />
+              <Item text="Cursos presenciales personalizados" />
+              <Item text="Cursos pregrabados On Demand" />
+            </div>
           </div>
-        </div>
-      </Content>
+        </Content>
+      </div>
     </section>
   );
 };
@@ -382,6 +402,26 @@ const Item = ({ text }: { text: string }) => {
 };
 
 const Services = () => {
+  const handleWeb = () => {
+    const node = document.querySelector("#web");
+    node.scrollIntoView({ behavior: "smooth" });
+  };
+  const handleDiseno = () => {
+    const node = document.querySelector("#diseño");
+    node.scrollIntoView({ behavior: "smooth" });
+  };
+  const handleSoftware = () => {
+    const node = document.querySelector("#software");
+    node.scrollIntoView({ behavior: "smooth" });
+  };
+  const handleApps = () => {
+    const node = document.querySelector("#apps");
+    node.scrollIntoView({ behavior: "smooth" });
+  };
+  const handleCap = () => {
+    const node = document.querySelector("#capacitacion");
+    node.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <section className="max-w-7xl mx-auto mt-20 ">
       <h2 className="text-brand-900 text-6xl font-bold ">
@@ -404,21 +444,36 @@ const Services = () => {
         transition={{ type: "spring", bounce: 0, duration: 1 }}
         className="mt-12 w-fit emoji"
       >
-        <div className=" w-full flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all">
+        <button
+          onClick={handleDiseno}
+          className=" w-full flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
+        >
           <span>01</span> <p>Diseño de Producto</p>
-        </div>
-        <div className="w-full  flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all">
+        </button>{" "}
+        <button
+          onClick={handleSoftware}
+          className="w-full  flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
+        >
           <span>02</span> <p>Desarrollo de Software a la medida</p>
-        </div>
-        <div className="w-full  flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all">
+        </button>
+        <button
+          onClick={handleWeb}
+          className="w-full  flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
+        >
           <span>03</span> <p>Sitios web</p>
-        </div>
-        <div className="w-full  flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all">
+        </button>
+        <button
+          onClick={handleApps}
+          className="w-full  flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
+        >
           <span>04</span> <p>Aplicciones Móviles</p>
-        </div>
-        <div className="w-full  flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all">
+        </button>
+        <button
+          onClick={handleCap}
+          className="w-full  flex gap-3 text-ironGray text-xl font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
+        >
           <span>05</span> <p>Capacitación</p>
-        </div>
+        </button>
       </motion.div>
     </section>
   );

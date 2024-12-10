@@ -18,12 +18,22 @@ import { SecondaryButton } from "~/components/SecondaryButton";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Acerca de nosotros | Fixter.org" },
-    { name: "description", content: "Desarrollo de software a la medida" },
+    { title: "Nuestra historia" },
+    {
+      name: "description",
+      content: "Una recapitulación rápida de nuestra historia",
+    },
   ];
 }
 
 export default function Historia() {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <main className="bg-black min-h-screen ">
       <div className="bg-white relative top-0 z-50 ">
@@ -375,7 +385,7 @@ const ScrollHorizontal = () => {
                   Nuestro don, nuestra maldición
                 </span>
                 <h3 className="text-5xl text-white font-bold mt-4">
-                  Obsecionados por las nuevas herramientas y la experiencia de
+                  Obsesionados por las nuevas herramientas y la experiencia de
                   usuario
                 </h3>
                 <img

@@ -303,10 +303,10 @@ const Tools = () => {
         Enfócate en tus clientes y déjanos el resto
       </h2>
       <p className="text-ironGray text-2xl font-light text-center mt-6">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates
-        ullam perspiciatis iusto architecto, molestiae itaque odit aut! Ex
-        obcaecati necessitatibus placeat beatae voluptatem molestiae vitae
-        dolores incidunt consequuntur excepturi? Suscipit!
+        No inviertas tiempo desarrollando y manteniendo tu sitio web, si Tu
+        sitio parece obsoleto y el diseño va en contra de su imagen en lugar de
+        favorecerla, si tus apps web no tienen todas las funcionalidades que
+        necesitas,no lo pienses más y trabaja con nosotros.
       </p>
       <div className="flex w-full justify-center mt-20">
         <div className=" flex justify-center gap-12 w-fit ">
@@ -418,15 +418,15 @@ const ProjectCard = ({
 
 const Why = () => {
   return (
-    <section className="bg-brand-900  relative z-10">
+    <section className=" relative z-10">
       <StickyScrollReveal
         items={[
           {
-            twColor: "bg-brand-900",
+            twColor: "bg-[#1B2428]",
             img: (
               <img
                 className="object-cover scale-110 h-full w-full"
-                src="/projects/proto1.gif"
+                src="/projects/proto3.gif"
                 alt="prototipo"
               />
             ),
@@ -455,11 +455,11 @@ const Why = () => {
             title: "Prueba tus ideas ",
           },
           {
-            twColor: "bg-brand-900",
+            twColor: "bg-[#1B2428]",
             img: (
               <img
-                className="w-full h-full object-cover scale-110"
-                src="/projects/proto1.gif"
+                className="w-[98%] h-full object-cover "
+                src="/projects/proto2.gif"
                 alt="perro"
               />
             ),
@@ -474,8 +474,8 @@ const Why = () => {
             twColor: "bg-brand-900",
             img: (
               <img
-                className="w-full h-full object-cover scale-110"
-                src="/projects/proto1.gif"
+                className="w-full h-full object-cover"
+                src="/projects/proto4.png"
                 alt="perro"
               />
             ),

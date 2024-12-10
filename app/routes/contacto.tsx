@@ -3,15 +3,23 @@ import { Banner, Footer, Welcome } from "../welcome/welcome";
 import { NavBar } from "~/components/Navbar";
 import { motion, useInView } from "motion/react";
 import { twMerge } from "tailwind-merge";
+import { useEffect } from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Contacto | Fixter.org" },
-    { name: "description", content: "Desarrollo de software a la medida" },
+    { title: "Escríbenos " },
+    { name: "description", content: "Construyamos algo grandioso juntos" },
   ];
 }
 
 export default function Contacto() {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <main className="bg-white min-h-screen ">
       <div className="bg-white relative top-0 z-50">
