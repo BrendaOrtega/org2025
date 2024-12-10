@@ -24,15 +24,17 @@ export default function Contacto() {
     <main className="bg-white min-h-screen ">
       <div className="bg-white relative top-0 z-50">
         <NavBar />
-        <section className="min-h-screen max-w-7xl gap-16 mx-auto mt-20 flex items-start ">
-          <div className="w-[50%]">
-            <h2 className="text-brand-900 text-6xl font-bold ">Hablemos</h2>
+        <section className="min-h-screen max-w-7xl pb-40 md:pb-0 gap-16 mx-auto mt-12 md:mt-20 flex items-start px-4 md:px-0 ">
+          <div className="w-full md:w-[50%]">
+            <h2 className="text-brand-900 text-4xl md:text-6xl font-bold ">
+              Hablemos
+            </h2>
             <motion.p
               initial={{ opacity: 0, y: 40, filter: "blur(9px" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px" }}
               exit={{ opacity: 0, y: -40, filter: "blur(9px" }}
               transition={{ type: "spring", bounce: 0, duration: 1 }}
-              className="text-ironGray text-2xl font-light mt-6"
+              className="text-ironGray text-lg md:text-2xl font-light mt-6"
             >
               Nos encantaría saber más sobre ti y lo que podemos diseñar y
               construir juntos.
@@ -103,7 +105,7 @@ export default function Contacto() {
             </div>
           </div>
           <img
-            className="w-[45%] ml-[5%] h-[800px] rounded-5xl object-cover object-left"
+            className="hidden md:flex w-[45%] ml-[5%] h-[800px] rounded-5xl object-cover object-left"
             src="/contacto.jpg"
           />
         </section>

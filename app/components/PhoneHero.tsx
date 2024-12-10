@@ -81,7 +81,7 @@ const Paragraph = ({ scrollYProgress }: { scrollYProgress: MotionValue }) => {
             <FaCodeBranch className="text-4xl font-light" />
           </motion.span>
         </div>
-        <p className=" max-w-2xl text-brand-900 text-5xl font-bold text-center leading-snug mt-12">
+        <p className=" max-w-2xl text-brand-900 text-3xl md:text-5xl w-[90%] mx-auto font-bold text-center leading-snug mt-12">
           El mejor aliado para diseñar y desarrollar software para el éxito de
           tu empresa
         </p>
@@ -144,13 +144,13 @@ const FloatingElements = ({
     <section className="inset-0 fixed z-10 pointer-events-none">
       <motion.img
         style={{ y: yCero, x: "33vw" }}
-        className="w-[180px] absolute"
+        className="w-32 md:w-[180px] absolute -ml-28 md:ml-[inherit] mt-16 md:mt-0"
         src={srcset[0]}
         alt="floating"
       />
       <motion.img
         style={{ y: yOne, x: "55vw" }}
-        className="w-[15%] absolute"
+        className="w-[180px] md:w-[15%] absolute"
         src={srcset[1]}
         alt="floating"
       />
@@ -162,14 +162,14 @@ const FloatingElements = ({
       />
       <motion.img
         style={{ y: yTwo, x: "15vw" }}
-        className="w-[180px] absolute -z-10"
+        className="hidden md:block w-[180px] absolute -z-10"
         src={srcset[3]}
         alt="floating"
       />
 
       <motion.img
         style={{ y: yThree, x: "70vw" }}
-        className="w-[180px] absolute -z-10"
+        className="hidden md:block w-[180px] absolute -z-10"
         src={srcset[4]}
         alt="floating"
       />
@@ -192,7 +192,7 @@ const Phone = ({
   const scale = useTransform(scrollYProgress, [0, 0.2, 1], [1, 0.9, 1.5]);
 
   return (
-    <div className="w-[320px] top-20  mx-auto fixed inset-0">
+    <div className="w-[260px] md:w-[320px] top-20  mx-auto fixed inset-0">
       <motion.img
         style={{
           y,
@@ -270,7 +270,7 @@ const Container = ({
       {/* Title and buttons */}
       <motion.div
         style={{ opacity: titleOpacity, y: titleY }}
-        className="flex-col  flex justify-center text-4xl tracking-tight font-bold items-center gap-4 py-12 text-center"
+        className="flex-col  flex justify-center text-4xl tracking-tight font-bold items-center gap-4 py-6 md:py-12 text-center"
       >
         {title}
       </motion.div>

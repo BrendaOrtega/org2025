@@ -5,7 +5,7 @@ export const Secuence = ({
   fill?: string;
   className?: string;
 }) => (
-  <div className="svg-power-grid-wrapper w-embed">
+  <div className="svg-power-grid-wrapper w-embed -rotate-90 md:rotate-0">
     <svg
       className="svg-contiant-links"
       width="100%"

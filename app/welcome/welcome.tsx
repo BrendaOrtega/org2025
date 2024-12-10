@@ -66,7 +66,7 @@ export function Welcome() {
         <Tools />
         <Comments />
       </div>
-      <div className="relative h-[900px]">
+      <div className="relative h-[1900px]">
         <Banner />
         <Footer />
       </div>
@@ -76,24 +76,24 @@ export function Welcome() {
 
 export const Banner = () => {
   return (
-    <section className="bg-brand-500 pb-20 pt-32 rounded-5xl sticky top-0 w-full z-50 -mt-20 ">
-      <img className="mx-auto -mt-44" src="/star.png" />
-      <h2 className="text-5xl font-bold text-center my-16 ">
+    <section className="bg-brand-500 pb-10  md:pb-20 pt-16 md:pt-32 rounded-5xl sticky -top-8 md:top-0 w-full z-50 -mt-32 md:-mt-32 ">
+      <img className="mx-auto -mt-28 md:-mt-44" src="/star.png" />
+      <h2 className="text-3xl md:text-5xl font-bold text-center my-8 md:my-16 ">
         Construyamos algo grandioso juntos
       </h2>
-      <Button className="mx-auto" mode="white" />
+      <Button link="/contacto" className="mx-auto" mode="white" />
     </section>
   );
 };
 
 export const Footer = () => {
   return (
-    <section className="bg-brand-900 rounded-t-5xl w-full fixed  z-10 bottom-0 pt-[300px]  ">
-      <div className=" pt-16">
-        <div className="flex justify-between max-w-7xl mx-auto">
-          <div className=" flex flex-col justify-start items-start">
+    <section className="bg-brand-900 overflow-hidden flex items-end rounded-t-5xl w-full fixed  z-10 bottom-0  md:pt-[300px]  ">
+      <div className=" pt-32 w-full min-h-fit flex flex-col justify-end  ">
+        <div className="flex w-full px-4 md:px-0 flex-wrap md:flex-nowrap gap-10 justify-between  max-w-7xl mx-auto">
+          <div className="w-full md:w-fit flex flex-col justify-start items-start">
             <img src="/logo.svg" />
-            <span className="text-xs mt-4 text-lightGray font-light">
+            <span className=" text-xs mt-4 text-lightGray font-light">
               Todos los derechos reservados <br /> © 2016 – 2025 Fixter.org
             </span>
           </div>
@@ -168,11 +168,10 @@ export const Footer = () => {
             </a>
           </div>
         </div>
-
-        <div className="mt-40  w-full overflow-hidden">
-          <div className="flex items-center justify-start w-[2000px] gap-10 h-32">
+        <div className="mt-0 md:mt-40  w-full overflow-hidden">
+          <div className="flex items-center justify-start w-[2000px] gap-10 h-20 md:h-32">
             <span
-              className="text-white/10 text-[110px] text-left ml-12 bg-clip-text inline-block animate-shine"
+              className="text-white/10 text-[40px] md:text-[110px] text-left ml-0 md:ml-12 bg-clip-text inline-block animate-shine"
               style={{
                 backgroundImage:
                   "linear-gradient(120deg, rgba(158, 201, 186, 0) 40%, rgba(158, 201, 186, 0.8) 50%, rgba(158, 201, 186, 0) 100%)",
@@ -194,11 +193,11 @@ export const Footer = () => {
 
 const Comments = () => {
   return (
-    <main className=" h-[100vh] py-[80px] bg-white  relative z-30">
-      <h2 className="text-5xl font-bold text-center ">
+    <main className="h-fit md:h-[100vh] pt-20 pb-64  md:py-[80px] bg-white  relative z-30">
+      <h2 className="text-3xl md:text-5xl font-bold text-center px-4 md:px-0">
         Qué dicen nuestros clientes
       </h2>
-      <div className="flex justify-center items-center  mt-40">
+      <div className="flex justify-center items-center w-[90%] md:w-full mx-auto mt-12  md:mt-40">
         <SwipeGallery>
           <CommentCard
             company="Collectum Datos Panel"
@@ -280,13 +279,13 @@ const CommentCard = ({
         className
       )}
     >
-      <p className="text-xl font-semibold">"{comment}"</p>
+      <p className="text-base md:text-xl font-semibold">"{comment}"</p>
       <div className="flex gap-3">
         <div className="bg-brand-900 overflow-hidden w-12 h-12 rounded-full">
           <img className="bg-brand-900" src={image} alt={name} />{" "}
         </div>
         <div>
-          <h3>{name}</h3>
+          <h3 className="text-base md:text-lg">{name}</h3>
           <p className="text-ironGray font-light text-sm">
             {company} | {date}
           </p>
@@ -298,17 +297,20 @@ const CommentCard = ({
 
 const Tools = () => {
   return (
-    <section className="max-w-7xl mx-auto py-[160px] relative z-10 bg-white">
-      <h2 className="text-5xl font-bold text-center ">
+    <section className="max-w-7xl w-[90%] md:w-full  mx-auto py-20 md:py-[160px] relative z-10 bg-white">
+      <h2 className="text-3xl md:text-5xl font-bold text-center ">
         Enfócate en tus clientes y déjanos el resto
       </h2>
-      <p className="text-ironGray text-2xl font-light text-center mt-6">
-        No inviertas tiempo desarrollando y manteniendo tu sitio web, si Tu
-        sitio parece obsoleto y el diseño va en contra de su imagen en lugar de
-        favorecerla, si tus apps web no tienen todas las funcionalidades que
-        necesitas,no lo pienses más y trabaja con nosotros.
+      <p className="text-ironGray text-lg md:text-2xl font-light text-center mt-6">
+        No inviertas tiempo desarrollando y manteniendo tu sitio web,{" "}
+        <span className="hidden md:block">
+          si tu sitio parece obsoleto y el diseño va en contra de su imagen en
+          lugar de favorecerla,
+        </span>{" "}
+        si tus apps web no tienen todas las funcionalidades que necesitas, no lo
+        pienses más y trabaja con nosotros.
       </p>
-      <div className="flex w-full justify-center mt-20">
+      <div className="flex flex-col-reverse md:flex-row w-full justify-center items-center mt-12 md:mt-20">
         <div className=" flex justify-center gap-12 w-fit ">
           <div className="flex flex-col gap-10">
             <Item image="/remix.svg" title="Remix" />
@@ -325,13 +327,13 @@ const Tools = () => {
             <Item image="/js.svg" title="JS" />
           </div>
         </div>
-        <div className="w-[28%] flex items-center justify-center relative">
+        <div className="h-52 w-full md:w-[28%] flex items-center justify-center relative">
           <Secuence />
           <Item className="bg-brand-900 absolute pt-8" image="/logo.svg" />
         </div>
         <div className="w-fit ">
           <img
-            className="shadow-[0_8px_32px_rgba(204,204,204,.4)] rounded-3xl"
+            className="shadow-[0_8px_32px_rgba(204,204,204,.4)] w-[240px] md:w-auto z-10 relative rounded-3xl"
             src="/example1.svg"
           />
         </div>
@@ -366,14 +368,14 @@ const Work = () => {
   const ref = useRef(null);
   const isInview = useInView(ref);
   return (
-    <section className="text-center   mx-auto pt-[240px] pb-[160px] relative z-10 bg-white">
-      <h2 className="text-5xl font-bold ">
+    <section className="text-center  mx-auto py-20 md:pt-[240px] md:pb-[160px] relative z-10 bg-white">
+      <h2 className="text-3xl md:text-5xl font-bold px-4 md:px-0 ">
         Nuestro trabajo es estético, interactivo y funcional{" "}
       </h2>
       <div className="absolute w-full h-full inset-0 ">
         <BlobCursor />
       </div>
-      <motion.div className="mt-20 flex flex-col gap-20">
+      <motion.div className="mt-12 md:mt-20 flex flex-col gap-4 md:gap-20">
         <InfiniteMovingCards items={projects} direction="left" speed="normal" />
         <InfiniteMovingCards
           items={testimonials}
@@ -382,37 +384,6 @@ const Work = () => {
         />
       </motion.div>
     </section>
-  );
-};
-
-const ProjectCard = ({
-  title,
-  image,
-  tags,
-}: {
-  title: string;
-  image?: string;
-  tags?: string;
-}) => {
-  return (
-    <div className="col-span-1 w-full  group cursor-pointer ">
-      <div className="overflow-hidden rounded-3xl w-full h-[432px] relative">
-        <div className="pl-6 bg-curved object-fill absolute z-10 w-36 pt-2 flex gap-4 -right-1 -top-20 group-hover:-top-1 transition-all h-16 ">
-          <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center">
-            👩🏻‍💻
-          </div>
-          <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center">
-            🎨
-          </div>
-        </div>
-        <img
-          className=" w-full h-full object-cover group-hover:scale-125 transition-all"
-          src={image}
-          alt={title}
-        />
-      </div>
-      <h3 className=" mt-4 text-left text-2xl text-brand-900"> {title}</h3>
-    </div>
   );
 };
 
@@ -498,11 +469,11 @@ const Why = () => {
 const Hero = () => {
   return (
     <>
-      <section className=" -mt-12  w-full rounded-5xl mx-auto px-16  relative ">
+      <section className=" -mt-12  w-full rounded-5xl mx-auto px-0 md:px-16  relative ">
         <PhoneHero
           title={
             <div className="w-[80%] relative z-50">
-              <h1 className=" text-brand-900 text-6xl font-bold text-center leading-snug">
+              <h1 className=" text-brand-900 text-2xl md:text-6xl font-bold text-center  !leading-snug">
                 Creamos experiencias únicas a través del diseño y desarrollo de
                 sitios web, prototipos y webapps.
               </h1>
@@ -518,39 +489,7 @@ const Hero = () => {
             </div>
           }
         />
-        {/* <h1 className="text-brand-900 text-6xl font-bold text-center leading-snug">
-          Creamos experiencias únicas a través del diseño y desarrollo de sitios
-          web, prototipos y webapps.
-        </h1>
-        <div className="flex justify-center gap-6  mt-12">
-          <Button mode="white" />
-          <SecondaryButton title="Ver proyectos" />{" "}
-        </div>
-        <div className="relative inset-0 flex justify-center">
-          <img className="absolute top-20 " src="/phone.png" />
-          <img
-            className="absolute top-64 left-[25%] w-[180px] shadow-2xl rounded-3xl "
-            src="/Item-1.png"
-          />{" "}
-          <img
-            className="absolute top-[410px] right-[25%] w-[240px]  "
-            src="/item-2.png"
-          />
-          <img
-            className="absolute top-40 right-[20%] w-[240px]  "
-            src="/Item-3.png"
-          />
-        </div> */}
       </section>
-      {/* <section className="bg-white min-h-[90vh] flex flex-col items-center justify-center px-[20%]  ">
-        <div className="w-20 h-20 rounded-full bg-brand-100 flex items-center justify-center">
-          <FaCodeBranch className="text-4xl font-light" />
-        </div>
-        <h2 className="text-brand-900 text-5xl font-bold text-center leading-snug mt-12">
-          El mejor aliado para diseñar y desarrollar software para el éxito de
-          tu empresa
-        </h2>
-      </section> */}
     </>
   );
 };

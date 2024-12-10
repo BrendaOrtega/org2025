@@ -85,15 +85,15 @@ export const InfiniteMovingCards = ({
         )}
       >
         {items.map((item) => (
-          <div className="col-span-1  w-full  group cursor-pointer ">
-            <div className="overflow-hidden border border-brand-100/60 rounded-3xl w-full h-[432px] relative">
+          <div className="   w-[280px] h-[280px] md:h-auto  md:w-full  group cursor-pointer ">
+            <div className="overflow-hidden border border-brand-100/60 rounded-3xl w-full h-[220px] md:h-[432px] relative">
               <img
                 className=" w-full h-full object-cover group-hover:scale-125 transition-all"
                 src={item.image}
                 alt={item.title}
               />
             </div>
-            <h3 className=" mt-4 text-left font-bold text-2xl text-brand-900">
+            <h3 className=" mt-4 text-left font-bold text-xl md:text-2xl text-brand-900">
               {" "}
               {item.title}
             </h3>

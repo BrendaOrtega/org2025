@@ -14,7 +14,7 @@ export const SquigglyUnderline = () => {
   const [isHover, setIsHover] = useState<number | null>(null);
   const location = useLocation();
   return (
-    <div className="flex gap-16">
+    <div className="flex gap-3 md:gap-16">
       {navigation.map((item, i) => {
         const isCurrent = isHover === i;
         const isCurrentRoute = location.pathname.includes(item.link);
@@ -68,19 +68,19 @@ export const SquigglyUnderline = () => {
 
 export const NavBar = () => {
   return (
-    <section className=" w-full z-10 bg-white/20 backdrop-blur ">
+    <section className=" w-full px-4 md:px-0 z-10 bg-white/20 backdrop-blur ">
       <nav className="flex max-w-7xl mx-auto py-8 items-center justify-between ">
         <Link to="/">
           <img
-            className="hover:scale-95 transition-all"
+            className="w-20 md:w-auto hover:scale-95 transition-all"
             src="/logo.svg"
             alt="logo"
           />
         </Link>
-        <div className="flex items-center gap-8">
+        {/* <div className="flex items-center gap-8">
           <SquigglyUnderline />
           <Button link="/contacto" />
-        </div>
+        </div> */}
       </nav>
     </section>
   );
