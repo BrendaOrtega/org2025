@@ -212,7 +212,7 @@ const ServiceFive = () => {
 
 const ServicesList = () => {
   return (
-    <section className="flex flex-col gap-16 md:gap-40">
+    <section className="flex flex-col gap-16 md:gap-40  px-0 md:px-[5%] xl:px-0">
       <div id="diseño">
         <Content img={<ServiceOne />}>
           <div className="pr-12">
@@ -431,8 +431,8 @@ const Services = () => {
     node.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <section className="max-w-7xl mx-auto mt-12 md:mt-20 px-4 md:px-0 ">
-      <h2 className="text-brand-900 text-4xl md:text-6xl font-bold ">
+    <section className="max-w-7xl mx-auto mt-12 md:mt-20 px-4 md:px-[5%] xl:px-0 ">
+      <h2 className="text-brand-900 text-4xl md:text-5xl xl:text-6xl font-bold ">
         El mejor partner Full-stack
       </h2>
       <motion.p

@@ -38,8 +38,8 @@ export default function Historia() {
     <main className="bg-brand-900 min-h-screen ">
       <div className="bg-white relative top-0 z-50 ">
         <NavBar />
-        <section className=" max-w-7xl gap-16 mx-auto mt-12 md:mt-20 mb-40 md:mb-64 relative px-4 md:px-0 ">
-          <h2 className="text-brand-900 text-4xl md:text-6xl font-bold ">
+        <section className=" max-w-7xl gap-16 mx-auto mt-12 md:mt-20 mb-40 md:mb-64 relative px-4 md:px-[5%] xl:px-0 ">
+          <h2 className="text-brand-900 text-4xl md:text-5xl xl:text-6xl font-bold ">
             Nuestra historia
           </h2>
           <motion.p
@@ -73,7 +73,7 @@ export default function Historia() {
             src="https://i.imgur.com/GaxBKXA.png "
           />
           <img
-            className="hover:translate-x-6 transition-all cursor-pointer absolute -top-4 md:top-0 right-6 md:right-52 mt-3 w-16 h-16 object-cover rounded-t-3xl rounded-br-3xl border-4 border-brand-500"
+            className="hover:translate-x-6 transition-all cursor-pointer absolute -top-4 md:-top-3 xl:top-0 right-6 md:right-52 mt-3 w-16 h-16 object-cover rounded-t-3xl rounded-br-3xl border-4 border-brand-500"
             alt="brenda "
             src="https://i.imgur.com/rIWBI4C.jpg "
           />
@@ -92,9 +92,9 @@ export default function Historia() {
 const Team = () => {
   return (
     <section className="min-h-screen">
-      <div className="max-w-7xl flex-wrap md:flex-nowrap mx-auto mt-20 mb-10 md:pt-[160px] md:pb-[180px] flex gap-20 items-center px-4 md:px-0">
+      <div className="max-w-7xl flex-wrap lg:flex-nowrap mx-auto mt-20 mb-10 md:pt-[160px] md:pb-[180px] flex gap-20 items-center px-4 md:px-[5%] xl:px-0">
         <div className="w-80 grow -mt-6">
-          <h2 className="text-brand-900 text-4xl md:text-6xl font-bold ">
+          <h2 className="text-brand-900 text-4xl md:text-5xl xl:text-6xl font-bold ">
             Team
           </h2>
           <p className="text-ironGray text-base md:text-xl font-light mt-6">
@@ -183,7 +183,7 @@ const ScrollHorizontal = () => {
     <section className="h-[700vh]" ref={ref}>
       <ul className="sticky bg-brand-900 top-0 w-full overflow-hidden ">
         <motion.div style={{ x }} className="w-max flex">
-          <li className="w-fit h-screen flex pl-4 md:pl-48 pt-20 bg-dotts bg-cover">
+          <li className="w-fit h-screen flex pl-4 md:pl-10 xl:pl-48 pt-20 bg-dotts bg-cover">
             <div className="w-[400px] flex flex-col  pt-4">
               <h3 className="text-4xl md:text-5xl text-white font-bold mt-20">
                 Cómo empezamos
@@ -194,7 +194,7 @@ const ScrollHorizontal = () => {
               </p>{" "}
               <img className="mt-12 w-[280px]" src="/84anos.gif" />
             </div>
-            <div className="ml-20 md:ml-48 pt-20 md:pt-52 flex ">
+            <div className="ml-20 md:ml-20 xl:ml-48 pt-20 md:pt-32 xl:pt-52 flex ">
               <MotionContainer>
                 <div className="flex relative">
                   <span className="text-5xl absolute z-10 bottom-0 left-40 bg-white p-3 rounded-full">
@@ -473,11 +473,22 @@ const MotionContainer = ({
   className?: string;
   children: ReactNode;
 }) => {
+  const isMobile = () => {
+    if (!window) {
+      return;
+    }
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <motion.div
       whileInView={{ filter: "blur(0px)", opacity: 1 }}
       initial={{ filter: "blur(9px)", opacity: 0 }}
-      viewport={{ once: true }}
+      viewport={{ amount: isMobile() ? "some" : "all", once: true }}
       className={twMerge(" pt-0 ")}
     >
       <div className={twMerge(" w-[400px] mx-48", className)}>{children}</div>

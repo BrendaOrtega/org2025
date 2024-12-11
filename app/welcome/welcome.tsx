@@ -57,7 +57,7 @@ const testimonials = [
 
 export function Welcome() {
   return (
-    <main className="bg-white min-h-screen ">
+    <main className="bg-white min-h-screen  ">
       <div className="bg-white relative z-30">
         <NavBar />
         <Hero />
@@ -66,7 +66,7 @@ export function Welcome() {
         <Tools />
         <Comments />
       </div>
-      <div className="relative h-[1900px]">
+      <div className="relative bg-pink-500 h-[900px]">
         <Banner />
         <Footer />
       </div>
@@ -78,7 +78,7 @@ export const Banner = () => {
   return (
     <section className="bg-brand-500 pb-10  md:pb-20 pt-16 md:pt-32 rounded-5xl sticky -top-8 md:top-0 w-full z-50 -mt-32 md:-mt-32 ">
       <img className="mx-auto -mt-28 md:-mt-44" src="/star.png" />
-      <h2 className="text-3xl md:text-5xl font-bold text-center my-8 md:my-16 ">
+      <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold text-center my-8 md:my-16 ">
         Construyamos algo grandioso juntos
       </h2>
       <Button link="/contacto" className="mx-auto" mode="white" />
@@ -88,11 +88,11 @@ export const Banner = () => {
 
 export const Footer = () => {
   return (
-    <section className="bg-brand-900 overflow-hidden flex items-end rounded-t-5xl w-full fixed  z-10 bottom-0  md:pt-[300px]  ">
+    <section className="bg-brand-900  h-[900px] overflow-hidden flex items-end  w-full fixed  z-10 bottom-0  md:pt-[300px]  ">
       <div className=" pt-32 w-full min-h-fit flex flex-col justify-end  ">
-        <div className="flex w-full px-4 md:px-0 flex-wrap md:flex-nowrap gap-10 justify-between  max-w-7xl mx-auto">
+        <div className="flex w-full px-4 md:px-[5%] xl:px-0 flex-wrap gap-10 md:flex-nowrap md:gap-0 xl:gap-10 justify-between  max-w-7xl mx-auto">
           <div className="w-full md:w-fit flex flex-col justify-start items-start">
-            <img src="/logo.svg" />
+            <img className="w-28" src="/logo.png" />
             <span className=" text-xs mt-4 text-lightGray font-light">
               Todos los derechos reservados <br /> © 2016 – 2025 Fixter.org
             </span>
@@ -138,8 +138,9 @@ export const Footer = () => {
               </p>
             </a>
           </div>
-          <div className="text-white  font-normal flex flex-col gap-2">
+          <div className="text-white  font-normal flex flex-col gap-2  ">
             <h3 className="text-lightGray  ">Escríbenos</h3>
+
             <a href="https://wa.me/527757609276" title="phone" target="_blank">
               <p className="flex items-center gap-2 hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
                 <MdLocalPhone />
@@ -152,6 +153,23 @@ export const Footer = () => {
                 brenda@fixter.org
               </p>
             </a>
+            <p className="md:flex hidden items-center gap-2 hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
+              <GrLocationPin />
+              México{" "}
+            </p>
+            <a
+              href="https://www.facebook.com/profile.php?id=100063503085832"
+              title="facebook"
+              target="_blank"
+            >
+              <p className="md:flex hidden items-center gap-2 hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
+                <TiSocialFacebook />
+                Facebook
+              </p>
+            </a>
+          </div>
+          <div className="text-white  font-normal flex md:hidden flex-col gap-2">
+            <h3 className="text-lightGray invisible  ">Saas y Webapps</h3>
             <p className="flex items-center gap-2 hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
               <GrLocationPin />
               México{" "}
@@ -168,10 +186,10 @@ export const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="mt-0 md:mt-40  w-full overflow-hidden">
-          <div className="flex items-center justify-start w-[2000px] gap-10 h-20 md:h-32">
+        <div className="mt-0 md:mt-20 lg:mt-32  w-full overflow-hidden">
+          <div className="flex items-center justify-start w-[2000px] gap-10 h-20 md:h-32 pl-4">
             <span
-              className="text-white/10 text-[40px] md:text-[110px] text-left ml-0 md:ml-12 bg-clip-text inline-block animate-shine"
+              className="text-white/10 text-[40px] md:text-[72px] lg:text-[110px] text-left ml-0 lg:ml-12 bg-clip-text inline-block animate-shine"
               style={{
                 backgroundImage:
                   "linear-gradient(120deg, rgba(158, 201, 186, 0) 40%, rgba(158, 201, 186, 0.8) 50%, rgba(158, 201, 186, 0) 100%)",
@@ -193,8 +211,8 @@ export const Footer = () => {
 
 const Comments = () => {
   return (
-    <main className="h-fit md:h-[100vh] pt-20 pb-64  md:py-[80px] bg-white  relative z-30">
-      <h2 className="text-3xl md:text-5xl font-bold text-center px-4 md:px-0">
+    <main className="h-fit md:h-[100vh] pt-20 pb-64 md:pb-[900px]  xl:py-[80px] bg-white  relative z-30">
+      <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold text-center px-4 md:px-0">
         Qué dicen nuestros clientes
       </h2>
       <div className="flex justify-center items-center w-[90%] md:w-full mx-auto mt-12  md:mt-40">
@@ -297,11 +315,11 @@ const CommentCard = ({
 
 const Tools = () => {
   return (
-    <section className="max-w-7xl w-[90%] md:w-full  mx-auto py-20 md:py-[160px] relative z-10 bg-white">
-      <h2 className="text-3xl md:text-5xl font-bold text-center ">
+    <section className="max-w-7xl w-[90%] md:w-full  mx-auto py-20 px-4 md:px-10 lg:px-0 md:py-[160px] relative z-10 bg-white">
+      <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold text-center ">
         Enfócate en tus clientes y déjanos el resto
       </h2>
-      <p className="text-ironGray text-lg md:text-2xl font-light text-center mt-6">
+      <p className="text-ironGray text-lg md:text-xl lg:text-2xl font-light text-center mt-6">
         No inviertas tiempo desarrollando y manteniendo tu sitio web,{" "}
         <span className="hidden md:block">
           si tu sitio parece obsoleto y el diseño va en contra de su imagen en
@@ -311,7 +329,7 @@ const Tools = () => {
         pienses más y trabaja con nosotros.
       </p>
       <div className="flex flex-col-reverse md:flex-row w-full justify-center items-center mt-12 md:mt-20">
-        <div className=" flex justify-center gap-12 w-fit ">
+        <div className=" flex justify-center gap-6  lg:gap-12 w-fit ">
           <div className="flex flex-col gap-10">
             <Item image="/remix.svg" title="Remix" />
             <Item image="/mongo.svg" title="Mongo" />
@@ -327,13 +345,16 @@ const Tools = () => {
             <Item image="/js.svg" title="JS" />
           </div>
         </div>
-        <div className="h-52 w-full md:w-[28%] flex items-center justify-center relative">
+        <div className="h-52 w-full overflow-hidden md:w-[28%] flex items-center justify-center relative">
           <Secuence />
-          <Item className="bg-brand-900 absolute pt-8" image="/logo.svg" />
+          <Item
+            className="bg-brand-900 absolute pt-4 lg:pt-8"
+            image="/logo.svg"
+          />
         </div>
         <div className="w-fit ">
           <img
-            className="shadow-[0_8px_32px_rgba(204,204,204,.4)] w-[240px] md:w-auto z-10 relative rounded-3xl"
+            className="shadow-[0_8px_32px_rgba(204,204,204,.4)] w-[240px] md:w-[200px] lg:w-auto z-10 relative rounded-3xl"
             src="/example1.svg"
           />
         </div>
@@ -354,12 +375,17 @@ const Item = ({
   return (
     <div
       className={twMerge(
-        "bg-white cursor-pointer shadow-[0_8px_32px_rgba(204,204,204,.4)] border border-brand-100/40 rounded-2xl w-24 h-28 hover:shadow-none transition-all pt-4",
+        "bg-white cursor-pointer shadow-[0_8px_32px_rgba(204,204,204,.4)] border border-brand-100/40 rounded-2xl w-24 md:w-20 md:h-24 lg:w-24 lg:h-28 hover:shadow-none transition-all pt-4",
         className
       )}
     >
-      <img className="max-w-[70%] h-12 mx-auto " src={image} />
-      <p className="text-center mt-2 text-brand-900 font-semibold">{title}</p>
+      <img
+        className=" md:max-w-[60%] object-contain lg:max-w-[70%] h-12 mx-auto "
+        src={image}
+      />
+      <p className="text-center text-base md:text-sm lg:text-base mt-2 text-brand-900 font-semibold">
+        {title}
+      </p>
     </div>
   );
 };
@@ -369,13 +395,13 @@ const Work = () => {
   const isInview = useInView(ref);
   return (
     <section className="text-center  mx-auto py-20 md:pt-[240px] md:pb-[160px] relative z-10 bg-white">
-      <h2 className="text-3xl md:text-5xl font-bold px-4 md:px-0 ">
+      <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold px-4 md:px-0 ">
         Nuestro trabajo es estético, interactivo y funcional{" "}
       </h2>
-      <div className="absolute w-full h-full inset-0 ">
+      <div className="absolute hidden md:block w-full h-full inset-0 ">
         <BlobCursor />
       </div>
-      <motion.div className="mt-12 md:mt-20 flex flex-col gap-4 md:gap-20">
+      <motion.div className="mt-12 md:mt-20 flex flex-col gap-0 md:gap-20">
         <InfiniteMovingCards items={projects} direction="left" speed="normal" />
         <InfiniteMovingCards
           items={testimonials}
@@ -429,9 +455,9 @@ const Why = () => {
             twColor: "bg-[#1B2428]",
             img: (
               <img
-                className="w-[98%] h-full object-cover "
+                className="w-full md:w-[90%] lg:w-[80%] mx-auto h-full object-contain "
                 src="/projects/proto2.gif"
-                alt="perro"
+                alt="phone"
               />
             ),
             text: (
@@ -452,7 +478,7 @@ const Why = () => {
             ),
             text: (
               <ul className="font-sans">
-                <li>💻 Sitios web</li>
+                <li>💻 Sitios web </li>
                 <li>🛍️ E-commerce</li>
                 <li>🎯 CRM's</li>
                 <li>🧩 O software personalizado </li>
@@ -469,11 +495,11 @@ const Why = () => {
 const Hero = () => {
   return (
     <>
-      <section className=" -mt-12  w-full rounded-5xl mx-auto px-0 md:px-16  relative ">
+      <section className=" -mt-12  w-full rounded-5xl mx-auto px-0 md:px-16  relative  ">
         <PhoneHero
           title={
             <div className="w-[80%] relative z-50">
-              <h1 className=" text-brand-900 text-2xl md:text-6xl font-bold text-center  !leading-snug">
+              <h1 className=" text-brand-900 text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-bold text-center  !leading-snug">
                 Creamos experiencias únicas a través del diseño y desarrollo de
                 sitios web, prototipos y webapps.
               </h1>

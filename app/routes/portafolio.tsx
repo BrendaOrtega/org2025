@@ -36,8 +36,8 @@ export default function Servicios() {
 
 const Header = () => {
   return (
-    <section className="min-h-screen max-w-7xl mx-auto mt-12 md:mt-20 px-4 md:px-0 ">
-      <h2 className="text-brand-900 text-4xl md:text-6xl font-bold ">
+    <section className="min-h-screen max-w-7xl  mx-auto mt-12 md:mt-20 px-4 md:px-[5%] xl:px-0 ">
+      <h2 className="text-brand-900 text-4xl lg:text-5xl xl:text-6xl font-bold ">
         Hacemos realidad tus ideas
       </h2>
       <motion.p
@@ -49,7 +49,7 @@ const Header = () => {
       >
         Convirtiéndolas en productos digitales que tus usuarios amen.
       </motion.p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-x-56 mt-12 md:mt-20 pb-64">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-x-12 xl:gap-x-56 mt-12 md:mt-20 pb-64">
         <Card
           img="https://i.imgur.com/3wx9Qa4.png"
           title="E4pros"
@@ -142,7 +142,7 @@ const Card = ({
         className
       )}
     >
-      <div className="w-full h-[320px] md:h-[540px] rounded-5xl overflow-hidden relative ">
+      <div className="w-full h-[320px] md:h-[480px] xl:h-[540px] rounded-5xl overflow-hidden relative ">
         {tag === "both" ? (
           <div className="pl-6 bg-curved object-fill absolute z-10 w-36 pt-2 flex gap-4 -right-1 -top-20 group-hover:-top-1 transition-all h-16 ">
             <div className="w-10 h-10 rounded-full bg-brand-100/40 flex items-center justify-center">

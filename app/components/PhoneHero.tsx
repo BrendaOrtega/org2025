@@ -38,7 +38,7 @@ export const PhoneHero = ({ title }: { title: ReactNode }) => {
       >
         <FloatingElements
           srcset={floatingElements}
-          scrollYProgress={useSpring(scrollYProgress, { bounce: 0 })}
+          scrollYProgress={scrollYProgress}
         />
         <Circles scrollYProgress={scrollYProgress} />
         <Phone scrollYProgress={scrollYProgress} />
@@ -81,7 +81,7 @@ const Paragraph = ({ scrollYProgress }: { scrollYProgress: MotionValue }) => {
             <FaCodeBranch className="text-4xl font-light" />
           </motion.span>
         </div>
-        <p className=" max-w-2xl text-brand-900 text-3xl md:text-5xl w-[90%] mx-auto font-bold text-center leading-snug mt-12">
+        <p className=" max-w-2xl text-brand-900 text-3xl md:text-4xl xl:text-5xl w-[90%] mx-auto font-bold text-center leading-snug mt-12">
           El mejor aliado para diseñar y desarrollar software para el éxito de
           tu empresa
         </p>
@@ -103,7 +103,7 @@ const Circles = ({ scrollYProgress }: { scrollYProgress: MotionValue }) => {
         y,
         opacity,
       }}
-      className="fixed inset-0 pointer-events-none"
+      className="fixed hidden md:block inset-0 pointer-events-none"
     >
       <div
         className={cn(
@@ -144,32 +144,32 @@ const FloatingElements = ({
     <section className="inset-0 fixed z-10 pointer-events-none">
       <motion.img
         style={{ y: yCero, x: "33vw" }}
-        className="w-32 md:w-[180px] absolute -ml-28 md:ml-[inherit] mt-16 md:mt-0"
+        className="w-28 lg:w-[180px] absolute -ml-28 md:-ml-10 lg:-ml-20 xl:ml-[inherit] mt-16 lg:mt-0"
         src={srcset[0]}
         alt="floating"
       />
       <motion.img
         style={{ y: yOne, x: "55vw" }}
-        className="w-[180px] md:w-[15%] absolute"
+        className="w-[150px] lg:w-[15%] absolute"
         src={srcset[1]}
         alt="floating"
       />
       <motion.img
         style={{ y: yFour, x: "55vw" }}
-        className="w-[180px] absolute"
+        className="w-[140px] lg:w-[180px] absolute"
         src={srcset[2]}
         alt="floating"
       />
       <motion.img
         style={{ y: yTwo, x: "15vw" }}
-        className="hidden md:block w-[180px] absolute -z-10"
+        className="hidden lg:block w-[180px] absolute -z-10"
         src={srcset[3]}
         alt="floating"
       />
 
       <motion.img
         style={{ y: yThree, x: "70vw" }}
-        className="hidden md:block w-[180px] absolute -z-10"
+        className="hidden lg:block w-[180px] absolute -z-10"
         src={srcset[4]}
         alt="floating"
       />
@@ -192,7 +192,7 @@ const Phone = ({
   const scale = useTransform(scrollYProgress, [0, 0.2, 1], [1, 0.9, 1.5]);
 
   return (
-    <div className="w-[260px] md:w-[320px] top-20  mx-auto fixed inset-0">
+    <div className="w-[240px] lg:w-[320px] top-0 md:top-20  mx-auto fixed inset-0">
       <motion.img
         style={{
           y,
@@ -239,7 +239,7 @@ const Container = ({
     }
   );
 
-  const titleY = useTransform(scrollYProgress, [0, 0.15], [0, 500]);
+  const titleY = useTransform(scrollYProgress, [0, 0.15], [0, -500]);
   const filter = useTransform(
     scrollYProgress,
     [0, 0.15],
@@ -249,7 +249,7 @@ const Container = ({
   return (
     <section
       className={cn(
-        "h-[20%] py-20 p relative overflow-hidden flex flex-col pb-60",
+        "h-[16%] md:h-[20%] mt-6 lg:mt-0 py-16 md:pt-10 lg:py-20 p relative overflow-hidden flex flex-col pb-60",
         className
       )}
     >
@@ -265,7 +265,7 @@ const Container = ({
         exit={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", bounce: 0, duration: 0.2 }}
         style={{ y: containerY, scale: containerScale }}
-        className="inset-0 absolute  rounded-[60px] bg-gradient-to-b from-brand-500 to-brand-800 -z-10"
+        className="inset-0 absolute rounded-5xl md:rounded-[60px] bg-gradient-to-b from-brand-500 to-brand-800 -z-10"
       />
       {/* Title and buttons */}
       <motion.div

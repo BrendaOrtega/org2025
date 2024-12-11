@@ -22,11 +22,11 @@ export default function Contacto() {
   }, []);
   return (
     <main className="bg-white min-h-screen ">
-      <div className="bg-white relative top-0 z-50">
+      <div className="bg-white relative top-0 z-50 pb-52 xl:pb-0">
         <NavBar />
-        <section className="min-h-screen max-w-7xl pb-40 md:pb-0 gap-16 mx-auto mt-12 md:mt-20 flex items-start px-4 md:px-0 ">
-          <div className="w-full md:w-[50%]">
-            <h2 className="text-brand-900 text-4xl md:text-6xl font-bold ">
+        <section className="min-h-screen max-w-7xl pb-40 md:pb-0 gap-16 mx-auto mt-12 md:mt-20 flex items-start px-4 md:px-[5%] xl:px-0 ">
+          <div className="w-full lg:w-[50%]">
+            <h2 className="text-brand-900 text-4xl md:text-5xl xl:text-6xl font-bold ">
               Hablemos
             </h2>
             <motion.p
@@ -105,8 +105,9 @@ export default function Contacto() {
             </div>
           </div>
           <img
-            className="hidden md:flex w-[45%] ml-[5%] h-[800px] rounded-5xl object-cover object-left"
+            className="hidden lg:flex lg:w-[40%] xl:w-[45%] lg:ml-0 xl:ml-[5%] h-[800px] rounded-5xl object-cover object-left"
             src="/contacto.jpg"
+            alt="comedor azul"
           />
         </section>
       </div>

@@ -8,7 +8,7 @@ export const Secuence = ({
   <div className="svg-power-grid-wrapper w-embed -rotate-90 md:rotate-0">
     <svg
       className="svg-contiant-links"
-      width="100%"
+      width="90%"
       height="406"
       viewBox="0 0 586 266"
       fill="none"

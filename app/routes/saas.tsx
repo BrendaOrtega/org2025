@@ -36,8 +36,8 @@ export default function Saas() {
 
 const SaasContent = () => {
   return (
-    <section className="min-h-screen max-w-7xl mx-auto mt-20 ">
-      <h2 className="text-brand-900 text-6xl font-bold ">
+    <section className="min-h-screen max-w-7xl mx-auto mt-12 md:mt-20 px-4 md:px-[5%] xl:px-0 ">
+      <h2 className="text-brand-900 text-4xl md:text-5xl xl:text-6xl font-bold ">
         Nuestra vida secreta
       </h2>
       <motion.p
@@ -45,12 +45,12 @@ const SaasContent = () => {
         animate={{ opacity: 1, y: 0, filter: "blur(0px" }}
         exit={{ opacity: 0, y: -40, filter: "blur(9px" }}
         transition={{ type: "spring", bounce: 0, duration: 1 }}
-        className="text-ironGray text-2xl font-light mt-6"
+        className="text-ironGray text-lg md:text-2xl font-light mt-6"
       >
         Cuando no estamos trabajando con nuestros clientes, estamos
         desarrollando nuestros propios Saas y aplicaciones web.
       </motion.p>
-      <div className="grid grid-cols-2 gap-x-56 mt-20 pb-64">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-x-12 xl:gap-x-56 mt-12 md:mt-20 pb-64">
         <Card
           className="bg-formmyCover "
           img="https://i.imgur.com/3wx9Qa4.png"
@@ -58,7 +58,7 @@ const SaasContent = () => {
           description="La forma más fácil de agregar formularios de contacto a tu sitio web"
         />
         <Card
-          className="bg-denikCover mt-20"
+          className="bg-denikCover mt-0 md:mt-20"
           img="https://i.imgur.com/lmSmhdB.png"
           title="Deník"
           description="La agenda en línea ideal para tu negocio: cobros, recordatios y más"
@@ -100,7 +100,7 @@ const Card = ({
     >
       <div
         className={twMerge(
-          "w-full h-[540px] rounded-5xl bg-cover border border-brand-100/50 overflow-hidden ",
+          "w-full h-[280px] md:h-[460px] xl:h-[540px] bg-center rounded-5xl bg-cover border border-brand-100/50 overflow-hidden ",
           className
         )}
       ></div>
