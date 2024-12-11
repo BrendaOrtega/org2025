@@ -396,7 +396,7 @@ const Why = () => {
             twColor: "bg-[#1B2428]",
             img: (
               <img
-                className="object-cover scale-110 h-full w-full"
+                className="object-cover  md:scale-110 h-full w-full"
                 src="/projects/proto3.gif"
                 alt="prototipo"
               />
@@ -412,7 +412,7 @@ const Why = () => {
             twColor: "bg-brand-900",
             img: (
               <img
-                className="object-cover scale-110 h-full w-full"
+                className="object-cover  md:scale-110 h-full w-full"
                 src="/projects/proto1.gif"
                 alt="perro"
               />

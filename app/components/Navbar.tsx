@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion, useAnimate, useMotionValue, useSpring } from "motion/react";
 import { Link, useLocation, useParams } from "react-router";
 import { Button } from "./Button";
+import { motionValue } from "motion";
 
 const navigation = [
   { name: "Portafolio", link: "/portafolio" },
@@ -67,9 +68,26 @@ export const SquigglyUnderline = () => {
 };
 
 export const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    if (isOpen) {
+      setIsOpen(false);
+      animate("#drawer", { y: "-100%" }, { duration: 0.5, type: "tween" });
+    } else {
+      setIsOpen(true);
+      animate("#drawer", { y: "0%" }, { duration: 0.5, type: "tween" });
+    }
+  };
+
+  const [scope, animate] = useAnimate();
+
   return (
-    <section className=" w-full px-4 md:px-0 z-10 bg-white/20 backdrop-blur ">
-      <nav className="flex max-w-7xl mx-auto py-8 items-center justify-between ">
+    <section
+      ref={scope}
+      className=" w-full px-6 md:px-0  bg-white/20 backdrop-blur relative z-[100]"
+    >
+      <nav className="flex relative z-[120] max-w-7xl mx-auto py-4 md:py-8 items-center justify-between ">
         <Link to="/">
           <img
             className="w-20 md:w-auto hover:scale-95 transition-all"
@@ -77,11 +95,89 @@ export const NavBar = () => {
             alt="logo"
           />
         </Link>
-        {/* <div className="flex items-center gap-8">
+        <div className="md:flex items-center gap-8 hidden ">
           <SquigglyUnderline />
           <Button link="/contacto" />
-        </div> */}
+        </div>
+
+        <Burger onClick={toggleMenu} isOpen={isOpen} />
       </nav>
+      <motion.div
+        id="drawer"
+        style={{
+          y: "-100%",
+        }}
+        className="bg-bloob bg-cover px-6 inset-0 w-full h-screen absolute"
+      >
+        <div className="text-center mt-48 text-white">
+          <NavItem index={1} isOpen={isOpen} title="Portafolio" />
+          <NavItem index={2} isOpen={isOpen} title="Servicios" />
+          <NavItem index={3} isOpen={isOpen} title="Saas y Apps" />
+          <NavItem index={4} isOpen={isOpen} title="Nuestra historia" />
+          <Button className="mx-auto mt-16" link="/contacto" />
+        </div>
+      </motion.div>
     </section>
+  );
+};
+
+const Burger = ({
+  isOpen,
+  onClick,
+}: {
+  isOpen: boolean;
+  onClick: () => void;
+}) => {
+  const [scope, animate] = useAnimate();
+  useEffect(() => {
+    if (isOpen) {
+      animate("#top", { rotateZ: -135, y: 6, backgroundColor: "white" });
+      animate("#bottom", { rotateZ: 135, y: -5, backgroundColor: "white" });
+    } else {
+      animate("#top", { rotateZ: 0, y: 0, backgroundColor: "black" });
+      animate("#bottom", { rotateZ: 0, y: 0, backgroundColor: "black" });
+    }
+  }, [isOpen]);
+  return (
+    <button
+      onClick={onClick}
+      ref={scope}
+      className="flex md:hidden flex-col gap-2 relative"
+    >
+      <div id="top" className=" w-8 h-[3px] bg-brand-900 rounded-full"></div>
+      <div id="bottom" className="w-8 h-[3px] bg-brand-900 rounded-full"></div>
+    </button>
+  );
+};
+
+const NavItem = ({
+  title,
+  isOpen,
+  index,
+}: {
+  title: string;
+  isOpen?: boolean;
+  index: number;
+}) => {
+  const [scope, animate] = useAnimate();
+  useEffect(() => {
+    if (isOpen) {
+      animate(
+        scope.current,
+        { y: 0, opacity: 1, filter: "blur(0px)" },
+        { delay: 0.25 * index, duration: 0.3 }
+      );
+    } else {
+      animate(scope.current, { y: 20, opacity: 0, filter: "blur(9px)" });
+    }
+  }, [isOpen]);
+  return (
+    <h3
+      ref={scope}
+      style={{ opacity: 0, transform: "translateY(20px)", filter: "blur(9px)" }}
+      className="text-4xl my-10 font-light"
+    >
+      {title}
+    </h3>
   );
 };

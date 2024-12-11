@@ -52,6 +52,7 @@ export default {
         geekCover: "url('/projects/geek-cover.png')",
         denikCover: "url('/projects/denik-cover.png')",
         dotts: "url('/dotts.svg')",
+        bloob: "url('/bloob.png')",
       },
       keyframes: {
         shine: {

@@ -37,22 +37,22 @@ export const StickyScrollReveal = ({
         <div className="w-36 h-36 rounded-full bg-brand-500/30 blur-3xl  absolute  top-96 " />
       </div>
       <section
-        className="flex  gap-20 justify-center items-start relative py-20 h-max max-w-7xl mx-auto"
+        className="flex flex-col-reverse md:flex-row gap-20 justify-center items-start relative py-20 h-max max-w-7xl mx-auto"
         ref={targetRef}
       >
         {" "}
-        <div className="flex flex-col flex-1 pb-40 pt-40 gap-80  ">
+        <div className="flex flex-col flex-1 py-20  md:pb-40 md:pt-40 gap-80  ">
           {items.map(({ text, title, img }, index) => (
             <InViewDetector
               onInView={handleEnterIntoView}
               index={index}
               key={String(index) + title}
-              className="h-[50vh] flex items-center"
+              className="h-[25vh] md:h-[50vh] flex items-center px-4 md:px-0"
             >
-              <div>
+              <div className="md:text-left text-center">
                 <p
                   className={cn(
-                    "text-brand-100/40 uppercase font-light  text-xl mb-6 transition-all",
+                    "text-brand-100/40 uppercase font-light text-lg md:text-xl mb-6 transition-all",
 
                     {
                       "text-iron": currentImage === img,
@@ -63,7 +63,7 @@ export const StickyScrollReveal = ({
                 </p>
                 <div
                   className={cn(
-                    "text-4xl text-white/40 font-bold transition-all leading-snug",
+                    "text-3xl md:text-4xl text-white/40 font-bold transition-all leading-snug",
                     {
                       "text-white": currentImage === img,
                     }
@@ -75,10 +75,10 @@ export const StickyScrollReveal = ({
             </InViewDetector>
           ))}
         </div>
-        <div className="sticky top-60 mt-32 flex-1 overflow-hidden rounded-3xl aspect-square px-0 ">
+        <div className="sticky max-h-[400px] md:min-h-max bg-brand-900 top-0 md:top-60 mt-32  w-full  flex-1 overflow-hidden  aspect-square px-0 ">
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.div
-              className="w-[100%] mx-auto"
+              className=" mx-auto h-full w-[100%] box-border "
               key={currentIndex}
               initial={{ opacity: 0, y: 40, filter: "blur(9px" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px" }}
