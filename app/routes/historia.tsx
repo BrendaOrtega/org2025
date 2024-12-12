@@ -13,7 +13,6 @@ import { ReactNode, useEffect, useRef } from "react";
 import { animate } from "motion";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaWebAwesome } from "react-icons/fa6";
-import { Button } from "~/components/Button";
 import { SecondaryButton } from "~/components/SecondaryButton";
 
 export function meta({}: Route.MetaArgs) {
@@ -183,7 +182,7 @@ const ScrollHorizontal = () => {
     <section className="h-[700vh]" ref={ref}>
       <ul className="sticky bg-brand-900 top-0 w-full overflow-hidden ">
         <motion.div style={{ x }} className="w-max flex">
-          <li className="w-fit h-screen flex pl-4 md:pl-10 xl:pl-48 pt-20 bg-dotts bg-cover">
+          <li className="w-fit h-screen flex pl-4 md:pl-10 xl:pl-48 pt-10 md:pt-20 bg-dotts bg-cover">
             <div className="w-[400px] flex flex-col  pt-4">
               <h3 className="text-4xl md:text-5xl text-white font-bold mt-20">
                 Cómo empezamos
@@ -194,18 +193,18 @@ const ScrollHorizontal = () => {
               </p>{" "}
               <img className="mt-12 w-[280px]" src="/84anos.gif" />
             </div>
-            <div className="ml-20 md:ml-20 xl:ml-48 pt-20 md:pt-32 xl:pt-52 flex ">
+            <div className="ml-20 md:ml-20 xl:ml-48 pt-20 md:pt-32 lg:pt-20 xl:pt-52 flex ">
               <MotionContainer>
-                <div className="flex relative">
+                <div className="flex justify-center relative">
                   <span className="text-5xl absolute z-10 bottom-0 left-40 bg-white p-3 rounded-full">
                     🎬
                   </span>
                   <img
-                    className="w-52 h-72 object-cover rounded-3xl -rotate-6"
+                    className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl -rotate-6"
                     src="https://i.imgur.com/R0k5PkY.jpg"
                   />{" "}
                   <img
-                    className="w-52 h-72 object-cover rounded-3xl rotate-6 mt-40"
+                    className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl rotate-6 mt-40"
                     src="https://i.imgur.com/hy3pyGs.jpg"
                   />{" "}
                   <img
@@ -229,7 +228,7 @@ const ScrollHorizontal = () => {
                   Inauguramos Fixtergeek, una escuela de hackers con cursos de
                   JS, Linux, Django, Android y videojuegos.
                 </p>
-                <div className="flex flex-col relative mt-20">
+                <div className="flex flex-col items-center relative mt-20">
                   <span className="text-5xl absolute z-10 bottom-44 left-16 bg-white p-3 rounded-full">
                     🧑🏻‍💻
                   </span>
@@ -237,34 +236,34 @@ const ScrollHorizontal = () => {
                     📚
                   </span>
                   <img
-                    className="w-80 h-48 object-cover rounded-3xl -rotate-6 -ml-16"
+                    className="w-64 h-44 md:w-80 md:h-48 object-cover rounded-3xl -rotate-6 -ml-16"
                     src="https://i.imgur.com/Ip1Hu1W.jpg"
                   />{" "}
                   <img
-                    className="w-80 h-48 object-cover rounded-3xl rotate-6 ml-28 -mt-10 "
+                    className="w-64 h-44 md:w-80 md:h-48o bject-cover rounded-3xl rotate-6 ml-28 -mt-10 "
                     src="https://i.imgur.com/aQr4RvD.jpg"
                   />{" "}
                   <img
-                    className="w-80 h-48 object-cover rounded-3xl -rotate-6 -ml-16 -mt-10"
+                    className="w-64 h-44 md:w-80 md:h-48 object-cover rounded-3xl -rotate-6 -ml-16 -mt-10"
                     src="https://i.imgur.com/I6Mm7YI.jpg"
                   />{" "}
                 </div>{" "}
               </MotionContainer>
             </div>
           </li>
-          <li className="w-fith-screen  pt-20 md:pt-52  flex bg-dotts bg-cover ">
+          <li className="w-fith-screen  pt-20 md:pt-32 lg:pt-20 xl:pt-52  flex bg-dotts bg-cover ">
             <MotionContainer>
               <div className=" w-[400px]">
-                <div className="flex relative">
+                <div className="flex  justify-center relative">
                   <span className="text-5xl absolute z-10 top-32 left-44 bg-white p-3 rounded-full">
                     🙋🏻‍♀️
                   </span>
                   <img
-                    className="w-52 h-72 object-cover rounded-3xl -rotate-6"
+                    className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl -rotate-6"
                     src="https://i.imgur.com/DpQhCWH.jpg"
                   />{" "}
                   <img
-                    className="w-52 h-72 object-cover rounded-3xl rotate-6 mt-40"
+                    className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl rotate-6 mt-40"
                     src="https://i.imgur.com/fNvQJJR.jpg"
                   />{" "}
                   <img
@@ -297,22 +296,22 @@ const ScrollHorizontal = () => {
                 Crowdfunding, una Red Social interna, un Sistema de delivery y
                 demás.
               </p>
-              <div className="flex relative mt-20">
+              <div className="flex justify-center relative mt-20">
                 <span className="text-7xl absolute z-10 bottom-8 left-12 bg-white p-6 rounded-full">
                   🚀
                 </span>
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl rotate-12"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl rotate-12"
                   src="https://i.imgur.com/nNKZZrG.jpg"
                 />{" "}
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl  -rotate-12 mt-32"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl  -rotate-12 mt-32"
                   src="https://i.imgur.com/5GD6C9C.jpg"
                 />{" "}
               </div>
             </MotionContainer>
             <MotionContainer>
-              <div className="flex relative ">
+              <div className="flex  justify-center relative ">
                 <span className="text-5xl absolute z-10 bottom-0 left-40 bg-white p-3 rounded-full">
                   🧙🏻
                 </span>
@@ -321,11 +320,11 @@ const ScrollHorizontal = () => {
                   src="https://i.imgur.com/AaCUNSt.jpg"
                 />{" "}
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl -rotate-6"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl -rotate-6"
                   src="https://i.imgur.com/fK6pwTB.jpg"
                 />{" "}
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl rotate-6 mt-40"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl rotate-6 mt-40"
                   src="https://i.imgur.com/dh6f4jQ.jpg"
                 />{" "}
                 <img
@@ -343,7 +342,7 @@ const ScrollHorizontal = () => {
               </p>
             </MotionContainer>
           </li>
-          <li className="w-fit h-screen bg-brad-900 bg-dotts bg-cover pt-20 md:pt-52 flex ">
+          <li className="w-fit h-screen bg-brad-900 bg-dotts bg-cover pt-20 md:pt-32 lg:pt-20 xl:pt-52 flex ">
             <MotionContainer>
               <h3 className="font-bold text-center text-2xl mt-4 text-white">
                 2021
@@ -352,31 +351,31 @@ const ScrollHorizontal = () => {
                 Llegamos a los 30 proyectos entregados a empresas de México,
                 USA, Holanda y España.
               </p>
-              <div className="flex relative mt-20">
+              <div className="flex  justify-center relative mt-20 ml-6 md:ml-0">
                 <span className="text-5xl absolute z-10 top-10 right-40 bg-white p-3 rounded-full">
                   🔥
                 </span>
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl -rotate-6"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl -rotate-6"
                   src="https://i.imgur.com/7pFJCXu.jpg"
                 />{" "}
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl rotate-6 mt-40"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl rotate-6 mt-40"
                   src="https://i.imgur.com/qBspJaG.jpg"
                 />{" "}
               </div>
             </MotionContainer>
             <MotionContainer>
-              <div className="flex relative">
+              <div className="flex  justify-center  justify-centerrelative">
                 <span className="text-5xl absolute z-10 bottom-0 left-40 bg-white p-3 rounded-full">
                   🔎
                 </span>
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl -rotate-6"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl -rotate-6"
                   src="https://i.imgur.com/rIWBI4C.jpg"
                 />{" "}
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl rotate-6 mt-40"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl rotate-6 mt-40"
                   src="https://i.imgur.com/Z1ZqkiA.jpg"
                 />{" "}
               </div>
@@ -394,7 +393,7 @@ const ScrollHorizontal = () => {
                 <span className="text-white/50 font-light">
                   Nuestro don, nuestra maldición
                 </span>
-                <h3 className="text-5xl text-white font-bold mt-4">
+                <h3 className="text-4xl pr-16 md:pr-0 md:text-5xl text-white font-bold mt-4">
                   Obsesionados por las nuevas herramientas y la experiencia de
                   usuario
                 </h3>
@@ -405,7 +404,7 @@ const ScrollHorizontal = () => {
               </div>
             </MotionContainer>
           </li>{" "}
-          <li className="w-fit h-screen bg-brad-900 bg-dotts bg-cover pt-20 md:pt-52 flex ">
+          <li className="w-fit h-screen bg-brad-900 bg-dotts bg-cover pt-20 md:pt-32 lg:pt-20 xl:pt-52 flex ">
             <MotionContainer>
               <h3 className="font-bold text-center text-2xl mt-4 text-white">
                 2023
@@ -414,31 +413,31 @@ const ScrollHorizontal = () => {
                 Lanzamos Formmy.app, la aplicación que te permite agregar
                 formularios de contacto a tu sitio web en menos de 5 minutos.
               </p>
-              <div className="flex relative mt-20">
+              <div className="flex  justify-center relative mt-20">
                 <span className="text-5xl absolute z-10 top-10 right-40 bg-white p-3 rounded-full">
                   👻
                 </span>
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl -rotate-6"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl -rotate-6"
                   src="/projects/formmy-cover.png"
                 />{" "}
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl rotate-6 mt-40"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl rotate-6 mt-40"
                   src="https://i.imgur.com/29QejPK.jpg"
                 />{" "}
               </div>
             </MotionContainer>
             <MotionContainer>
-              <div className="flex relative">
+              <div className="flex  justify-center relative">
                 <span className="text-5xl absolute z-10 bottom-0 left-40 bg-white p-3 rounded-full">
                   🗓️
                 </span>
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl -rotate-6"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl -rotate-6"
                   src="https://i.imgur.com/iADMd8i.jpg"
                 />{" "}
                 <img
-                  className="w-52 h-72 object-cover rounded-3xl rotate-6 mt-40"
+                  className="w-44 h-56 md:w-52 md:h-72 object-cover rounded-3xl rotate-6 mt-40"
                   src="/projects/denik-cover.png"
                 />{" "}
               </div>
@@ -491,7 +490,9 @@ const MotionContainer = ({
       viewport={{ amount: isMobile() ? "some" : "all", once: true }}
       className={twMerge(" pt-0 ")}
     >
-      <div className={twMerge(" w-[400px] mx-48", className)}>{children}</div>
+      <div className={twMerge(" w-[400px] mx-32 md:mx-48", className)}>
+        {children}
+      </div>
     </motion.div>
   );
 };

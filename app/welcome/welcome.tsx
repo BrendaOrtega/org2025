@@ -189,7 +189,7 @@ export const Footer = () => {
         <div className="mt-0 md:mt-20 lg:mt-32  w-full overflow-hidden">
           <div className="flex items-center justify-start w-[2000px] gap-10 h-20 md:h-32 pl-4">
             <span
-              className="text-white/10 text-[40px] md:text-[72px] lg:text-[110px] text-left ml-0 lg:ml-12 bg-clip-text inline-block animate-shine"
+              className="text-white/10 text-[32px] md:text-[58px] lg:text-[72px] xl:text-[110px] text-left ml-0 lg:ml-12 bg-clip-text inline-block animate-shine"
               style={{
                 backgroundImage:
                   "linear-gradient(120deg, rgba(158, 201, 186, 0) 40%, rgba(158, 201, 186, 0.8) 50%, rgba(158, 201, 186, 0) 100%)",
@@ -226,32 +226,32 @@ const Comments = () => {
           />
 
           <ImageCard className="bg-brand-900" image="/e4pros.svg" />
-          <CommentCard
+          {/* <CommentCard
             company="English4pros"
             name="Katherine Manson"
             comment="  Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
           itaque quasi a, hic quae aut provident eius ea ab molestiae culpa
           explicabo totam aliquam laudantium alias sit animi id impedit!"
             date="2024"
-          />
+          /> */}
           <ImageCard className="bg-brand-900" image="/token.svg" />
-          <CommentCard
+          {/* <CommentCard
             company="Constructoken"
             name="Carlos Landaverde"
             comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
           itaque quasi a, hic quae aut provident eius ea ab molestiae culpa
           explicabo totam aliquam laudantium alias sit animi id impedit!"
             date="2023-2024"
-          />
+          /> */}
           <ImageCard className="bg-brand-900" image="/potentia.svg" />
-          <CommentCard
+          {/* <CommentCard
             company="Potentiia"
             name="Marta Roman"
             comment="  Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
           itaque quasi a, hic quae aut provident eius ea ab molestiae culpa
           explicabo totam aliquam laudantium alias sit animi id impedit!"
             date="2020 - 2024"
-          />
+          /> */}
           <ImageCard className="bg-brand-900" image="/panel.svg" />
         </SwipeGallery>
       </div>

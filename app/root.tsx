@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import stylesheet from "./app.css?url";
 import { NavBar } from "./components/Navbar";
 import { Button } from "./components/Button";
+import useGoogleTM from "./lib/useGoogleTM";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -78,6 +79,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  useGoogleTM();
   return (
     <html lang="en">
       <head>

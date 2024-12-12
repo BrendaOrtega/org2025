@@ -167,10 +167,10 @@ const Card = ({
         />
       </div>
 
-      <h3 className="text-xl md:text-2xl font-bold mt-4 text-brand-900  group-hover:ml-6 transition-all">
+      <h3 className="text-xl md:text-2xl font-bold mt-4 text-brand-900  lg:group-hover:ml-6 transition-all">
         {title}
       </h3>
-      <p className="text-base md:text-lg font-light group-hover:ml-6 transition-all text-ironGray">
+      <p className="text-base md:text-lg font-light lg:group-hover:ml-6  transition-all text-ironGray">
         {description} | {date}
       </p>
     </motion.div>

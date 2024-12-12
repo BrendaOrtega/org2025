@@ -52,20 +52,19 @@ const SaasContent = () => {
       </motion.p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-x-12 xl:gap-x-56 mt-12 md:mt-20 pb-64">
         <Card
+          link="https://www.formmy.app/dash"
           className="bg-formmyCover "
-          img="https://i.imgur.com/3wx9Qa4.png"
           title="Formmy"
           description="La forma más fácil de agregar formularios de contacto a tu sitio web"
         />
         <Card
           className="bg-denikCover mt-0 md:mt-20"
-          img="https://i.imgur.com/lmSmhdB.png"
           title="Deník"
           description="La agenda en línea ideal para tu negocio: cobros, recordatios y más"
         />
         <Card
           className="bg-geekCover"
-          img="https://i.imgur.com/nLH6ChB.png"
+          link="https://fixtergeek.com/"
           title="Fixtergeek"
           description="Plataforma de E-learning para aprender a programar"
         />
@@ -76,12 +75,12 @@ const SaasContent = () => {
 
 const Card = ({
   className,
-  img,
   title,
   description,
+  link,
 }: {
   className?: string;
-  img: string;
+  link?: string;
   title: string;
   description: string;
 }) => {
@@ -98,19 +97,21 @@ const Card = ({
       ref={ref}
       className="w-full  h-fit group cursor-pointer "
     >
-      <div
-        className={twMerge(
-          "w-full h-[280px] md:h-[460px] xl:h-[540px] bg-center rounded-5xl bg-cover border border-brand-100/50 overflow-hidden ",
-          className
-        )}
-      ></div>
-
-      <h3 className="text-2xl font-bold text-brand-900 mt-4 group-hover:ml-6 transition-all">
-        {title}
-      </h3>
-      <p className="text-lg font-light text-ironGray group-hover:ml-6 transition-all">
-        {description}
-      </p>
+      {" "}
+      <a href={link} target="_blank" title={title}>
+        <div
+          className={twMerge(
+            "w-full h-[280px] md:h-[460px] xl:h-[540px] bg-center rounded-5xl bg-cover border border-brand-100/50 overflow-hidden ",
+            className
+          )}
+        ></div>
+        <h3 className="text-2xl font-bold text-brand-900 mt-4 lg:group-hover:ml-6 transition-all">
+          {title}
+        </h3>
+        <p className="text-lg font-light text-ironGray lg:group-hover:ml-6 transition-all">
+          {description}
+        </p>{" "}
+      </a>
     </motion.div>
   );
 };
