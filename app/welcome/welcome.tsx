@@ -226,14 +226,16 @@ const Comments = () => {
           />
 
           <ImageCard className="bg-brand-900" image="/e4pros.svg" />
-          {/* <CommentCard
-            company="English4pros"
+          <CommentCard
+            company="Founder English4pros"
             name="Katherine Manson"
-            comment="  Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-          itaque quasi a, hic quae aut provident eius ea ab molestiae culpa
-          explicabo totam aliquam laudantium alias sit animi id impedit!"
+            comment="Contratamos Fixter para ayudarnos a modernizar
+             nuestro sitio web obsoleto. Brenda se tomó el tiempo necesario para comprender a fondo nuestros objetivos 
+             y la visión para el sitio... El resultado final superó nuestras expectativas de todas las maneras posibles, con un diseño elegante 
+               y fácil de usar que refleja nuestra marca."
             date="2024"
-          /> */}
+            image="https://www.e4pros.com/katherine.svg"
+          />
           <ImageCard className="bg-brand-900" image="/token.svg" />
           {/* <CommentCard
             company="Constructoken"

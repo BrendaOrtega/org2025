@@ -67,7 +67,7 @@ export const SwipeGallery = ({ children }: { children?: ReactNode }) => {
   }
 
   return (
-    <div className="relative w-[440px] h-[360px]">
+    <div className="relative w-[460px] h-[360px]">
       <motion.div
         dragConstraints={{ left: 0, right: 0 }}
         animate={frontControls}
