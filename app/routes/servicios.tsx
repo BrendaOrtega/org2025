@@ -454,31 +454,31 @@ const Services = () => {
       >
         <div
           onClick={handleDiseno}
-          className=" w-full flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
+          className=" w-full flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[1px] transition-all"
         >
           <span>01</span> <p>Diseño de Producto</p>
         </div>{" "}
         <div
           onClick={handleSoftware}
-          className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
+          className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[1px] transition-all"
         >
           <span>02</span> <p>Desarrollo de Software a la medida</p>
         </div>
         <div
           onClick={handleWeb}
-          className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
+          className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[1px] transition-all"
         >
           <span>03</span> <p>Sitios web</p>
         </div>
         <div
           onClick={handleApps}
-          className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
+          className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[1px] transition-all"
         >
           <span>04</span> <p>Aplicciones Móviles</p>
         </div>
         <div
           onClick={handleCap}
-          className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
+          className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[1px] transition-all"
         >
           <span>05</span> <p>Capacitación</p>
         </div>
