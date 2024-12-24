@@ -12,7 +12,7 @@
 } */
 
 .emoji:hover {
-  cursor: url("/public/cursor.png"), auto;
+  cursor: url("/cursor.png"), auto;
   transition: all 1s ease;
 }
 

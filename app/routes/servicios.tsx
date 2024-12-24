@@ -431,7 +431,7 @@ const Services = () => {
     node.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <section className="max-w-7xl mx-auto mt-12 md:mt-20 px-4 md:px-[5%] xl:px-0 ">
+    <section className=" max-w-7xl mx-auto mt-12 md:mt-20 px-4 md:px-[5%] xl:px-0 ">
       <h2 className="text-brand-900 text-4xl md:text-5xl xl:text-6xl font-bold ">
         El mejor partner Full-stack
       </h2>
@@ -450,38 +450,38 @@ const Services = () => {
         animate={{ opacity: 1, y: 0, filter: "blur(0px" }}
         exit={{ opacity: 0, y: -40, filter: "blur(9px" }}
         transition={{ type: "spring", bounce: 0, duration: 1 }}
-        className="mt-12 w-fit emoji"
+        className="mt-12 w-fit  emoji"
       >
-        <button
+        <div
           onClick={handleDiseno}
           className=" w-full flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
         >
           <span>01</span> <p>Diseño de Producto</p>
-        </button>{" "}
-        <button
+        </div>{" "}
+        <div
           onClick={handleSoftware}
           className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
         >
           <span>02</span> <p>Desarrollo de Software a la medida</p>
-        </button>
-        <button
+        </div>
+        <div
           onClick={handleWeb}
           className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
         >
           <span>03</span> <p>Sitios web</p>
-        </button>
-        <button
+        </div>
+        <div
           onClick={handleApps}
           className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
         >
           <span>04</span> <p>Aplicciones Móviles</p>
-        </button>
-        <button
+        </div>
+        <div
           onClick={handleCap}
           className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[2px] transition-all"
         >
           <span>05</span> <p>Capacitación</p>
-        </button>
+        </div>
       </motion.div>
     </section>
   );
