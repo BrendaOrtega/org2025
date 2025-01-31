@@ -400,9 +400,7 @@ const Work = () => {
       <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold px-4 md:px-0 ">
         Nuestro trabajo es estético, interactivo y funcional{" "}
       </h2>
-      <div className="absolute hidden md:block w-full h-full inset-0 ">
-        <BlobCursor />
-      </div>
+
       <motion.div className="mt-12 md:mt-20 flex flex-col gap-0 md:gap-20">
         <InfiniteMovingCards items={projects} direction="left" speed="normal" />
         <InfiniteMovingCards
