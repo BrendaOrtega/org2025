@@ -23,7 +23,7 @@ const projects = [
     title: "English 4 professionals",
   },
   {
-    image: "https://i.imgur.com/nLH6ChB.png",
+    image: "https://i.imgur.com/4NJeTej.png",
     title: "ReformAI",
   },
   {
@@ -38,7 +38,7 @@ const projects = [
 
 const testimonials = [
   {
-    image: "https://i.imgur.com/U8dTc3C.jpg",
+    image: "https://i.imgur.com/AafSw9M.png",
     title: "Collectum Datos Panel",
   },
   {
@@ -46,11 +46,11 @@ const testimonials = [
     title: "LastPlay",
   },
   {
-    image: "https://i.imgur.com/lmSmhdB.png",
+    image: "https://i.imgur.com/io6MtCj.png",
     title: "Constructoken",
   },
   {
-    image: "https://i.imgur.com/nYvYjdc.png",
+    image: "https://i.imgur.com/O3qfXsh.png",
     title: "Potentia",
   },
 ];
