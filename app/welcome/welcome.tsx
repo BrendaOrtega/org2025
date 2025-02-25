@@ -19,38 +19,38 @@ import BlobCursor from "~/components/BlobCursor";
 
 const projects = [
   {
-    image: "https://i.imgur.com/3wx9Qa4.png",
+    image: "/sv-epros.webp",
     title: "English 4 professionals",
   },
   {
-    image: "https://i.imgur.com/4NJeTej.png",
+    image: "/sv-reform.webp",
     title: "ReformAI",
   },
   {
-    image: "https://i.imgur.com/JQrOEpZ.jpg",
+    image: "/sv-denik.webp",
     title: "Deník",
   },
   {
-    image: "https://i.imgur.com/2nGAoyu.png",
+    image: "/sv-formmy.webp",
     title: "Formmy",
   },
 ];
 
 const testimonials = [
   {
-    image: "https://i.imgur.com/AafSw9M.png",
+    image: "/sv-cl.webp",
     title: "Collectum Datos Panel",
   },
   {
-    image: "https://i.imgur.com/v5NluEA.jpg",
+    image: "/sv-play.webp",
     title: "LastPlay",
   },
   {
-    image: "https://i.imgur.com/io6MtCj.png",
+    image: "/sv-ct.webp",
     title: "Constructoken",
   },
   {
-    image: "https://i.imgur.com/O3qfXsh.png",
+    image: "/sv-pt.webp",
     title: "Potentia",
   },
 ];
@@ -357,7 +357,7 @@ const Tools = () => {
         <div className="w-fit ">
           <img
             className="shadow-[0_8px_32px_rgba(204,204,204,.4)] w-[240px] md:w-[200px] lg:w-auto z-10 relative rounded-3xl"
-            src="/example1.svg"
+            src="/example1.webp"
           />
         </div>
       </div>
@@ -472,7 +472,7 @@ const Why = () => {
             img: (
               <img
                 className="w-full h-full object-cover"
-                src="/projects/proto4.png"
+                src="/projects/proto4.webp"
                 alt="perro"
               />
             ),

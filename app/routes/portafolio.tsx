@@ -51,7 +51,7 @@ const Header = () => {
       </motion.p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-x-12 xl:gap-x-56 mt-12 md:mt-20 pb-64">
         <Card
-          img="https://i.imgur.com/AafSw9M.png"
+          img="/sv-epros.webp"
           title="E4pros"
           description="Website de curso de Inglés"
           date="2024"
@@ -59,27 +59,27 @@ const Header = () => {
         />
         <Card
           className="mt-0 md:mt-20"
-          img="https://i.imgur.com/io6MtCj.png"
+          img="/sv-ct.webp"
           title="Constructoken"
           description="Landing page & Aplicacióm móvil Fintech"
           date="2023 - 2024"
         />
         <Card
-          img="https://i.imgur.com/4NJeTej.png"
+          img="/sv-reform.webp"
           title="ReformAi"
           description="Venta de muebles y otros servicios"
           date="2024"
         />
         <Card
           className="mt-0 md:mt-20"
-          img="https://i.imgur.com/O3qfXsh.png"
+          img="/sv-pt.webp"
           title="Potentiia"
           description="Website de cursos y coaching deportivo"
           date="2021"
           tag="both"
         />
         <Card
-          img="https://i.imgur.com/U8dTc3C.jpg"
+          img="/sv-cl.webp"
           title="Collectum"
           description="Aplicación Web de encuestas y premios"
           date="2021-2024"
@@ -87,20 +87,20 @@ const Header = () => {
         />
         <Card
           className="mt-0 md:mt-20"
-          img="https://i.imgur.com/v5NluEA.jpg"
+          img="/sv-play.webp"
           title="LastPlay"
           description="Aplicación Móvil para organizar torneos deportivos"
           date="2023"
         />
         <Card
-          img="https://i.imgur.com/yPIze3Z.png"
+          img="/sv-az.webp"
           title="Laboratorios Azteca"
           description="E-comerce de estudios médicos"
           date="2023"
         />
         <Card
           className="mt-0 md:mt-20"
-          img="https://i.imgur.com/aBlYOft.jpg"
+          img="/sv-su.webp"
           title="SurveyUp"
           description="Aplicación web de estudios de mercado"
           date="2022"

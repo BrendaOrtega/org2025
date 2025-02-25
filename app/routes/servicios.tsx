@@ -66,7 +66,7 @@ const ServiceOne = () => {
           repeatType: "reverse",
         }}
         className="absolute w-[380px] top-48 left-20"
-        src="/servicios1.1.png"
+        src="/servicios1.1.webp"
       />
       <img className="w-full h-full  object-cover" src="/servicios1.png" />
     </section>
@@ -126,7 +126,7 @@ const ServiceThree = () => {
         }}
         ref={ref}
         className="absolute w-[380px] top-20 -right-24 md:-right-8 rounded-5xl  "
-        src="/servicios3.3.png"
+        src="/servicios3.3.webp"
       />
       <motion.img
         style={{
@@ -136,11 +136,11 @@ const ServiceThree = () => {
         }}
         ref={ref}
         className="absolute w-[280px] md:w-[380px] bottom-28 left-8 rounded-2xl md:rounded-5xl "
-        src="/servicios3.4.png"
+        src="/servicios3.4.webp"
       />
       <img
         className="w-full h-full border border-brand-100  object-cover"
-        src="/servicios3.png"
+        src="/servicios3.webp"
       />
     </section>
   );
@@ -158,7 +158,7 @@ const ServiceFour = () => {
           transition: "all 1s ease",
         }}
         className="absolute w-[280px] md:w-[340px] top-12 ml-10 md:ml-20 "
-        src="/servicios4.1.png"
+        src="/servicios4.1.webp"
         ref={ref}
       />
       <motion.img
@@ -168,7 +168,7 @@ const ServiceFour = () => {
           transition: "all 1s ease",
         }}
         className="absolute w-52 bottom-20 md:bottom-48 right-2 md:right-10 "
-        src="/servicios4.2.png"
+        src="/servicios4.2.webp"
         ref={ref}
       />
       <motion.img
@@ -182,7 +182,7 @@ const ServiceFour = () => {
         ref={ref}
       />
 
-      <img className="w-full h-full  object-cover" src="/servicios4.png" />
+      <img className="w-full h-full  object-cover" src="/servicios4.webp" />
     </section>
   );
 };

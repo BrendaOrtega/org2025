@@ -454,7 +454,7 @@ const ScrollHorizontal = () => {
             <MotionContainer>
               <img
                 className="w-48 absolute -right-12 top-64"
-                src="/cube4.png"
+                src="/cube4.webp"
                 alt="cohete"
               />
             </MotionContainer>

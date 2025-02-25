@@ -49,7 +49,7 @@ export default {
         formmyCover: "url('/projects/formmy-cover.png')",
         formmyGif:
           "url('https://firebasestorage.googleapis.com/v0/b/camp-92fe8.appspot.com/o/2025%2Fformmy-video.gif?alt=media&token=fea67e9f-1277-49ba-a0ec-9ef81bf15452')",
-        geekCover: "url('/projects/geek-cover.png')",
+        geekCover: "url('/projects/geek-cover.webp')",
         denikCover: "url('/projects/denik-cover.png')",
         dotts: "url('/dotts.svg')",
         bloob: "url('/bloob.png')",

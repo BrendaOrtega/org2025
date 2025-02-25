@@ -12,11 +12,11 @@ import { FaWeightScale } from "react-icons/fa6";
 import { FaCodeBranch } from "react-icons/fa";
 
 const floatingElements = [
-  "/Item-1.png",
-  "/item-2.png",
-  "/Item-3.png",
-  "/cube.png",
-  "/cube2.png",
+  "/Item-1.webp",
+  "/item-2.webp",
+  "/Item-3.webp",
+  "/cube.webp",
+  "/cube2.webp",
   "",
 ];
 export const PhoneHero = ({ title }: { title: ReactNode }) => {
@@ -200,7 +200,7 @@ const Phone = ({
           opacity,
         }}
         className=""
-        src="/phone.png"
+        src="/phone.webp"
         alt="iphone"
       />
     </div>
