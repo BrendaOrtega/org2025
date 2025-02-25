@@ -22,7 +22,7 @@ export default function Contacto() {
   }, []);
   return (
     <main className="bg-white min-h-screen ">
-      <div className="bg-white relative top-0 z-50 pb-52 xl:pb-20">
+      <div className="bg-white relative top-0 z-50 pb-10 xl:pb-20">
         <NavBar />
         <section className="min-h-screen max-w-7xl pb-40 md:pb-0 gap-16 mx-auto mt-12 md:mt-20 flex items-start px-4 md:px-[5%] xl:px-0 ">
           <div className="w-full lg:w-[50%]">
