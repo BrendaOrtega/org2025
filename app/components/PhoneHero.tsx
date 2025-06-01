@@ -81,7 +81,7 @@ const Paragraph = ({ scrollYProgress }: { scrollYProgress: MotionValue }) => {
             <FaCodeBranch className="text-4xl font-light" />
           </motion.span>
         </div>
-        <p className=" max-w-2xl text-brand-900 text-3xl md:text-4xl xl:text-5xl w-[90%] mx-auto font-bold text-center leading-snug mt-12">
+        <p className=" max-w-2xl text-brand-900 text-3xl md:text-4xl xl:text-5xl w-[90%] mx-auto font-bold text-center !leading-tight mt-12">
           El mejor aliado para diseñar y desarrollar software para el éxito de
           tu empresa
         </p>
@@ -192,7 +192,7 @@ const Phone = ({
   const scale = useTransform(scrollYProgress, [0, 0.2, 1], [1, 0.9, 1.5]);
 
   return (
-    <div className="w-[240px] lg:w-[320px] top-0 md:top-20  mx-auto fixed inset-0">
+    <div className="w-[240px] lg:w-[320px] top-0 md:top-20  mx-auto fixed  inset-0 pointer-events-none ">
       <motion.img
         style={{
           y,
@@ -270,7 +270,7 @@ const Container = ({
       {/* Title and buttons */}
       <motion.div
         style={{ opacity: titleOpacity, y: titleY }}
-        className="flex-col  flex justify-center text-4xl tracking-tight font-bold items-center gap-4 py-6 md:py-12 text-center"
+        className="flex-col  flex justify-center text-4xl tracking-tight font-bold items-center gap-4 pt-0 pb-6 md:py-12 text-center"
       >
         {title}
       </motion.div>

@@ -9,7 +9,6 @@ import {
 
 import type { Route } from "./+types/root";
 import stylesheet from "./app.css?url";
-import { NavBar } from "./components/Navbar";
 import { Button } from "./components/Button";
 import useGoogleTM from "./lib/useGoogleTM";
 
@@ -126,8 +125,12 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
           <code>{stack}</code>
         </pre>
       )}
-      <img className="mx-auto w-[700px]" src="/404.svg" />
-      <Button className="mx-auto mt-20" title="Volver al inicio" />
+
+      <img className="mx-auto w-[700px]" src="/404-error.svg" />
+      <p className="text-center text-3xl text-brand-900 mt-5">
+        ¡Vaya! Está página no existe
+      </p>
+      <Button className="mx-auto mt-6" title="Volver al inicio" />
     </main>
   );
 }

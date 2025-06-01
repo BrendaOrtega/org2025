@@ -16,6 +16,8 @@ import { InfiniteMovingCards } from "~/components/InfiniteMoving";
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import BlobCursor from "~/components/BlobCursor";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { WorkAccordion } from "./WorkAccordion";
 
 const projects = [
   {
@@ -58,18 +60,16 @@ const testimonials = [
 export function Welcome() {
   return (
     <main className="bg-white min-h-screen  ">
-      <div className="bg-white relative z-30">
+      <div className="bg-white relative z-30 mb-[600px] md:mb-[500px] rounded-b-[40px]">
         <NavBar />
         <Hero />
         <Why />
-        <Work />
+        <WorkAccordion />
         <Tools />
         <Comments />
-      </div>
-      <div className="relative bg-pink-500 h-[900px]">
         <Banner />
-        <Footer />
       </div>
+      <Footer />
     </main>
   );
 }
@@ -88,7 +88,7 @@ export const Banner = () => {
 
 export const Footer = () => {
   return (
-    <section className="bg-brand-900  h-[900px] overflow-hidden flex items-end  w-full fixed  z-10 bottom-0  md:pt-[300px]  ">
+    <section className="bg-brand-900 h-[900px] overflow-hidden flex items-end  w-full fixed  z-10 bottom-0  md:pt-[300px]  ">
       <div className=" pt-32 w-full min-h-fit flex flex-col justify-end  ">
         <div className="flex w-full px-4 md:px-[5%] xl:px-0 flex-wrap gap-10 md:flex-nowrap md:gap-0 xl:gap-10 justify-between  max-w-7xl mx-auto">
           <div className="w-full md:w-fit flex flex-col justify-start items-start">
@@ -120,27 +120,31 @@ export const Footer = () => {
               </p>
             </Link>
           </div>
-          <div className="text-white  font-normal flex flex-col gap-2">
-            <h3 className="text-lightGray  ">Saas y Webapps</h3>
-            <a href="https://fixtergeek.com/" title="phone" target="_blank">
-              <p className="hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
+          <div className="text-white  font-normal flex flex-col gap-2 relative z-40">
+            <h3 className="text-lightGray   ">Saas y Webapps</h3>
+            <a href="https://fixtergeek.com/" target="_blank" rel="noreferrer">
+              <p className="hover:text-brand-600  cursor-pointer hover:scale-95 transition-all">
                 Fixtergeek
               </p>
             </a>{" "}
-            <a href="https://www.formmy.app/" title="phone" target="_blank">
-              <p className="hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
+            <a href="https://www.formmy.app/" target="_blank">
+              <p className="hover:text-brand-600 text-white  cursor-pointer hover:scale-95 transition-all">
                 Formmy
               </p>
             </a>
-            <a href="https://www.denik.me/" title="phone" target="_blank">
-              <p className="hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
+            <a href="https://www.denik.me/" target="_blank">
+              <p className="hover:text-brand-600 text-white  cursor-pointer hover:scale-95 transition-all">
                 Deník
+              </p>
+            </a>
+            <a href="https://www.easybits.cloud/" target="_blank">
+              <p className="hover:text-brand-600 text-white  cursor-pointer hover:scale-95 transition-all">
+                EasyBits
               </p>
             </a>
           </div>
           <div className="text-white  font-normal flex flex-col gap-2  ">
             <h3 className="text-lightGray  ">Escríbenos</h3>
-
             <a href="https://wa.me/527757609276" title="phone" target="_blank">
               <p className="flex items-center gap-2 hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
                 <MdLocalPhone />
@@ -167,6 +171,16 @@ export const Footer = () => {
                 Facebook
               </p>
             </a>
+            <a
+              href="https://www.linkedin.com/company/28980688/"
+              title="facebook"
+              target="_blank"
+            >
+              <p className="md:flex hidden items-center gap-2 hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
+                <FaLinkedinIn className="text-sm mr-1" />
+                Linkedin
+              </p>
+            </a>
           </div>
           <div className="text-white  font-normal flex md:hidden flex-col gap-2">
             <h3 className="text-lightGray invisible  ">Saas y Webapps</h3>
@@ -182,6 +196,16 @@ export const Footer = () => {
               <p className="flex items-center gap-2 hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
                 <TiSocialFacebook />
                 Facebook
+              </p>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/28980688/"
+              title="facebook"
+              target="_blank"
+            >
+              <p className="flex items-center gap-2 hover:text-brand-600 cursor-pointer hover:scale-95 transition-all">
+                <FaLinkedinIn className="text-sm mr-1" />
+                Linkedin
               </p>
             </a>
           </div>
@@ -234,7 +258,7 @@ const Comments = () => {
              y la visión para el sitio... El resultado final superó nuestras expectativas de todas las maneras posibles, con un diseño elegante 
                y fácil de usar que refleja nuestra marca."
             date="2024"
-            image="https://www.e4pros.com/katherine.svg"
+            image="https://www.e4pros.com/katherine.webp"
           />
           <ImageCard className="bg-brand-900" image="/token.svg" />
           {/* <CommentCard
@@ -396,19 +420,19 @@ const Work = () => {
   const ref = useRef(null);
   const isInview = useInView(ref);
   return (
-    <section className="text-center  mx-auto py-20 md:pt-[240px] md:pb-[160px] relative z-10 bg-white">
+    <section className="text-center  mx-auto p-10 md:pt-[240px] md:pb-[160px] relative z-10 bg-white">
       <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold px-4 md:px-0 ">
         Nuestro trabajo es estético, interactivo y funcional{" "}
       </h2>
 
-      <motion.div className="mt-12 md:mt-20 flex flex-col gap-0 md:gap-20">
+      {/* <motion.div className="mt-12 md:mt-20 flex flex-col gap-0 md:gap-20">
         <InfiniteMovingCards items={projects} direction="left" speed="normal" />
         <InfiniteMovingCards
           items={testimonials}
           direction="right"
           speed="normal"
         />
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 };
@@ -422,13 +446,13 @@ const Why = () => {
             twColor: "bg-[#1B2428]",
             img: (
               <img
-                className="object-cover  md:scale-110 h-full w-full"
-                src="/projects/proto3.gif"
+                className="object-cover w-[80%] md:scale-100 h-full mx-auto bg-[#1B2428]"
+                src="/step1-org.gif"
                 alt="prototipo"
               />
             ),
             text: (
-              <p className="font-sans">
+              <p className="font-sans leading-snug">
                 No inviertas meses o una fortuna para probar tus ideas 🪄
               </p>
             ),
@@ -438,13 +462,13 @@ const Why = () => {
             twColor: "bg-brand-900",
             img: (
               <img
-                className="object-cover  md:scale-110 h-full w-full"
+                className="object-cover  scale-120 h-full w-full bg-brand-900"
                 src="/projects/proto1.gif"
                 alt="perro"
               />
             ),
             text: (
-              <p className="font-sans">
+              <p className="font-sans leading-snug">
                 Creamos prototipos que puedes probar con tus usuarios y mostrar
                 a tus socios o inversionistas 📱
               </p>
@@ -455,13 +479,13 @@ const Why = () => {
             twColor: "bg-[#1B2428]",
             img: (
               <img
-                className="w-full md:w-[90%] lg:w-[80%] mx-auto h-full object-contain "
+                className="w-full md:w-[90%] lg:w-[80%] mx-auto h-[350px] md:h-[500px]   object-contain  bg-[#1B2428] "
                 src="/projects/proto2.gif"
                 alt="phone"
               />
             ),
             text: (
-              <p className="font-sans">
+              <p className="font-sans leading-snug">
                 Diseñamos y desarrollamos el software que tu negocio necesita 🚀
               </p>
             ),
@@ -471,13 +495,13 @@ const Why = () => {
             twColor: "bg-brand-900",
             img: (
               <img
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain md:object-cover bg-brand-900"
                 src="/projects/proto4.webp"
                 alt="perro"
               />
             ),
             text: (
-              <ul className="font-sans">
+              <ul className="font-sans leading-snug">
                 <li>💻 Sitios web </li>
                 <li>🛍️ E-commerce</li>
                 <li>🎯 CRM's</li>
@@ -503,7 +527,7 @@ const Hero = () => {
                 Creamos experiencias únicas a través del diseño y desarrollo de
                 sitios web, prototipos y webapps.
               </h1>
-              <div className="flex justify-center gap-6  mt-12">
+              <div className="flex justify-center gap-6 mt-6 md:mt-12">
                 <Button link="/contacto" className="!text-base " mode="white" />{" "}
                 <Link to="/portafolio">
                   <SecondaryButton

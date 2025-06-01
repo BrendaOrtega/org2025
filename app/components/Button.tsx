@@ -39,7 +39,7 @@ export const Button = ({
           );
         }}
         role="button"
-        className={cn("flex  w-fit", className)}
+        className={cn("flex flex-nowrap  w-fit ", className)}
       >
         <div
           className={cn(

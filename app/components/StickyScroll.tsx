@@ -33,7 +33,7 @@ export const StickyScrollReveal = ({
 
   return (
     <article className={cn(currentBgColor, "transition-all ")}>
-      <div className="relative inset-0 w-full h-full">
+      <div className="relative inset-0 w-full h-full hidden md:block">
         <div className="w-36 h-36 rounded-full bg-brand-500/30 blur-3xl  absolute  top-96 " />
       </div>
       <section
@@ -75,17 +75,28 @@ export const StickyScrollReveal = ({
             </InViewDetector>
           ))}
         </div>
-        <div className="sticky max-h-[280px]  md:max-h-[480px] lg:max-h-[400px] lg:min-h-max bg-[#1B2428] top-0 lg:top-60 mt-0 lg:mt-32  w-full  flex-1 overflow-hidden  aspect-square px-0 ">
+        <div
+          className={cn(
+            "sticky h-[50vh]   md:max-h-[480px] lg:max-h-[400px] lg:min-h-max   top-0 lg:top-60 mt-0 lg:mt-32  w-full  flex-1 overflow-hidden  aspect-square px-0 "
+          )}
+        >
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.div
-              className=" w-[70%] md:w-[60%] mx-auto object-contain lg:w-full  box-border  "
-              key={currentIndex}
-              initial={{ opacity: 0, y: 40, filter: "blur(9px" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px" }}
-              exit={{ opacity: 0, y: -40, filter: "blur(9px" }}
-              transition={{ type: "spring", bounce: 0, duration: 0.2 }}
+              className={cn(
+                "w-full h-full  flex items-center  md:pt-0",
+                items[currentIndex].twColor
+              )}
             >
-              {currentImage}
+              <motion.div
+                className=" w-[100%] md:w-[60%] mx-auto object-contain md:object-cover lg:w-full  box-border"
+                key={currentIndex}
+                initial={{ opacity: 0, y: 40, filter: "blur(9px" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px" }}
+                exit={{ opacity: 0, y: -40, filter: "blur(9px" }}
+                transition={{ type: "spring", bounce: 0, duration: 0.2 }}
+              >
+                {currentImage}
+              </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>

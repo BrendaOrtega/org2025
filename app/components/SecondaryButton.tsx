@@ -15,7 +15,10 @@ export const SecondaryButton = ({
   const ref = useRef(null);
 
   return (
-    <div role="button" className={cn("flex  w-fit", className)}>
+    <div
+      role="button"
+      className={cn("flex  w-fit hover:scale-95 transition-all", className)}
+    >
       <div
         className={cn(
           "bg-brand-900 w-fit px-4 rounded-full  text-brand-100 font-normal h-10 flex items-center justify-center",

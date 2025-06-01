@@ -59,7 +59,7 @@ export const Secuence = ({
               translate: "none",
               rotate: "none",
               scale: "none",
-              transformOrigin: "0px 0px;",
+              transformOrigin: "0px 0px",
             }}
           ></circle>
         </g>
@@ -87,14 +87,14 @@ export const Secuence = ({
             cy="50"
             r="18"
             fill="#37AB93"
-            fill-opacity="0.79"
+            fillOpacity="0.79"
             data-svg-origin="-25.85995101928711 50"
             transform="matrix(0.01319,0.99991,-0.99991,0.01319,105.11625,138.41353)"
             style={{
               translate: "none",
               rotate: "none",
               scale: "none",
-              transformOrigin: "0px 0px;",
+              transformOrigin: "0px 0px",
             }}
           ></circle>
         </g>

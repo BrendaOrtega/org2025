@@ -22,14 +22,13 @@ export default function Saas() {
   }, []);
   return (
     <main className="bg-white min-h-screen ">
-      <div className="bg-white relative top-0 z-50">
+      <div className="bg-white relative top-0 z-50 mb-[600px] md:mb-[500px] rounded-b-[40px]">
         <NavBar />
         <SaasContent />
-      </div>
-      <div className="relative h-[900px]">
         <Banner />
-        <Footer />
-      </div>{" "}
+      </div>
+
+      <Footer />
     </main>
   );
 }
@@ -48,25 +47,32 @@ const SaasContent = () => {
         className="text-ironGray text-lg md:text-2xl font-light mt-6"
       >
         Cuando no estamos trabajando con nuestros clientes, estamos
-        desarrollando nuestros propios Saas y aplicaciones web.
+        desarrollando nuestros propios Saas y aplicaciones web, échales un
+        vistazo y pruébalos.
       </motion.p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-x-12 xl:gap-x-56 mt-12 md:mt-20 pb-64">
         <Card
           link="https://www.formmy.app/dash"
           className="bg-formmyCover "
           title="Formmy"
-          description="La forma más fácil de agregar formularios de contacto a tu sitio web"
+          description="La forma más fácil de agregar formularios de contacto a tu sitio web."
         />
         <Card
           className="bg-denikCover mt-0 md:mt-20"
           title="Deník"
-          description="La agenda en línea ideal para tu negocio: cobros, recordatios y más"
+          description="La agenda en línea ideal para tu negocio: cobros, recordatios y más."
         />
         <Card
           className="bg-geekCover"
           link="https://fixtergeek.com/"
           title="Fixtergeek"
-          description="Plataforma de E-learning para aprender a programar"
+          description="Plataforma de E-learning para aprender a programar de forma fácil y práctica."
+        />
+        <Card
+          className="bg-bitsCover mt-0 md:mt-20"
+          link="https://www.easybits.cloud/"
+          title="EasyBits"
+          description="La herramienta para creadores digitales. Dedica más tiempo a crear y menos tiempo a administrar, crea tu asset y EasyBits se encarga del resto."
         />
       </div>
     </section>

@@ -14,6 +14,7 @@ import { animate } from "motion";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaWebAwesome } from "react-icons/fa6";
 import { SecondaryButton } from "~/components/SecondaryButton";
+import { Link } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -35,7 +36,7 @@ export default function Historia() {
   }, []);
   return (
     <main className="bg-brand-900 min-h-screen ">
-      <div className="bg-white relative top-0 z-50 ">
+      <div className="bg-white relative top-0 z-50 mb-[600px] md:mb-[500px] rounded-b-[40px]">
         <NavBar />
         <section className=" max-w-7xl gap-16 mx-auto mt-12 md:mt-20 mb-40 md:mb-64 relative px-4 md:px-[5%] xl:px-0 ">
           <h2 className="text-brand-900 text-4xl md:text-5xl xl:text-6xl font-bold ">
@@ -79,11 +80,9 @@ export default function Historia() {
         </section>
         <ScrollHorizontal />
         <Team />
-      </div>
-      <div className="relative h-[900px]">
         <Banner />
-        <Footer />
-      </div>{" "}
+      </div>
+      <Footer />
     </main>
   );
 }
@@ -114,10 +113,12 @@ const Team = () => {
             Somos creativos que proponen y crean, no esperamos las condiciones
             perfectas, sino que las creamos.
           </p>
-          <SecondaryButton
-            className="mt-8 md:mt-12"
-            title="Trabaja con nosotros"
-          />
+          <Link to="/contacto">
+            <SecondaryButton
+              className="mt-8 md:mt-12"
+              title="Trabaja con nosotros"
+            />{" "}
+          </Link>
         </div>
         <div className="w-80 grow  h-[680px]">
           <img

@@ -22,14 +22,12 @@ export default function Servicios() {
   }, []);
   return (
     <main className="bg-white min-h-screen ">
-      <div className="bg-white relative top-0 z-50">
+      <div className="bg-white relative top-0 z-50 mb-[600px] md:mb-[500px] rounded-b-[40px]">
         <NavBar />
         <Header />
-      </div>
-      <div className="relative h-[900px]">
         <Banner />
-        <Footer />
-      </div>{" "}
+      </div>
+      <Footer />
     </main>
   );
 }
@@ -53,7 +51,7 @@ const Header = () => {
         <Card
           img="/sv-epros.webp"
           title="E4pros"
-          description="Website de curso de Inglés"
+          description="Website de cursos de Inglés"
           date="2024"
           tag="both"
         />
@@ -61,14 +59,14 @@ const Header = () => {
           className="mt-0 md:mt-20"
           img="/sv-ct.webp"
           title="Constructoken"
-          description="Landing page & Aplicacióm móvil Fintech"
+          description="Landing page & Aplicación móvil Fintech"
           date="2023 - 2024"
         />
         <Card
           img="/sv-reform.webp"
           title="ReformAi"
-          description="Venta de muebles y otros servicios"
-          date="2024"
+          description="Venta de muebles, diseño de interiores y otros servicios"
+          date="2025"
         />
         <Card
           className="mt-0 md:mt-20"
@@ -89,7 +87,7 @@ const Header = () => {
           className="mt-0 md:mt-20"
           img="/sv-play.webp"
           title="LastPlay"
-          description="Aplicación Móvil para organizar torneos deportivos"
+          description="Aplicación Móvil para la organización de torneos deportivos"
           date="2023"
         />
         <Card
@@ -170,7 +168,7 @@ const Card = ({
       <h3 className="text-xl md:text-2xl font-bold mt-4 text-brand-900  lg:group-hover:ml-6 transition-all">
         {title}
       </h3>
-      <p className="text-base md:text-lg font-light lg:group-hover:ml-6  transition-all text-ironGray">
+      <p className="text-base md:text-lg font-light lg:group-hover:ml-6 mt-1  transition-all text-ironGray">
         {description} | {date}
       </p>
     </motion.div>

@@ -24,16 +24,14 @@ export default function Servicios() {
   }, []);
   return (
     <main className="bg-white min-h-screen ">
-      <div className="bg-white relative top-0 z-50">
+      <div className="bg-white relative top-0 z-50 mb-[600px] md:mb-[500px] rounded-b-[40px]">
         <NavBar />
         <Services />
         <ServicesList />
         <Advertaising />
-      </div>
-      <div className="relative h-[900px]">
         <Banner />
-        <Footer />
-      </div>{" "}
+      </div>
+      <Footer />
     </main>
   );
 }
