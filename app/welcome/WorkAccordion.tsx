@@ -13,6 +13,7 @@ import { Button } from "~/components/Button";
 import { cn } from "~/lib/utils";
 import { AnimationConfig, desktopConfig, mobileConfig } from "./configs";
 import { useMatchMedia } from "~/hooks/useMatchMedia";
+import { Link } from "react-router";
 
 const projects = [
   {
@@ -185,7 +186,11 @@ export const Info = ({
       <h3 className=" text-xs leading-snug md:text-xl text-center font-bold">
         Conoce todos nuestros proyectos
       </h3>{" "}
-      <Button className="my-6 hidden md:flex" title="Explorar proyectos" />
+      <Button
+        link="/portafolio"
+        className="my-6 hidden md:flex"
+        title="Explorar proyectos"
+      />
       <nav className="flex gap-4 mt-2 md:mt-0 justify-center">
         <a
           href="https://www.facebook.com/profile.php?id=100063503085832"

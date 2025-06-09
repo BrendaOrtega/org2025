@@ -87,7 +87,7 @@ const Header = () => {
           className="mt-0 md:mt-20"
           img="/sv-play.webp"
           title="LastPlay"
-          description="Aplicación Móvil para la organización de torneos deportivos"
+          description="Aplicación Móvil para la organización den torneos deportivos"
           date="2023"
         />
         <Card
