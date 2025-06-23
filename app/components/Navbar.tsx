@@ -8,6 +8,7 @@ const navigation = [
   { name: "Portafolio", link: "/portafolio" },
   { name: "Servicios", link: "/servicios" },
   { name: "Saas & Apps", link: "/saas" },
+  { name: "Inteligencia artificial", link: "/ai" },
 ];
 
 export const SquigglyUnderline = () => {
@@ -130,6 +131,12 @@ export const NavBar = () => {
             isOpen={isOpen}
             title="Nuestra historia"
           />
+          <NavItem
+            link="/ai"
+            index={5}
+            isOpen={isOpen}
+            title="Inteligencia artificial"
+          />
           <Button className="mx-auto mt-16" link="/contacto" />
         </div>
       </motion.div>
@@ -145,23 +152,25 @@ const Burger = ({
   onClick: () => void;
 }) => {
   const [scope, animate] = useAnimate();
+  const location = useLocation();
+  const isAiRoute = location.pathname === "/ai";
   useEffect(() => {
     if (isOpen) {
-      animate("#top", { rotateZ: -135, y: 6, backgroundColor: "white" });
-      animate("#bottom", { rotateZ: 135, y: -5, backgroundColor: "white" });
+      animate("#top", { rotateZ: -135, y: 6, backgroundColor: isAiRoute ? "white" : "#1A2E2B" });
+      animate("#bottom", { rotateZ: 135, y: -5, backgroundColor: isAiRoute ? "white" : "#1A2E2B" });
     } else {
-      animate("#top", { rotateZ: 0, y: 0, backgroundColor: "black" });
-      animate("#bottom", { rotateZ: 0, y: 0, backgroundColor: "black" });
+      animate("#top", { rotateZ: 0, y: 0, backgroundColor: isAiRoute ? "white" : "#1A2E2B" });
+      animate("#bottom", { rotateZ: 0, y: 0, backgroundColor: isAiRoute ? "white" : "#1A2E2B" });
     }
-  }, [isOpen]);
+  }, [isOpen, isAiRoute]);
   return (
     <button
       onClick={onClick}
       ref={scope}
       className="flex md:hidden flex-col gap-2 relative"
     >
-      <div id="top" className=" w-8 h-[3px] bg-brand-900 rounded-full"></div>
-      <div id="bottom" className="w-8 h-[3px] bg-brand-900 rounded-full"></div>
+      <div id="top" className={`w-8 h-[3px] rounded-full transition-all duration-300 ${isAiRoute ? "bg-white" : "bg-brand-900"}`}></div>
+      <div id="bottom" className={`w-8 h-[3px] rounded-full transition-all duration-300 ${isAiRoute ? "bg-white" : "bg-brand-900"}`}></div>
     </button>
   );
 };
@@ -198,7 +207,7 @@ const NavItem = ({
           transform: "translateY(20px)",
           filter: "blur(9px)",
         }}
-        className="text-4xl my-10 font-light text-brand-900"
+        className="text-4xl my-10 font-light text-white"
       >
         {title}
       </h3>

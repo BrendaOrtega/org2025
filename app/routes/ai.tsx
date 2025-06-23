@@ -46,9 +46,16 @@ const Hero = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
+
+
   return (
-    <section className="pt-32 pb-20 bg-darkGreen min-h-[80vh]">
-      <div className="container mx-auto px-6">
+    <section className="pt-32 pb-20 bg-darkGreen min-h-[80vh] relative overflow-hidden ">
+      {/* Pattern background */}
+      <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center pointer-events-none bg-pattern bg-cover bg-contain">
+       
+      </div>
+      {/* Content */}
+      <div className="container mx-auto px-6 relative z-10  mt-20">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -56,7 +63,7 @@ const Hero = () => {
           transition={{ duration: 1 }}
           className="text-center max-w-4xl mx-auto"
         >
-                <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-4 scale-150">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="20" cy="20" r="18" fill="#85DDCB" fillOpacity="0.15" />
               <path d="M20 10a6 6 0 0 1 6 6v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2v2a6 6 0 0 1-12 0v-2h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2v-2a6 6 0 0 1 6-6zm0 2a4 4 0 0 0-4 4v2h8v-2a4 4 0 0 0-4-4zm-6 8v2a4 4 0 0 0 8 0v-2h-8z" fill="#85DDCB" />
@@ -68,18 +75,18 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-white text-4xl lg:text-5xl xl:text-6xl font-bold"
+            className="text-white text-4xl lg:text-5xl xl:text-6xl font-bold mt-12"
           >
-       Potencia tu negocio con IA de vanguardia.
+            Potencia tu negocio con IA de vanguardia.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-             className="text-lightGray text-lg md:text-2xl font-light mt-6"
+            className="text-lightGray text-lg md:text-2xl font-light mt-6"
           >
-                 Phi-4: El Futuro de la IA. La nueva generación de inteligencia artificial que revoluciona la forma en que interactuamos con la tecnología. 
+            Phi-4: El Futuro de la IA. La nueva generación de inteligencia artificial que revoluciona la forma en que interactuamos con la tecnología. 
           </motion.p>
 
           <motion.div
@@ -89,7 +96,6 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-16"
           >
             <Button title="Ver demo" />
-    
           </motion.div>
         </motion.div>
       </div>
@@ -110,7 +116,7 @@ const Capabilities = () => {
   ];
 
   return (
-    <section className="py-20 bg-darkGreen max-w-7xl mx-auto">
+    <section className="py-40 bg-darkGreen max-w-7xl mx-auto">
       <div className="container mx-auto px-6 grid grid-cols-6 gap-20">
         <div className="col-span-3">
           <motion.div
@@ -299,7 +305,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-40 bg-darkGreen mb-20">
+    <section className="py-40 bg-darkGreen mb-40">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}

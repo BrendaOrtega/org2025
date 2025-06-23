@@ -56,6 +56,7 @@ export default {
         bitsCover: "url('/projects/bits-org.webp')",
         dotts: "url('/dotts.svg')",
         bloob: "url('/bloob.png')",
+        pattern: "url('/pattern.svg')",
       },
       keyframes: {
         shine: {
