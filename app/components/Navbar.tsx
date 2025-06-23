@@ -14,6 +14,7 @@ export const SquigglyUnderline = () => {
   const [selectedLink, setSelectedLink] = useState("Home");
   const [isHover, setIsHover] = useState<number | null>(null);
   const location = useLocation();
+  const isAiRoute = location.pathname === "/ai";
   return (
     <div className="flex gap-3 md:gap-6 lg:gap-16">
       {navigation.map((item, i) => {
@@ -25,8 +26,8 @@ export const SquigglyUnderline = () => {
             to={item.link}
             className={`relative text-sm leading-6 no-underline ${
               isCurrent || isCurrentRoute
-                ? "font-semibold text-brand-900"
-                : "text-brand-900"
+                ? `font-semibold ${isAiRoute ? "text-white" : "text-brand-900"}`
+                : isAiRoute ? "text-white" : "text-brand-900"
             }`}
             onClick={() => setSelectedLink(item.name)}
             onMouseEnter={() => {
@@ -85,7 +86,7 @@ export const NavBar = () => {
   return (
     <section
       ref={scope}
-      className=" w-full px-6 md:px-[12%] lg:px-[5%] xl:px-0  bg-white/20 backdrop-blur relative z-[100]"
+      className=" w-full px-6 md:px-[12%] lg:px-[5%] xl:px-0   backdrop-blur relative z-[100]"
     >
       <nav className="flex relative z-[120] max-w-7xl mx-auto py-4 md:py-8 items-center justify-between ">
         <Link to="/">
@@ -189,7 +190,7 @@ const NavItem = ({
     }
   }, [isOpen]);
   return (
-    <Link to={link}>
+    <Link to={link || "#"}>
       <h3
         ref={scope}
         style={{
@@ -197,7 +198,7 @@ const NavItem = ({
           transform: "translateY(20px)",
           filter: "blur(9px)",
         }}
-        className="text-4xl my-10 font-light"
+        className="text-4xl my-10 font-light text-brand-900"
       >
         {title}
       </h3>

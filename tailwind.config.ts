@@ -29,6 +29,8 @@ export default {
         ironGray: "#445C64",
         lightGray: "#889194",
         iron: "#ACACAC",
+        darkGreen: "#0C1012",
+        ironGreen: "#141B1C",
       },
       fontFamily: {
         sans: [

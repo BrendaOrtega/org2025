@@ -7,4 +7,5 @@ export default [
   route("/saas", "./routes/saas.tsx"),
   route("/contacto", "./routes/contacto.tsx"),
   route("/historia", "./routes/historia.tsx"),
+  route("/ai", "./routes/ai.tsx"),
 ] satisfies RouteConfig;

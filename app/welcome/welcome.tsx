@@ -18,6 +18,7 @@ import { motion, useInView } from "motion/react";
 import BlobCursor from "~/components/BlobCursor";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { WorkAccordion } from "./WorkAccordion";
+import { cn } from "~/lib/utils";
 
 const projects = [
   {
@@ -76,7 +77,7 @@ export function Welcome() {
 
 export const Banner = () => {
   return (
-    <section className="bg-brand-500 pb-10  md:pb-20 pt-16 md:pt-32 rounded-5xl sticky -top-8 md:top-0 w-full z-50 -mt-32 md:-mt-32 ">
+    <section className="bg-brand-500 pb-10 text-brand-900  md:pb-20 pt-16 md:pt-32 rounded-5xl sticky -top-8 md:top-0 w-full z-50 -mt-32 md:-mt-32 ">
       <img className="mx-auto -mt-28 md:-mt-44" src="/star.png" />
       <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold text-center my-8 md:my-16 ">
         Construyamos algo grandioso juntos
@@ -86,9 +87,9 @@ export const Banner = () => {
   );
 };
 
-export const Footer = () => {
+export const Footer = ({className}: {className?: string}) => {
   return (
-    <section className="bg-brand-900 h-[900px] overflow-hidden flex items-end  w-full fixed  z-10 bottom-0  md:pt-[300px]  ">
+    <section className={cn("bg-brand-900 h-[900px] overflow-hidden flex items-end  w-full fixed  z-10 bottom-0  md:pt-[300px]  ", className)}>
       <div className=" pt-32 w-full min-h-fit flex flex-col justify-end  ">
         <div className="flex w-full px-4 md:px-[5%] xl:px-0 flex-wrap gap-10 md:flex-nowrap md:gap-0 xl:gap-10 justify-between  max-w-7xl mx-auto">
           <div className="w-full md:w-fit flex flex-col justify-start items-start">
