@@ -461,9 +461,9 @@ const Features = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <FeatureCard index={1}  title="Implementación ágil y acompañamiento experto" description="Te guiamos paso a paso para que la IA trabaje para ti desde el primer día." className=" col-span-1 md:col-span-2"     image="/icons/img1.png"  />
-          <FeatureCard index={2} title="Soluciones personalizadas, nada genérico" description="Cada negocio es único. Creamos automatizaciones que se adaptan a tus procesos y objetivos."   image="/icons/img4.svg"   />
-          <FeatureCard index={3} title="Ahorro de tiempo y reducción de errores" description="Automatiza tareas repetitivas y minimiza los errores humanos para que tu equipo se enfoque en lo importante."   image="/icons/img2.png"    />
-          <FeatureCard index={4} title="Integración rápida" description="Conectamos la IA con tus sistemas actuales." image="/icons/img3.svg"    />
+          <FeatureCard index={2} title="Soluciones personalizadas, nada genérico" description="Cada negocio es único. Creamos automatizaciones que se adaptan a tus procesos y objetivos."   image="/icons/img4.svg"  imageClassName="scale-75 -top-16 md:top-0 md:scale-100"  />
+          <FeatureCard index={3} title="Ahorro de tiempo y reducción de errores" description="Automatiza tareas repetitivas y minimiza los errores humanos para que tu equipo se enfoque en lo importante."   image="/icons/img2.png"   imageClassName="scale-50 -top-20 md:top-0 md:scale-100"  />
+          <FeatureCard index={4} title="Integración rápida" description="Conectamos la IA con tus sistemas actuales." image="/icons/img3.svg"  imageClassName=" -top-16 md:top-0 "   />
           <div className="col-span-1 subgrid">
           <FeatureCard index={5} title="Soporte humano " description="Nuestro equipo está listo para ayudarte en cada etapa del proceso."  className="!h-[207px]"  image="/icons/img6.svg"    />
 
@@ -563,7 +563,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-darkGreen mb-40">
+    <section className="py-20 md:py-32 bg-darkGreen mb-20">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -600,7 +600,7 @@ const FAQItem = ({
   index: number;
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
   const [open, setOpen] = React.useState(false);
 
   return (

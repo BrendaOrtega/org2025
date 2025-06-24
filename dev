@@ -1,0 +1,9 @@
+> react-router dev
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+5:06:16 PM [vite] hmr update /app/routes/ai.tsx?route-entry=1, /app/routes/ai.tsx, /app/app.css?direct
