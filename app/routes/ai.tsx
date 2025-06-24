@@ -703,7 +703,7 @@ const PricingCard = ({
 
       {index !== 0 && (
         <Link to="/contact">
-        <button className="mt-auto w-full bg-brand-500 text-brand-900 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-gray-800">
+        <button className="mt-auto w-full bg-brand-500 text-brand-900 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-95 cursor-pointer">
           {cta}
         </button></Link>
       )}
