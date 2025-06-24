@@ -9,13 +9,17 @@ import { Button } from "~/components/Button";
 import { cn } from "~/lib/utils";
 import { IoOpenOutline, IoChevronDown, IoAdd } from "react-icons/io5";
 import { Link } from "react-router";
+import { Secuence } from "../icons/secuence";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Phi-4 - La Nueva Generación de Inteligencia Artificial" },
-    { name: "description", content: "Phi-4: La inteligencia artificial más avanzada del mercado. Potencia tu negocio con IA de vanguardia y capacidades revolucionarias." },
+    { title: "Agrega IA a tu negocio" },
+    { name: "description", content: "Agrega IA a tu negocio con nuestras soluciones de IA de vanguardia." },
   ];
 }
+
+
+
 
 export default function AI() {
   useEffect(() => {
@@ -34,7 +38,12 @@ export default function AI() {
         <Capabilities />
         <Features />
         <Pricing />
+        <CustomLLMBanner />
         <FAQ />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <Banner />
       </div>
       <Footer className="bg-darkGreen" />
@@ -82,7 +91,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lightGray text-lg md:text-2xl font-light mt-6"
           >
-            Descubre cómo la inteligencia artificial puede reducir tus costos, acelerar tus procesos y liberar a tu equipo de tareas repetitivas. Implementa soluciones de automatización y lleva tu empresa al siguiente nivel.
+            Deja que la IA trabaje por ti: automatiza procesos, reduce errores y libera a tu equipo de tareas repetitivas. Enfócate en crecer, nosotros nos encargamos de la tecnología.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -103,7 +112,7 @@ const Capabilities = () => {
   const isInView = useInView(ref);
 
   return (
-    <section className="py-20 md:py-40 bg-darkGreen max-w-7xl px-4 md:px-[5%] xl:px-0 mx-auto">
+    <section className="py-20 md:py-32 bg-darkGreen max-w-7xl px-4 md:px-[5%] xl:px-0 mx-auto">
       <div className="container mx-auto  grid grid-cols-6 gap-10 md:gap-20">
         <div className="col-span-6 lg:col-span-3">
           <motion.div
@@ -122,9 +131,14 @@ const Capabilities = () => {
             </p>
             <div className="flex flex-wrap items-start justify-center md:justify-start gap-4 mt-10">
               <HeaderTag title="Automatización de procesos" variant="default" />
-              <HeaderTag title="Chatbots inteligentes" variant="default" />
+              <HeaderTag title="Chatbots inteligentes" variant="default" />          
+                  <HeaderTag title="Alertas automáticas" variant="default" />
               <HeaderTag title="Análisis de datos en tiempo real" variant="default" />
               <HeaderTag title="Integración con tus sistemas" variant="default" />
+              <HeaderTag title="Reconocimiento de voz y texto" variant="default" />
+              <HeaderTag title="Generación de contenido" variant="default" />
+
+       
             </div>
           </motion.div>
         </div>
@@ -360,8 +374,8 @@ const CapabilityCard = ({
       className={cn("group relative bg-white h-[528px] text-brand-900 border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer", index === 1 && "bg-ironGreen border-none text-white", index === 2 && "bg-darkGreen border-white/10 text-white")}
     >
           <div className="absolute top-6 left-6 text-left z-10">
-                <h3 className={cn("text-xl font-bold text-brand-900", index === 1 && "text-white", index === 2 && "text-white")}>{title}</h3>
-                <p className="text-lightGray text-base font-light mt-1">{description}</p>
+                <h3 className={cn("text-2xl font-bold text-brand-900", index === 1 && "text-white", index === 2 && "text-white")}>{title}</h3>
+                <p className="text-lightGray text-base font-light mt-2">{description}</p>
               </div>
         <div className={cn("absolute text-brand-900 bottom-4 right-4 w-8 h-8 bg-[#CECFD0] rounded grid place-items-center ",  index === 1 && "bg-[#1D2726] text-white", index === 2 && "bg-white/5 text-white")}>
         <IoOpenOutline className=" text-xl" />
@@ -383,7 +397,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-20 bg-darkGreen max-w-7xl px-4 md:px-[5%] xl:px-0   mx-auto">
+    <section className="py-32 bg-darkGreen max-w-7xl px-4 md:px-[5%] xl:px-0   mx-auto">
       <div className="container mx-auto">
         <motion.div
           ref={ref}
@@ -394,24 +408,25 @@ const Features = () => {
         >
             <HeaderTag title="Ventajas competitivas" variant="brand"  />
           <h2 className="text-3xl text-center md:text-4xl font-bold mb-6 text-white">
-            ¿Por qué automatizar con Phi-4?
+            ¿Por qué automatizar con IA?
           </h2>
           <p className="text-base md:text-xl text-center text-lightGray font-light max-w-3xl mx-auto">
-            Nuestra plataforma combina la última tecnología en IA con una implementación ágil y soporte experto. Olvídate de soluciones genéricas: te ayudamos a transformar tu operación con inteligencia real.
+            Nuestra servicios se basan en la última tecnología en IA con una implementación ágil y soporte experto. Olvídate de soluciones genéricas: te ayudamos a transformar tu operación con inteligencia real.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <FeatureCard index={1} title="Implementación ágil y acompañamiento experto" description="Te guiamos paso a paso para que la IA trabaje para ti desde el primer día." className=" col-span-1 md:col-span-2"     image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"   />
-          <FeatureCard index={2} title="Soluciones personalizadas, nada genérico" description="Cada negocio es único. Creamos automatizaciones que se adaptan a tus procesos y objetivos."  image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"  />
-          <FeatureCard index={3} title="Ahorro de tiempo y reducción de errores" description="Automatiza tareas repetitivas y minimiza los errores humanos para que tu equipo se enfoque en lo importante."  image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"    />
-          <FeatureCard index={4} title="Soporte humano siempre que lo necesites" description="Nuestro equipo está listo para ayudarte en cada etapa del proceso."  image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"    />
+          <FeatureCard index={1}  title="Implementación ágil y acompañamiento experto" description="Te guiamos paso a paso para que la IA trabaje para ti desde el primer día." className=" col-span-1 md:col-span-2"     image="/icons/img1.png"  />
+          <FeatureCard index={2} title="Soluciones personalizadas, nada genérico" description="Cada negocio es único. Creamos automatizaciones que se adaptan a tus procesos y objetivos."   image="/icons/img4.svg"   />
+          <FeatureCard index={3} title="Ahorro de tiempo y reducción de errores" description="Automatiza tareas repetitivas y minimiza los errores humanos para que tu equipo se enfoque en lo importante."   image="/icons/img2.png"    />
+          <FeatureCard index={4} title="Integración rápida" description="Conectamos la IA con tus sistemas actuales." image="/icons/img3.svg"    />
           <div className="col-span-1 subgrid">
-          <FeatureCard index={5} title="Integración rápida" description="Conectamos la IA con tus sistemas actuales sin complicaciones." className="!h-[207px]"    />
-          <FeatureCard index={6} title="Escalabilidad garantizada" description="Empieza pequeño y crece a tu ritmo, sin límites." className="!h-[207px] mt-6"    />
+          <FeatureCard index={5} title="Soporte humano " description="Nuestro equipo está listo para ayudarte en cada etapa del proceso."  className="!h-[207px]"  image="/icons/img6.svg"    />
+
+          <FeatureCard index={6} title="Escalabilidad garantizada" description="Empieza pequeño y crece a tu ritmo, sin límites." className="!h-[207px] mt-6"    image="/icons/img5.svg"  />
           </div>
-          <FeatureCard index={7} title="Automatización segura" description="Tus datos siempre protegidos con los más altos estándares de seguridad."  className="col-span-1"   image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"   />
-          <FeatureCard index={8} title="Resultados medibles" description="Mide el impacto de la automatización en tu negocio con reportes claros y accionables." className="col-span-1 md:col-span-2"   image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"    />
+          {/* <FeatureCard index={7} title="Automatización segura" description="Tus datos siempre protegidos con los más altos estándares de seguridad."  className="col-span-1"   image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"   /> */}
+          {/* <FeatureCard index={8} title="Resultados medibles" description="Mide el impacto de la automatización en tu negocio con reportes claros y accionables." className="col-span-1 md:col-span-2"   image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"    /> */}
         </div>
       </div>
     </section>
@@ -444,11 +459,11 @@ const FeatureCard = ({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={cn("group relative bg-ironGreen overflow-hidden h-[280px] md:h-[438px] border border-white/10 rounded-3xl  hover:shadow-lg transition-all duration-300 hover:border-brand-500/50", className) }
+      className={cn("group relative bg-ironGreen bg-darkGreen overflow-hidden h-[280px] md:h-[438px] border border-white/10 rounded-3xl  hover:shadow-lg transition-all duration-300 hover:border-brand-500/50", className) }
     >
 
       <img className={cn("absolute top-0 left-0 w-full object-cover z-0", imageClassName)} src={image} alt={title} />
-      <div className="absolute bottom-0 left-0 w-full z-10 bg-gradient-to-b from-ironGreen/0 p-6 to-ironGreen/100 pointer-events-none">
+      <div className="absolute bottom-0 left-0 w-full backdrop-blur z-10 bg-gradient-to-b from-ironGreen/0 p-6 to-ironGreen/100 pointer-events-none">
         <h3 className="text-white text-base md:text-xl font-bold">{title}</h3>
         <p className="text-lightGray text-xs md:text-sm font-light mt-2"> {description}</p>
       </div>
@@ -476,11 +491,11 @@ const FAQ = () => {
     },
     {
       question: " ¿Qué incluye el precio?",
-      answer: "Implementación, capacitación, soporte prioritario, actualizaciones automáticas y acceso a todas las funcionalidades premium. Sin costos ocultos."
+      answer: "Implementación, capacitación, soporte prioritario y actualizaciones automáticas sin costos ocultos."
     },
     {
       question: " ¿Cuánto tiempo toma la implementación?",
-      answer: "Depende del proyecto, pero generalmente es entre 2 y 4 semanas."
+      answer: "Depende del proyecto, pero generalmente es entre 2 y 8 semanas."
     },
     {
       question: " ¿Se integra con mis herramientas?",
@@ -488,11 +503,11 @@ const FAQ = () => {
     },
     {
       question: " ¿Necesito conocimientos técnicos?",
-      answer: "¡Para nada! Microsoft Phi-4 está diseñado para ser súper intuitivo. Interfaz simple, comandos en lenguaje natural y soporte prioritario. Cualquiera puede usarlo desde el primer día."
+      answer: "¡Para nada! Tanto Microsoft Phi-4 como nuestros servicios están diseñados para ser súper intuitivos. Interfaz simple, comandos en lenguaje natural y soporte prioritario. Cualquiera puede usarlo desde el primer día."
     },
     {
-      question: "📊 ¿Hay límites de uso?",
-      answer: "Sin límites artificiales. El LLM escala con tu negocio. Usa tanto como necesites, procesa todos los datos que quieras. Tu éxito no tiene techo con Microsoft Phi-4."
+      question: "¿Hay límites de uso?",
+      answer: "Sin límites artificiales. El LLM escala con tu negocio. Usa tanto como necesites, procesa todos los datos que quieras. Tu éxito no tiene techo."
     },
     {
       question: "¿Qué tipo de soporte ofrecen?",
@@ -501,7 +516,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-20 md:py-40 bg-darkGreen mb-40">
+    <section className="py-20 md:py-32 bg-darkGreen mb-40">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -558,7 +573,7 @@ const FAQItem = ({
         <span className="flex items-center justify-center">
           <IoAdd
             className={cn(
-              "text-3xl text-brand-500 transition-transform duration-300",
+              "text-3xl text-white transition-transform duration-300",
               open && "rotate-45"
             )}
           />
@@ -597,11 +612,11 @@ const Pricing = () => {
 
   const plans = [
     {
-      name: "Implementación con ChatGPT",
-      price: "$45,000+",
+      name: "Implementación IA",
+      price: "+$45,000",
       subtitle: "MXN por mes",
       features: [
-        { text: "Suscripción ChatGPT Plus ($20/mes)", icon: FaDollarSign },
+        { text: "Suscripción AI ($20/mes)", icon: FaDollarSign },
         { text: "Desarrollo de prompts personalizados", icon: FaTools },
         { text: "Integración manual con tus sistemas", icon: FaClock },
         { text: "Mantenimiento y ajustes continuos", icon: FaCogs },
@@ -620,14 +635,14 @@ const Pricing = () => {
         { text: "Integración nativa con tus herramientas", icon: FaShieldAlt },
         { text: "Soporte técnico prioritario", icon: FaHeadset },
         { text: "Resultados medibles y personalizados", icon: FaChartLine },
-        { text: "Ahorro del 88% vs ChatGPT", icon: FaPercent }
+        { text: "Ahorro hasta del 88% vs ChatGPT", icon: FaPercent }
       ],
       cta: "Cotiza tu proyecto"
     }
   ];
 
   return (
-    <section className="py-20 md:py-40 bg-darkGreen ">
+    <section className="py-20 md:py-32 bg-darkGreen ">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -637,11 +652,11 @@ const Pricing = () => {
           className="text-center mb-16 flex flex-col items-center"
         >
                  <HeaderTag title="Inversión inteligente" variant="brand"  />
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-3xl text-center md:text-4xl font-bold mb-6 text-white">
             ¿Por qué pagar más por menos?
           </h2>
           <p className="text-base md:text-xl text-center text-lightGray font-light max-w-3xl mx-auto">
-            Compara el costo real de implementar ChatGPT en tu empresa vs nuestro servicio optimizado. Ahorra tiempo, dinero y obtén mejores resultados.
+            Compara el costo real de implementar IA con ChatGPT o Gemini en tu empresa por tu cuenta vs nuestro servicio optimizado. Ahorra tiempo, dinero y obtén mejores resultados.
           </p>
         </motion.div>
 
@@ -709,4 +724,100 @@ const PricingCard = ({
       )}
     </motion.div>
   );
-}; 
+};
+
+const CustomLLMBanner = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
+  return (
+    <section className="py-16 md:py-24 bg-transparent">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="border border-white/10  rounded-3xl p-0 md:p-0 flex flex-col md:flex-row items-stretch overflow-hidden shadow-xl"
+        >
+          {/* Left: Content */}
+          <div className="flex-1 p-8 md:p-14 flex flex-col justify-center">
+<HeaderTag title="LLM Empresarial" variant="brand"  />
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">IA privada para tu empresa</h2>
+            <p className="text-lightGray text-lg mb-8 max-w-xl font-light">
+              Implementa tu propio modelo de lenguaje (LLM) privado, entrenado con tus datos y totalmente bajo tu control. Seguridad, personalización y escalabilidad para empresas que exigen lo mejor.
+            </p>
+            <ul className="space-y-6 mb-10">
+              <li className="flex items-start gap-4">
+                <FaShieldAlt className="text-brand-500 text-2xl mt-1" />
+                <div>
+                  <span className="text-white font-semibold">Privacidad total</span>
+                  <p className="text-lightGray text-base font-light">Tus datos nunca salen de tu infraestructura.</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-4">
+                <FaCogs className="text-brand-500 text-2xl mt-1" />
+                <div>
+                  <span className="text-white font-semibold">Personalización avanzada</span>
+                  <p className="text-lightGray text-base font-light">Entrenado y ajustado para tus procesos y necesidades.</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-4">
+                <FaChartLine className="text-brand-500 text-2xl mt-1" />
+                <div>
+                  <span className="text-white font-semibold">Escalabilidad y control</span>
+                  <p className="text-lightGray text-base font-light">Crecimiento sin límites y control total sobre el modelo.</p>
+                </div>
+              </li>
+            </ul>
+            <div className="flex gap-4 mt-2">
+              <Button  title="Cotizar mi proyecto" link="/contacto"  />
+           
+            </div>
+          </div>
+          {/* Right: Illustration (Grid 3x5 de LLMs con máscara radial) */}
+          <div className="hidden md:block relative min-w-[340px] max-w-[420px]">
+            <div
+              className="grid grid-cols-3 grid-rows-5 gap-8  px-8 py-8 w-full h-full place-items-center rounded-2xl"
+              style={{
+                maskImage: 'radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0.7) 65%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100%)',
+                WebkitMaskImage: 'radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0.7) 65%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100%)',
+              }}
+            >
+              {/* Fila 1 */}
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#384B4B] font-bold">Phi-4</div>
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/chatgpt.svg" alt="gpt" className="w-2/3 h-full object-contain" /></div>
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/microsoft.svg" alt="Phi-4" className="w-1/2 h-full object-contain" /></div>
+              {/* Fila 2 */}
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/llama.svg" alt="llama" className="w-2/3 h-full object-contain" /></div>
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-xl text-[#384B4B] font-bold">Astral</div>
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/claude.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              {/* Fila 3 */}
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/gemini.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="w-20 h-20 rounded-2xl bg-brand-500/10 flex items-center justify-center shadow-lg">
+              <div className="flex justify-center mb-4 scale-150 pt-2">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="18" fill="#85DDCB" fillOpacity="0.15" />
+              <path d="M20 10a6 6 0 0 1 6 6v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2v2a6 6 0 0 1-12 0v-2h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2v-2a6 6 0 0 1 6-6zm0 2a4 4 0 0 0-4 4v2h8v-2a4 4 0 0 0-4-4zm-6 8v2a4 4 0 0 0 8 0v-2h-8z" fill="#85DDCB" />
+              <circle cx="14" cy="26" r="2" fill="#85DDCB" />
+              <circle cx="26" cy="26" r="2" fill="#85DDCB" />
+            </svg>
+          </div>
+              </div>
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/mistral.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              {/* Fila 4 */}
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/claude2.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/tropic.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-lg text-[#384B4B] font-bold">Gemini</div>
+              {/* Fila 5 */}
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/chatgpt.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/gok.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/journey.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+

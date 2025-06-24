@@ -78,7 +78,7 @@ export function Welcome() {
 export const Banner = () => {
   return (
     <section className="bg-brand-500 pb-10 text-brand-900  md:pb-20 pt-16 md:pt-32 rounded-5xl sticky -top-8 md:top-0 w-full z-50 -mt-32 md:-mt-32 ">
-      <img className="mx-auto -mt-28 md:-mt-44" src="/star.png" />
+      <img className="mx-auto -mt-28 md:-mt-[180px]" src="/star.png" />
       <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold text-center my-8 md:my-16 ">
         Construyamos algo grandioso juntos
       </h2>
