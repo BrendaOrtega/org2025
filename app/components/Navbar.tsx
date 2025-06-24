@@ -82,6 +82,20 @@ export const NavBar = () => {
     }
   };
 
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to restore scroll when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   const [scope, animate] = useAnimate();
 
   return (
@@ -109,9 +123,9 @@ export const NavBar = () => {
         style={{
           y: "-100%",
         }}
-        className="bg-bloob bg-cover px-6 inset-0 w-full h-screen absolute"
+        className="bg-bloob bg-cover px-6 inset-0 w-full h-screen absolute grid place-content-center"
       >
-        <div className="text-center mt-48 text-white">
+        <div className="text-center  text-white">
           <NavItem
             link="/portafolio"
             index={1}
@@ -156,8 +170,8 @@ const Burger = ({
   const isAiRoute = location.pathname === "/ai";
   useEffect(() => {
     if (isOpen) {
-      animate("#top", { rotateZ: -135, y: 6, backgroundColor: isAiRoute ? "white" : "#1A2E2B" });
-      animate("#bottom", { rotateZ: 135, y: -5, backgroundColor: isAiRoute ? "white" : "#1A2E2B" });
+      animate("#top", { rotateZ: -135, y: 6, backgroundColor: "white" });
+      animate("#bottom", { rotateZ: 135, y: -5, backgroundColor: "white" });
     } else {
       animate("#top", { rotateZ: 0, y: 0, backgroundColor: isAiRoute ? "white" : "#1A2E2B" });
       animate("#bottom", { rotateZ: 0, y: 0, backgroundColor: isAiRoute ? "white" : "#1A2E2B" });
@@ -169,8 +183,8 @@ const Burger = ({
       ref={scope}
       className="flex md:hidden flex-col gap-2 relative"
     >
-      <div id="top" className={`w-8 h-[3px] rounded-full transition-all duration-300 ${isAiRoute ? "bg-white" : "bg-brand-900"}`}></div>
-      <div id="bottom" className={`w-8 h-[3px] rounded-full transition-all duration-300 ${isAiRoute ? "bg-white" : "bg-brand-900"}`}></div>
+      <div id="top" className={`w-8 h-[3px] rounded-full transition-all duration-300 ${isOpen ? "bg-white" : isAiRoute ? "bg-white" : "bg-brand-900"}`}></div>
+      <div id="bottom" className={`w-8 h-[3px] rounded-full transition-all duration-300 ${isOpen ? "bg-white" : isAiRoute ? "bg-white" : "bg-brand-900"}`}></div>
     </button>
   );
 };
