@@ -1,7 +1,7 @@
 import type { Route } from "./+types/home";
 import { Banner, Footer } from "../welcome/welcome";
 import { NavBar } from "~/components/Navbar";
-import { motion, useInView, AnimatePresence } from "motion/react";
+import { motion, useInView, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { ReactNode, useEffect, useRef } from "react";
 import React from "react";
 import { FaPlay, FaArrowRight, FaCheck, FaDiscord, FaGithub, FaBrain, FaRocket, FaShieldAlt, FaLightbulb, FaChartLine, FaCogs, FaTimes, FaDollarSign, FaClock, FaTools, FaHeadset, FaPercent } from "react-icons/fa";
@@ -47,10 +47,9 @@ const Hero = () => {
   const isInView = useInView(ref);
 
   return (
-    <section className="pt-32 pb-20 bg-darkGreen min-h-[80vh] relative overflow-hidden ">
-      {/* Pattern background */}
-      <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center pointer-events-none bg-pattern bg-cover bg-contain">
-      </div>
+    <section className=" pt-0 md:pt-32 pb-20 bg-darkGreen min-h-[80vh] relative overflow-hidden grid place-content-center ">
+      {/* Pattern background estático */}
+      <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center pointer-events-none bg-pattern bg-cover bg-center" aria-hidden />
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10  mt-20">
         <motion.div
@@ -72,7 +71,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-white text-4xl lg:text-5xl xl:text-6xl font-bold mt-12"
+            className="text-white text-4xl lg:text-5xl xl:text-6xl font-bold mt-8 md:mt-12"
           >
             Automatiza tu negocio con IA y multiplica tus resultados
           </motion.h1>
@@ -83,7 +82,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lightGray text-lg md:text-2xl font-light mt-6"
           >
-            Descubre cómo la inteligencia artificial puede reducir tus costos, acelerar tus procesos y liberar a tu equipo de tareas repetitivas. Implementa soluciones de automatización personalizadas y lleva tu empresa al siguiente nivel.
+            Descubre cómo la inteligencia artificial puede reducir tus costos, acelerar tus procesos y liberar a tu equipo de tareas repetitivas. Implementa soluciones de automatización y lleva tu empresa al siguiente nivel.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -104,24 +103,24 @@ const Capabilities = () => {
   const isInView = useInView(ref);
 
   return (
-    <section className="py-40 bg-darkGreen max-w-7xl mx-auto">
-      <div className="container mx-auto px-6 grid grid-cols-6 gap-20">
-        <div className="col-span-3">
+    <section className="py-20 md:py-40 bg-darkGreen max-w-7xl px-4 md:px-[5%] xl:px-0 mx-auto">
+      <div className="container mx-auto px-6 grid grid-cols-6 gap-10 md:gap-20">
+        <div className="col-span-6 lg:col-span-3">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16 sticky top-10"
+            className="text-center mb-16 sticky top-10 flex md:block flex-col items-center "
           >
-              <HeaderTag title="Transforma tu empresa con IA" variant="brand" />
-            <h2 className="text-3xl text-left md:text-4xl font-bold mb-6 text-white">
+              <HeaderTag title="Transforma tu empresa con IA"  variant="brand" />
+            <h2 className="text-3xl text-center md:text-left md:text-4xl font-bold mb-6 text-white">
               Soluciones de IA a la medida de tu empresa
             </h2>
-            <p className="text-xl text-left text-lightGray font-light max-w-3xl mx-auto">
+            <p className="text-base md:text-xl text-center md:text-left text-lightGray font-light max-w-3xl mx-auto">
               Desde atención al cliente automatizada hasta análisis predictivo y generación de reportes, integra la IA en tus procesos clave para que tu negocio sea más eficiente, rentable y competitivo.
             </p>
-            <div className="flex flex-wrap items-start justify-start gap-4 mt-10">
+            <div className="flex flex-wrap items-start justify-center md:justify-start gap-4 mt-10">
               <HeaderTag title="Automatización de procesos" variant="default" />
               <HeaderTag title="Chatbots inteligentes" variant="default" />
               <HeaderTag title="Análisis de datos en tiempo real" variant="default" />
@@ -130,7 +129,7 @@ const Capabilities = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 col-span-3">
+        <div className="grid grid-cols-1 gap-6 col-span-6 lg:col-span-3">
         <CapabilityCard index={0} title="Atención al cliente 24/7 con IA" description="Responde consultas y resuelve problemas de tus clientes en cualquier momento.">
           {(() => {
             const ref = React.useRef(null);
@@ -151,7 +150,7 @@ const Capabilities = () => {
                       initial={{ opacity: 0, x: -40 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.5 }}
-                      className="self-start bg-gray-100 text-gray-900 px-4 py-3 rounded-2xl rounded-bl-sm text-base max-w-[80%] shadow"
+                      className="self-start bg-gray-100 text-gray-900 px-4 py-3 rounded-2xl rounded-bl-sm text-sm md:text-base max-w-[80%] shadow"
                     >
                       ¡Hola! ¿En qué puedo ayudarte hoy?
                     </motion.div>
@@ -159,7 +158,7 @@ const Capabilities = () => {
                       initial={{ opacity: 0, x: 40 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.5, delay: 0.2 }}
-                      className="self-end bg-brand-500/20 text-brand-900 px-4 py-3 rounded-2xl rounded-br-sm text-base max-w-[70%] shadow"
+                      className="self-end bg-brand-500/20 text-brand-900 px-4 py-3 rounded-2xl rounded-br-sm text-sm md:text-base max-w-[70%] shadow"
                     >
                       Quiero cotizar un pedido
                     </motion.div>
@@ -167,7 +166,7 @@ const Capabilities = () => {
                       initial={{ opacity: 0, x: 40 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.5, delay: 0.3 }}
-                      className="self-end bg-brand-500/20 text-brand-900 px-4 py-3 rounded-2xl rounded-br-sm text-base max-w-[70%] shadow"
+                      className="self-end bg-brand-500/20 text-brand-900 px-4 py-3 rounded-2xl rounded-br-sm text-sm md:text-base max-w-[70%] shadow"
                     >
                       100 tazas personalizadas con logo de la empresa
                     </motion.div>
@@ -203,7 +202,7 @@ const Capabilities = () => {
                   <motion.div
                     layout
                     transition={{ layout: { duration: 0.7, type: 'spring' } }}
-                    className="w-full max-w-md h-[370px] bg-gradient-to-br from-darkGreen to-[#1a2e2b] rounded-3xl shadow-2xl flex flex-col justify-between items-center relative overflow-hidden border border-white/10 p-4 mt-10"
+                    className="w-full max-w-md  h-[340px] md:h-[370px] bg-gradient-to-br from-darkGreen to-[#1a2e2b] rounded-3xl shadow-2xl flex flex-col justify-between items-center relative overflow-hidden border border-white/10 p-4 mt-16 md:mt-10"
                   >
                     {/* KPIs y widgets arriba, solo en dashboard simplificado */}
                     {simple && (
@@ -294,7 +293,7 @@ const Capabilities = () => {
               
               return (
                 <div ref={ref} className="relative w-[90%] h-[90%] mx-auto flex flex-col justify-end items-center">
-                  <div className="w-full h-80  flex flex-col justify-center items-center relative overflow-hidden  p-4 ">
+                  <div className="w-full h-80  flex flex-col justify-center items-center relative  p-4 ">
                     <div className="flex gap-4 items-center">
                       <div className="w-28 h-28 rounded-xl bg-darkGreen relative z-40  border border-brand-500/10 flex items-center justify-center text-6xl text-brand-500">🔗</div>
                       <div className="w-28 h-28 rounded-xl bg-darkGreen relative z-40 border border-brand-500/10 flex items-center justify-center text-6xl text-brand-500">
@@ -310,7 +309,7 @@ const Capabilities = () => {
                       <line x1="0" y1="15" x2="60" y2="15" stroke="#51B4A0" strokeWidth="2" strokeDasharray="4 4" />
                     </svg>
                     <motion.div 
-                      className="absolute bottom-4 left-1/3 -translate-x-1/2 flex items-center gap-2 bg-brand-500/10 px-3 py-1 rounded-full text-xs text-brand-500 font-bold shadow"
+                      className="absolute bottom-4 left-0/2 md:left-1/3 -translate-x-1/2 flex items-center gap-2 bg-brand-500/10 px-3 py-1 rounded-full text-xs text-brand-500 font-bold shadow"
                       initial={{ opacity: 0, y: 20 }}
                       animate={showSuccess ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                       transition={{ duration: 0.6 }}
@@ -384,7 +383,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-20 bg-darkGreen max-w-7xl   mx-auto">
+    <section className="py-20 bg-darkGreen max-w-7xl px-4 md:px-[5%] xl:px-0   mx-auto">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -397,22 +396,22 @@ const Features = () => {
           <h2 className="text-3xl text-center md:text-4xl font-bold mb-6 text-white">
             ¿Por qué automatizar con Phi-4?
           </h2>
-          <p className="text-xl text-center text-lightGray font-light max-w-3xl mx-auto">
+          <p className="text-base md:text-xl text-center text-lightGray font-light max-w-3xl mx-auto">
             Nuestra plataforma combina la última tecnología en IA con una implementación ágil y soporte experto. Olvídate de soluciones genéricas: te ayudamos a transformar tu operación con inteligencia real.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <FeatureCard index={1} title="Implementación ágil y acompañamiento experto" description="Te guiamos paso a paso para que la IA trabaje para ti desde el primer día." className="col-span-2"     image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"   />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <FeatureCard index={1} title="Implementación ágil y acompañamiento experto" description="Te guiamos paso a paso para que la IA trabaje para ti desde el primer día." className=" col-span-1 md:col-span-2"     image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"   />
           <FeatureCard index={2} title="Soluciones personalizadas, nada genérico" description="Cada negocio es único. Creamos automatizaciones que se adaptan a tus procesos y objetivos."  image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"  />
           <FeatureCard index={3} title="Ahorro de tiempo y reducción de errores" description="Automatiza tareas repetitivas y minimiza los errores humanos para que tu equipo se enfoque en lo importante."  image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"    />
           <FeatureCard index={4} title="Soporte humano siempre que lo necesites" description="Nuestro equipo está listo para ayudarte en cada etapa del proceso."  image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"    />
           <div className="col-span-1 subgrid">
-          <FeatureCard index={5} title="Integración rápida" description="Conectamos la IA con tus sistemas actuales sin complicaciones." className="h-[207px]"    />
-          <FeatureCard index={6} title="Escalabilidad garantizada" description="Empieza pequeño y crece a tu ritmo, sin límites." className="h-[207px] mt-6"    />
+          <FeatureCard index={5} title="Integración rápida" description="Conectamos la IA con tus sistemas actuales sin complicaciones." className="!h-[207px]"    />
+          <FeatureCard index={6} title="Escalabilidad garantizada" description="Empieza pequeño y crece a tu ritmo, sin límites." className="!h-[207px] mt-6"    />
           </div>
-          <FeatureCard index={7} title="Automatización segura" description="Tus datos siempre protegidos con los más altos estándares de seguridad."    image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"   />
-          <FeatureCard index={8} title="Resultados medibles" description="Mide el impacto de la automatización en tu negocio con reportes claros y accionables." className="col-span-2"   image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"    />
+          <FeatureCard index={7} title="Automatización segura" description="Tus datos siempre protegidos con los más altos estándares de seguridad."  className="col-span-1"   image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"   />
+          <FeatureCard index={8} title="Resultados medibles" description="Mide el impacto de la automatización en tu negocio con reportes claros y accionables." className="col-span-1 md:col-span-2"   image="https://framerusercontent.com/images/sFAiIwZhSefF9aa6voNEVDz39o.png"    />
         </div>
       </div>
     </section>
@@ -445,13 +444,13 @@ const FeatureCard = ({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={cn("group relative bg-ironGreen overflow-hidden h-[438px] border border-white/10 rounded-3xl  hover:shadow-lg transition-all duration-300 hover:border-brand-500/50", className) }
+      className={cn("group relative bg-ironGreen overflow-hidden h-[280px] md:h-[438px] border border-white/10 rounded-3xl  hover:shadow-lg transition-all duration-300 hover:border-brand-500/50", className) }
     >
 
       <img className={cn("absolute top-0 left-0 w-full object-cover z-0", imageClassName)} src={image} alt={title} />
       <div className="absolute bottom-0 left-0 w-full z-10 bg-gradient-to-b from-ironGreen/0 p-6 to-ironGreen/100 pointer-events-none">
-        <h3 className="text-white text-xl font-bold">{title}</h3>
-        <p className="text-lightGray text-sm font-light mt-2"> {description}</p>
+        <h3 className="text-white text-base md:text-xl font-bold">{title}</h3>
+        <p className="text-lightGray text-xs md:text-sm font-light mt-2"> {description}</p>
       </div>
     </motion.div>
   );
@@ -502,7 +501,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-40 bg-darkGreen mb-40">
+    <section className="py-20 md:py-40 bg-darkGreen mb-40">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -628,7 +627,7 @@ const Pricing = () => {
   ];
 
   return (
-    <section className="py-40 bg-darkGreen ">
+    <section className="py-20 md:py-40 bg-darkGreen ">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -641,7 +640,7 @@ const Pricing = () => {
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
             ¿Por qué pagar más por menos?
           </h2>
-          <p className="text-xl text-center text-lightGray font-light max-w-3xl mx-auto">
+          <p className="text-base md:text-xl text-center text-lightGray font-light max-w-3xl mx-auto">
             Compara el costo real de implementar ChatGPT en tu empresa vs nuestro servicio optimizado. Ahorra tiempo, dinero y obtén mejores resultados.
           </p>
         </motion.div>

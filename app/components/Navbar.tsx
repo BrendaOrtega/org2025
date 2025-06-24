@@ -27,7 +27,7 @@ export const SquigglyUnderline = () => {
             to={item.link}
             className={`relative text-sm leading-6 no-underline ${
               isCurrent || isCurrentRoute
-                ? `font-semibold ${isAiRoute ? "text-white" : "text-brand-900"}`
+                ? ` ${isAiRoute ? "text-white" : "text-brand-900"}`
                 : isAiRoute ? "text-white" : "text-brand-900"
             }`}
             onClick={() => setSelectedLink(item.name)}
