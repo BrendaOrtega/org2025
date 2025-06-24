@@ -85,3 +85,14 @@
   user-select: none;
   cursor: default;
 }
+
+/* Custom text selection styling for AI page */
+::selection {
+  background-color: rgba(133, 221, 203, 0.2); /* brand-500 with 30% opacity */
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: rgba(133, 221, 203, 0.2); /* brand-500 with 30% opacity */
+  color: inherit;
+}

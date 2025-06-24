@@ -2,7 +2,7 @@ import type { Route } from "./+types/home";
 import { Banner, Footer } from "../welcome/welcome";
 import { NavBar } from "~/components/Navbar";
 import { motion, useInView, AnimatePresence, useScroll, useTransform } from "motion/react";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import React from "react";
 import { FaPlay, FaArrowRight, FaCheck, FaDiscord, FaGithub, FaBrain, FaRocket, FaShieldAlt, FaLightbulb, FaChartLine, FaCogs, FaTimes, FaDollarSign, FaClock, FaTools, FaHeadset, FaPercent } from "react-icons/fa";
 import { Button } from "~/components/Button";
@@ -18,10 +18,20 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-
-
-
 export default function AI() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isOverFeatures, setIsOverFeatures] = useState(false);
+  const [isOverCustomLLM, setIsOverCustomLLM] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -30,24 +40,55 @@ export default function AI() {
     });
   }, []);
 
+  const getCursorEmoji = () => {
+    if (isOverCustomLLM) return '🪄';
+    if (isOverFeatures) return '👀';
+    return null;
+  };
+
   return (
-    <main className="bg-darkGreen text-white min-h-screen">
-       <div className="bg-darkGreen relative z-30 mb-[600px] md:mb-[500px] rounded-b-[40px]">
-        <NavBar />
-        <Hero />
-        <Capabilities />
-        <Features />
-        <Pricing />
-        <CustomLLMBanner />
-        <FAQ />
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <Banner />
-      </div>
-      <Footer className="bg-darkGreen" />
-    </main>
+    <div className="min-h-screen bg-darkGreen relative overflow-x-hidden">
+      {/* Cursor personalizado */}
+      {getCursorEmoji() && (
+        <div
+          className="fixed pointer-events-none z-50 text-2xl transition-transform duration-100 ease-out"
+          style={{
+            left: mousePosition.x - 12,
+            top: mousePosition.y - 12,
+          }}
+        >
+          {getCursorEmoji()}
+        </div>
+      )}
+      
+      <main className="bg-darkGreen text-white min-h-screen">
+        <div className="bg-darkGreen relative z-30 mb-[600px] md:mb-[500px] rounded-b-[40px]">
+          <NavBar />
+          <Hero />
+          <Capabilities />
+          <div 
+            onMouseEnter={() => setIsOverFeatures(true)}
+            onMouseLeave={() => setIsOverFeatures(false)}
+          >
+            <Features />
+          </div>
+          <Pricing />
+          <div
+            onMouseEnter={() => setIsOverCustomLLM(true)}
+            onMouseLeave={() => setIsOverCustomLLM(false)}
+          >
+            <CustomLLMBanner />
+          </div>
+          <FAQ />
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <Banner />
+        </div>
+        <Footer className="bg-darkGreen" />
+      </main>
+    </div>
   );
 }
 
@@ -630,7 +671,7 @@ const Pricing = () => {
       price: "Desde $999",
       subtitle: "MXN por mes",
       features: [
-        { text: "IA especializada para tu industria", icon: FaBrain },
+        { text: "IA especializada para tu empresa", icon: FaBrain },
         { text: "Implementación completa y automatizada", icon: FaRocket },
         { text: "Integración nativa con tus herramientas", icon: FaShieldAlt },
         { text: "Soporte técnico prioritario", icon: FaHeadset },
@@ -729,6 +770,16 @@ const PricingCard = ({
 const CustomLLMBanner = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
 
   return (
     <section className="py-16 md:py-24 bg-transparent">
@@ -738,10 +789,23 @@ const CustomLLMBanner = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="border border-white/10  rounded-3xl p-0 md:p-0 flex flex-col md:flex-row items-stretch overflow-hidden shadow-xl"
+          className="border border-white/10 rounded-3xl p-0 md:p-0 flex flex-col md:flex-row items-stretch overflow-hidden shadow-xl relative"
+          onMouseMove={handleMouseMove}
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
         >
+          {/* Estela de luz del cursor */}
+          {isHovering && (
+            <div
+              className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300"
+              style={{
+                background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(133, 221, 203, 0.15), transparent 40%)`,
+              }}
+            />
+          )}
+          
           {/* Left: Content */}
-          <div className="flex-1 p-8 md:p-14 flex flex-col justify-center">
+          <div className="flex-1 p-8 md:p-14 flex flex-col justify-center relative z-20">
 <HeaderTag title="LLM Empresarial" variant="brand"  />
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">IA privada para tu empresa</h2>
             <p className="text-lightGray text-lg mb-8 max-w-xl font-light">
@@ -785,17 +849,17 @@ const CustomLLMBanner = () => {
               }}
             >
               {/* Fila 1 */}
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#384B4B] font-bold">Phi-4</div>
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/chatgpt.svg" alt="gpt" className="w-2/3 h-full object-contain" /></div>
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/microsoft.svg" alt="Phi-4" className="w-1/2 h-full object-contain" /></div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#384B4B] font-bold">Phi-4</div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/chatgpt.svg" alt="gpt" className="w-2/3 h-full object-contain" /></div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/microsoft.svg" alt="Phi-4" className="w-1/2 h-full object-contain" /></div>
               {/* Fila 2 */}
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/llama.svg" alt="llama" className="w-2/3 h-full object-contain" /></div>
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-xl text-[#384B4B] font-bold">Astral</div>
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/claude.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/llama.svg" alt="llama" className="w-2/3 h-full object-contain" /></div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-xl text-[#384B4B] font-bold">Astral</div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/claude.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
               {/* Fila 3 */}
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/gemini.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
-              <div className="w-20 h-20 rounded-2xl bg-brand-500/10 flex items-center justify-center shadow-lg">
-              <div className="flex justify-center mb-4 scale-150 pt-2">
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/gemini.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="transition-all w-20 h-20 rounded-2xl bg-brand-500/10 flex items-center justify-center shadow-lg">
+              <div className="transition-all flex justify-center mb-4 scale-150 pt-2">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="20" cy="20" r="18" fill="#85DDCB" fillOpacity="0.15" />
               <path d="M20 10a6 6 0 0 1 6 6v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2v2a6 6 0 0 1-12 0v-2h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2v-2a6 6 0 0 1 6-6zm0 2a4 4 0 0 0-4 4v2h8v-2a4 4 0 0 0-4-4zm-6 8v2a4 4 0 0 0 8 0v-2h-8z" fill="#85DDCB" />
@@ -804,15 +868,15 @@ const CustomLLMBanner = () => {
             </svg>
           </div>
               </div>
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/mistral.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/mistral.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
               {/* Fila 4 */}
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/claude2.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/tropic.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-lg text-[#384B4B] font-bold">Gemini</div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/claude2.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/tropic.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-lg text-[#384B4B] font-bold">Gemini</div>
               {/* Fila 5 */}
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/chatgpt.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/gok.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
-              <div className="w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/journey.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/chatgpt.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/gok.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/journey.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
             </div>
           </div>
         </motion.div>
