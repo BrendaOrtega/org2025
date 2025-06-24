@@ -51,7 +51,7 @@ const Hero = () => {
       {/* Pattern background estático */}
       <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center pointer-events-none bg-pattern bg-cover bg-center" aria-hidden />
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10  mt-20">
+      <div className="container mx-auto px-4 relative z-10  mt-20">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -88,7 +88,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10 md:mt-16"
           >
             <Button title="Agenda una llamada" link="https://calendly.com/bremin11-20-93/interview" />
           </motion.div>
@@ -104,7 +104,7 @@ const Capabilities = () => {
 
   return (
     <section className="py-20 md:py-40 bg-darkGreen max-w-7xl px-4 md:px-[5%] xl:px-0 mx-auto">
-      <div className="container mx-auto px-6 grid grid-cols-6 gap-10 md:gap-20">
+      <div className="container mx-auto  grid grid-cols-6 gap-10 md:gap-20">
         <div className="col-span-6 lg:col-span-3">
           <motion.div
             ref={ref}
@@ -150,7 +150,7 @@ const Capabilities = () => {
                       initial={{ opacity: 0, x: -40 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.5 }}
-                      className="self-start bg-gray-100 text-gray-900 px-4 py-3 rounded-2xl rounded-bl-sm text-sm md:text-base max-w-[80%] shadow"
+                      className="self-start bg-gray-100 text-gray-900 px-4 py-3 rounded-2xl rounded-bl-sm text-xs md:text-base max-w-[80%] shadow"
                     >
                       ¡Hola! ¿En qué puedo ayudarte hoy?
                     </motion.div>
@@ -158,7 +158,7 @@ const Capabilities = () => {
                       initial={{ opacity: 0, x: 40 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.5, delay: 0.2 }}
-                      className="self-end bg-brand-500/20 text-brand-900 px-4 py-3 rounded-2xl rounded-br-sm text-sm md:text-base max-w-[70%] shadow"
+                      className="self-end bg-brand-500/20 text-brand-900 px-4 py-3 rounded-2xl rounded-br-sm text-xs md:text-base max-w-[70%] shadow"
                     >
                       Quiero cotizar un pedido
                     </motion.div>
@@ -166,7 +166,7 @@ const Capabilities = () => {
                       initial={{ opacity: 0, x: 40 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.5, delay: 0.3 }}
-                      className="self-end bg-brand-500/20 text-brand-900 px-4 py-3 rounded-2xl rounded-br-sm text-sm md:text-base max-w-[70%] shadow"
+                      className="self-end bg-brand-500/20 text-brand-900 px-4 py-3 rounded-2xl rounded-br-sm text-xs md:text-base max-w-[70%] shadow"
                     >
                       100 tazas personalizadas con logo de la empresa
                     </motion.div>
@@ -174,7 +174,7 @@ const Capabilities = () => {
                       initial={{ opacity: 0, x: -40 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.5, delay: 0.4 }}
-                      className="self-start bg-gray-100 text-gray-900 px-4 py-3 rounded-2xl rounded-bl-sm text-base max-w-[80%] shadow flex items-center gap-2"
+                      className="self-start bg-gray-100 text-gray-900 px-4 py-3 rounded-2xl rounded-bl-sm text-xs md:text-base max-w-[80%] shadow flex items-center gap-2"
                     >
                       ¡Por supuesto! Te ayudo <span className="animate-pulse">💬</span>
                     </motion.div>
@@ -384,7 +384,7 @@ const Features = () => {
 
   return (
     <section className="py-20 bg-darkGreen max-w-7xl px-4 md:px-[5%] xl:px-0   mx-auto">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -502,7 +502,7 @@ const FAQ = () => {
 
   return (
     <section className="py-20 md:py-40 bg-darkGreen mb-40">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -628,7 +628,7 @@ const Pricing = () => {
 
   return (
     <section className="py-20 md:py-40 bg-darkGreen ">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
