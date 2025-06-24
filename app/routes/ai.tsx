@@ -404,14 +404,17 @@ const CapabilityCard = ({
   description: string;  
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      style={{
+        opacity: isInView ? 1 : 0.8,
+        scale: isInView ? 1 : 0.7,
+        transform: isInView ? "translateY(0px)" : "translateY(40px)",
+        transition: "all 1s ease",
+      }}
       className={cn("group relative bg-white h-[528px] text-brand-900 border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer", index === 1 && "bg-ironGreen border-none text-white", index === 2 && "bg-darkGreen border-white/10 text-white")}
     >
           <div className="absolute top-6 left-6 text-left z-10">
@@ -490,16 +493,19 @@ const FeatureCard = ({
   imageClassName?:string;
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
 
   const icons = [FaBrain, FaRocket, FaShieldAlt, FaCogs];
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      style={{
+        opacity: isInView ? 1 : 0.8,
+        scale: isInView ? 1 : 0.7,
+        transform: isInView ? "translateY(0px)" : "translateY(40px)",
+        transition: "all 1s ease",
+      }}
       className={cn("group relative bg-ironGreen bg-darkGreen overflow-hidden h-[280px] md:h-[438px] border border-white/10 rounded-3xl  hover:shadow-lg transition-all duration-300 hover:border-brand-500/50", className) }
     >
 
@@ -727,14 +733,17 @@ const PricingCard = ({
   index: number;
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.2 }}
+      style={{
+        opacity: isInView ? 1 : 0.8,
+        scale: isInView ? 1 : 0.7,
+        transform: isInView ? "translateY(0px)" : "translateY(40px)",
+        transition: "all 1s ease",
+      }}
       className="bg-darkGreen border border-white/10 rounded-xl p-8 hover:shadow-lg transition-all duration-300 flex flex-col h-full"
     >
       <h3 className="text-2xl font-bold text-white mb-4">{name}</h3>
