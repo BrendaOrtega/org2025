@@ -47,7 +47,7 @@ export default function AI() {
   };
 
   return (
-    <div className="min-h-screen bg-darkGreen relative overflow-x-hidden">
+    <div className="min-h-screen bg-darkGreen relative ">
       {/* Cursor personalizado */}
       {getCursorEmoji() && (
         <div
@@ -154,14 +154,14 @@ const Capabilities = () => {
 
   return (
     <section className="py-20 md:py-32 bg-darkGreen max-w-7xl px-4 md:px-[5%] xl:px-0 mx-auto">
-      <div className="container mx-auto  grid grid-cols-6 gap-10 md:gap-20">
-        <div className="col-span-6 lg:col-span-3">
+      <div className="container mx-auto  grid grid-cols-6 gap-10 md:gap-20 ">
+        <div className="col-span-6 lg:col-span-3 sticky top-10 h-fit  ">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16 sticky top-10 flex md:block flex-col items-center "
+            className="text-center mb-16 flex md:block flex-col items-center z-10"
           >
               <HeaderTag title="Transforma tu empresa con IA"  variant="brand" />
             <h2 className="text-3xl text-center md:text-left md:text-4xl font-bold mb-6 text-white">
@@ -376,6 +376,7 @@ const Capabilities = () => {
               );
             })()}
           </CapabilityCard>
+          
         </div>
       </div>
     </section>
@@ -863,7 +864,7 @@ const CustomLLMBanner = () => {
               <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/microsoft.svg" alt="Phi-4" className="w-1/2 h-full object-contain" /></div>
               {/* Fila 2 */}
               <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/llama.svg" alt="llama" className="w-2/3 h-full object-contain" /></div>
-              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-xl text-[#384B4B] font-bold">Astral</div>
+              <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-xl text-[#384B4B] font-bold">Mistral</div>
               <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/claude.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
               {/* Fila 3 */}
               <div className="opacity-60 hover:opacity-100 transition-all w-20 h-20 rounded-xl bg-ironGreen flex items-center justify-center text-2xl text-[#6B7A86] font-bold"><img src="/icons/gemini.svg" alt="claude" className="w-2/3 h-full object-contain" /></div>
