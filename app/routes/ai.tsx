@@ -107,7 +107,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
-          className="text-center max-w-4xl mx-auto"
+          className="text-center max-w-5xl mx-auto"
         >
           <div className="flex justify-center mb-4 scale-150">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +121,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-white text-4xl lg:text-5xl xl:text-6xl font-bold mt-8 md:mt-12"
+            className="text-white text-4xl lg:text-5xl xl:text-7xl font-bold mt-8 md:mt-12"
           >
             Automatiza tu negocio con IA y multiplica tus resultados
           </motion.h1>
@@ -132,7 +132,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lightGray text-lg md:text-2xl font-light mt-6"
           >
-            Deja que la IA trabaje por ti: automatiza procesos, reduce errores y libera a tu equipo de tareas repetitivas. Enfócate en crecer, nosotros nos encargamos de la tecnología.
+            Deja que la IA trabaje por ti: automatiza procesos, reduce errores y libera a tu equipo de tareas repetitivas. Enfócate en crecer y nosotros nos encargamos de la tecnología.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -164,7 +164,7 @@ const Capabilities = () => {
             className="text-center mb-16 flex md:block flex-col items-center z-10"
           >
               <HeaderTag title="Transforma tu empresa con IA"  variant="brand" />
-            <h2 className="text-3xl text-center md:text-left md:text-4xl font-bold mb-6 text-white">
+            <h2 className="text-3xl text-center md:text-left md:text-5xl font-bold mb-6 text-white">
               Soluciones de IA a la medida de tu empresa
             </h2>
             <p className="text-base md:text-xl text-center md:text-left text-lightGray font-light max-w-3xl mx-auto">
@@ -377,6 +377,84 @@ const Capabilities = () => {
             })()}
           </CapabilityCard>
           
+          <CapabilityCard index={3} title="Automatización de workflows empresariales" description="Optimiza procesos repetitivos y libera tiempo valioso para tareas estratégicas.">
+            {(() => {
+              const ref = useRef(null);
+              const isInView = useInView(ref, { once: true, margin: '-50px' });
+              
+              return (
+                <div ref={ref} className="w-[95%] h-[95%] mx-auto flex flex-col justify-end items-center ">
+                  <div className="w-full max-w-md h-[350px] bg-[#C9E0D6] rounded-3xl flex flex-col justify-center items-center relative overflow-hidden border border-gray-200 p-6">
+                    {/* Workflow visual */}
+                    <div className="flex flex-col items-center space-y-4 ">
+                      {/* Paso 1 */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="flex items-center gap-3 bg-white rounded-full px-4 py-2 shadow-sm"
+                      >
+                        <div className="w-8 h-8 bg-brand-700 rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
+                        <span className="text-sm text-gray-700">Email recibido</span>
+                      </motion.div>
+                      
+                      {/* Flecha */}
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={isInView ? { opacity: 1 } : {}}
+                        transition={{ duration: 0.3, delay: 0.4 }}
+                        className="text-gray-400"
+                      >
+                        ↓
+                      </motion.div>
+                      
+                      {/* Paso 2 */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.5, delay: 0.6 }}
+                        className="flex items-center gap-3 bg-white rounded-full px-4 py-2 shadow-sm"
+                      >
+                        <div className="w-8 h-8 bg-brand-600 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
+                        <span className="text-sm text-gray-700">IA clasifica y extrae datos</span>
+                      </motion.div>
+                      
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={isInView ? { opacity: 1 } : {}}
+                        transition={{ duration: 0.3, delay: 0.8 }}
+                        className="text-gray-400"
+                      >
+                        ↓
+                      </motion.div>
+                      
+                      {/* Paso 3 */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.5, delay: 1.0 }}
+                        className="flex items-center gap-3 bg-white rounded-full px-4 py-2 shadow-sm"
+                      >
+                        <div className="w-8 h-8 bg-brand-500 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
+                        <span className="text-sm text-gray-700">Acción automatizada</span>
+                      </motion.div>
+                    </div>
+                    
+                    {/* Badge de tiempo ahorrado */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: 1.2 }}
+                      className="absolute bottom-4 right-4 bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold"
+                    >
+                      -80% tiempo
+                    </motion.div>
+                  </div>
+                </div>
+              );
+            })()}
+          </CapabilityCard>
+          
         </div>
       </div>
     </section>
@@ -386,8 +464,13 @@ const Capabilities = () => {
 const HeaderTag = ({title, variant, className}: {title: string, variant: "default" | "brand", className?: string}) => {
   return (
     <div className="text-center  w-fit  ml-0 ">
-      <h2 className={cn("text-sm font-light text-white px-2 py-2 border border-white/10 rounded-lg", variant === "brand" && "text-[10px] border-none mb-6 text-brand-500 bg-brand-500/10 font-normal rounded-full uppercase ", className)}>
-        {title} 
+      <h2 className={cn(
+        "text-sm cursor-pointer font-light text-white px-2 py-2 border border-white/10 rounded-lg relative overflow-hidden group transition-all duration-300",
+        "before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[100%] before:transition-transform before:duration-[1000ms] before:ease-in-out",
+        variant === "brand" && "text-[10px] border-none mb-6 text-brand-500 bg-brand-500/10 font-normal rounded-full uppercase before:via-brand-400/30",
+        className
+      )}>
+        <span className="relative z-10">{title}</span>
      </h2>
       </div>
   )
@@ -416,13 +499,13 @@ const CapabilityCard = ({
         transform: isInView ? "translateY(0px)" : "translateY(40px)",
         transition: "all 1s ease",
       }}
-      className={cn("group relative bg-white h-[528px] text-brand-900 border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer", index === 1 && "bg-ironGreen border-none text-white", index === 2 && "bg-darkGreen border-white/10 text-white")}
+      className={cn("group relative bg-white h-[528px] text-brand-900 border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer", index === 1 && "bg-ironGreen border-none text-white", index === 2 && "bg-darkGreen border-white/10 text-white", index === 3 && "bg-[#191F23] border-white/0 text-white")}
     >
           <div className="absolute top-6 left-6 text-left z-10">
-                <h3 className={cn("text-2xl font-bold text-brand-900", index === 1 && "text-white", index === 2 && "text-white")}>{title}</h3>
+                <h3 className={cn("text-2xl font-bold text-brand-900", index === 1 && "text-white", index === 2 && "text-white", index === 3 && "text-white")}>{title}</h3>
                 <p className="text-lightGray text-base font-light mt-2">{description}</p>
               </div>
-        <div className={cn("absolute text-brand-900 bottom-4 right-4 w-8 h-8 bg-[#CECFD0] rounded grid place-items-center ",  index === 1 && "bg-[#1D2726] text-white", index === 2 && "bg-white/5 text-white")}>
+        <div className={cn("absolute text-brand-900 bottom-4 right-4 w-8 h-8 bg-[#CECFD0] rounded grid place-items-center ",  index === 1 && "bg-[#1D2726] text-white", index === 2 && "bg-white/5 text-white", index === 3 && "bg-white/5 text-white")}>
         <IoOpenOutline className=" text-xl" />
         </div>
     {children}
@@ -452,16 +535,16 @@ const Features = () => {
           className="text-center mb-16 flex flex-col items-center "
         >
             <HeaderTag title="Ventajas competitivas" variant="brand"  />
-          <h2 className="text-3xl text-center md:text-4xl font-bold mb-6 text-white">
+          <h2 className="text-3xl text-center md:text-5xl font-bold mb-6 text-white">
             ¿Por qué automatizar con IA?
           </h2>
-          <p className="text-base md:text-xl text-center text-lightGray font-light max-w-3xl mx-auto">
-            Nuestra servicios se basan en la última tecnología en IA con una implementación ágil y soporte experto. Olvídate de soluciones genéricas: te ayudamos a transformar tu operación con inteligencia real.
+          <p className="text-base md:text-xl text-center text-lightGray font-light max-w-4xl mx-auto">
+            Creamos IA que realmente funciona para tu negocio. Nada de plantillas copy-paste ni rollos técnicos complicados. Solo herramientas que hacen tu trabajo más fácil.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <FeatureCard index={1}  title="Implementación ágil y acompañamiento experto" description="Te guiamos paso a paso para que la IA trabaje para ti desde el primer día." className=" col-span-1 md:col-span-2"     image="/icons/img1.png"  />
+          <FeatureCard index={1}  title="Implementación ágil y acompañamiento experto" description="No te dejamos solo con la tecnología. Te acompañamos hasta que veas resultados reales funcionando en tu negocio." className=" col-span-1 md:col-span-2"     image="/icons/img1.png"  />
           <FeatureCard index={2} title="Soluciones personalizadas, nada genérico" description="Cada negocio es único. Creamos automatizaciones que se adaptan a tus procesos y objetivos."   image="/icons/img4.svg"  imageClassName="scale-75 -top-16 md:top-0 md:scale-100"  />
           <FeatureCard index={3} title="Ahorro de tiempo y reducción de errores" description="Automatiza tareas repetitivas y minimiza los errores humanos para que tu equipo se enfoque en lo importante."   image="/icons/img2.png"   imageClassName="scale-50 -top-20 md:top-0 md:scale-100"  />
           <FeatureCard index={4} title="Integración rápida" description="Conectamos la IA con tus sistemas actuales." image="/icons/img3.svg"  imageClassName=" -top-16 md:top-0 "   />
@@ -526,16 +609,16 @@ const FAQ = () => {
   const faqs = [
     {
         question: "¿Qué LLM usan?",
-        answer: "Utilizamos Phi-4 de Microsoft, un modelo de lenguaje de última generación desarrollado por Microsoft Research. Phi-4 destaca por su eficiencia, precisión y capacidad de razonamiento, lo que lo hace ideal para automatizaciones empresariales, análisis de datos y tareas complejas en entornos corporativos. Aunque dependiendo el proyecto, podemos usar otros modelos de Microsoft, OpenAI o de Meta."
+        answer: "Trabajamos con los mejores modelos del mercado: Claude 3.5 Sonnet de Anthropic, GPT-4o de OpenAI, Gemini Pro de Google y Phi-4 de Microsoft. Cada proyecto requiere diferentes capacidades, por eso elegimos el modelo más adecuado según tus necesidades específicas - análisis de datos, automatización, generación de contenido o razonamiento complejo."
       },
     {
-      question: " ¿Qué hace Microsoft Phi-4 exactamente?",
-      answer: "Microsoft Phi-4 es tu asistente de IA personal que automatiza tareas repetitivas, analiza datos complejos y genera insights valiosos para tu negocio. Desde reportes automáticos hasta análisis predictivos, Microsoft Phi-4 lo hace todo."
+      question: "¿Qué pueden hacer estos modelos de IA para mi negocio?",
+      answer: "Nuestros modelos de IA funcionan como asistentes súper inteligentes que automatizan tareas repetitivas, analizan grandes volúmenes de datos y generan insights valiosos para tu negocio. Desde crear reportes automáticos hasta análisis predictivos y atención al cliente 24/7."
     },
  
     {
-      question: "¿Puedo usar Phi-4 en proyectos comerciales?",
-      answer: "¡Sí! Phi-4 está diseñado para uso comercial y empresarial. Ofrecemos licencias flexibles que se adaptan a las necesidades de tu negocio."
+      question: "¿Puedo usar estos modelos de IA en proyectos comerciales?",
+      answer: "¡Por supuesto! Trabajamos con licencias comerciales de todos los modelos principales. Nos encargamos de todo el tema legal y técnico para que puedas usar la IA en tu negocio sin complicaciones."
     },
     {
       question: " ¿Qué incluye el precio?",
@@ -547,11 +630,11 @@ const FAQ = () => {
     },
     {
       question: " ¿Se integra con mis herramientas?",
-      answer: "¡Absolutamente! Microsoft Phi-4 se conecta con más de 100 herramientas populares: Slack, Salesforce, Google Workspace, Microsoft Office, y muchas más. Si no está en la lista, lo agregamos."
+      answer: "¡Absolutamente! Nuestras implementaciones pueden conectarse con más de 100 herramientas populares: Slack, Salesforce, Google Workspace, Microsoft Office, y muchas más. Si no está en la lista, lo agregamos."
     },
     {
       question: " ¿Necesito conocimientos técnicos?",
-      answer: "¡Para nada! Tanto Microsoft Phi-4 como nuestros servicios están diseñados para ser súper intuitivos. Interfaz simple, comandos en lenguaje natural y soporte prioritario. Cualquiera puede usarlo desde el primer día."
+      answer: "¡Para nada! Nuestros servicios están diseñados para ser súper intuitivos. Interfaz simple, comandos en lenguaje natural y soporte prioritario. Cualquiera puede usarlo desde el primer día."
     },
     {
       question: "¿Hay límites de uso?",
@@ -699,15 +782,14 @@ const Pricing = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 flex flex-col items-center"
         >
-                 <HeaderTag title="Inversión inteligente" variant="brand"  />
-          <h2 className="text-3xl text-center md:text-4xl font-bold mb-6 text-white">
+         <HeaderTag title="Inversión inteligente" variant="brand"  />
+          <h2 className="text-3xl text-center md:text-5xl font-bold mb-6 text-white">
             ¿Por qué pagar más por menos?
           </h2>
           <p className="text-base md:text-xl text-center text-lightGray font-light max-w-3xl mx-auto">
-            Compara el costo real de implementar IA con ChatGPT o Gemini en tu empresa por tu cuenta vs nuestro servicio optimizado. Ahorra tiempo, dinero y obtén mejores resultados.
+            Compara el costo real de implementar IA con Anthropic, ChatGPT o Gemini en tu empresa por tu cuenta vs nuestro servicio optimizado. Ahorra tiempo, dinero y obtén mejores resultados.
           </p>
         </motion.div>
-
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {plans.map((plan, index) => (
             <PricingCard key={index} {...plan} index={index} />
@@ -768,7 +850,7 @@ const PricingCard = ({
       </ul>
 
       {index !== 0 && (
-        <Link to="/contact">
+        <Link to="/contacto">
         <button className="mt-auto w-full bg-brand-500 text-brand-900 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-95 cursor-pointer">
           {cta}
         </button></Link>

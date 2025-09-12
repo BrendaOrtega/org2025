@@ -6,6 +6,7 @@ import { FaCirclePlay } from "react-icons/fa6";
 import { ReactNode, useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import { Link } from "react-router";
+import { Slider } from "~/components/Slider";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -316,13 +317,16 @@ const ServicesList = () => {
           </div>
         </Content>
       </div>
+      <div id="extras">
+        <Slider />
+        </div>
     </section>
   );
 };
 
 const Advertaising = () => {
   return (
-    <section className="bg-white md:pt-[240px] pt-20 pb-52 md:pb-[320px] px-4 md:px-0">
+    <section className="bg-white md:pt-[160px] pt-20 pb-52 md:pb-[320px] px-4 md:px-0">
       <div className=" flex flex-wrap md:flex-nowrap max-w-7xl mx-auto h-fit md:h-[300px] rounded-5xl overflow-hidden ">
         <div className="bg-brand-900 grow-[2] flex gap-8 items-center px-6 md:px-12 py-8 md:py-0">
           <a
@@ -428,6 +432,10 @@ const Services = () => {
     const node = document.querySelector("#capacitacion");
     node.scrollIntoView({ behavior: "smooth" });
   };
+  const handleExtras = () => {
+    const node = document.querySelector("#extras");
+    node.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <section className=" max-w-7xl mx-auto mt-12 md:mt-20 px-4 md:px-[5%] xl:px-0 ">
       <h2 className="text-brand-900 text-4xl md:text-5xl xl:text-6xl font-bold ">
@@ -479,6 +487,12 @@ const Services = () => {
           className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[1px] transition-all"
         >
           <span>05</span> <p>Capacitación</p>
+        </div>
+        <div
+          onClick={handleExtras}
+          className="w-full  flex gap-3 text-ironGray text-base md:text-xl  font-light border-b border-ironGray/10 py-4 hover:border-brand-500 hover:border-b-[1px] transition-all"
+        >
+          <span>06</span> <p>Features específicos</p>
         </div>
       </motion.div>
     </section>

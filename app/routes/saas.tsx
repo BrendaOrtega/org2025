@@ -53,26 +53,28 @@ const SaasContent = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-x-12 xl:gap-x-56 mt-12 md:mt-20 pb-64">
         <Card
           link="https://www.formmy.app/dash"
-          className="bg-formmyCover "
+          img="/projects/formmy-cover.png"
           title="Formmy"
-          description="La forma más fácil de agregar formularios de contacto a tu sitio web."
+          description="Creamos esta herramienta para agregar formularios de contacto y chatbots IA a tu sitio web de forma fácil, rápida y sin complicaciones técnicas."
         />
         <Card
-          className="bg-denikCover mt-0 md:mt-20"
+        img="/projects/denik-cover.png"
+          className=" mt-0 md:mt-20"
           title="Deník"
-          description="La agenda en línea ideal para tu negocio: cobros, recordatios y más."
+          description="Nacido de la necesidad real de pequeños negocios. Una agenda digital que resuelve el caos diario de cobros, citas y recordatorios."
         />
         <Card
-          className="bg-geekCover"
+        img="/projects/geek-cover.webp"
           link="https://fixtergeek.com/"
           title="Fixtergeek"
-          description="Plataforma de E-learning para aprender a programar de forma fácil y práctica."
+          description="Nuestra plataforma educativa donde compartimos años de experiencia. Porque creemos que programar debe ser accesible y transformador para todos."
         />
         <Card
-          className="bg-bitsCover mt-0 md:mt-20"
+        img="/projects/bits-org.webp"
+          className=" mt-0 md:mt-20"
           link="https://www.easybits.cloud/"
           title="EasyBits"
-          description="La herramienta para creadores digitales. Dedica más tiempo a crear y menos tiempo a administrar, crea tu asset y EasyBits se encarga del resto."
+          description="Desarrollamos esta solución para creadores como nosotros. Automatiza la parte aburrida del negocio digital y enfócate en lo que amas crear."
         />
       </div>
     </section>
@@ -84,11 +86,13 @@ const Card = ({
   title,
   description,
   link,
+  img,
 }: {
   className?: string;
   link?: string;
   title: string;
   description: string;
+  img?: string;
 }) => {
   const ref = useRef(null);
   const isInview = useInView(ref, { once: true });
@@ -110,11 +114,13 @@ const Card = ({
             "w-full h-[280px] md:h-[460px] xl:h-[540px] bg-center rounded-5xl bg-cover border border-brand-100/50 overflow-hidden ",
             className
           )}
-        ></div>
-        <h3 className="text-2xl font-bold text-brand-900 mt-4 lg:group-hover:ml-6 transition-all">
+        >
+          <img src={img} className="w-full h-full object-cover hover:scale-110 transition-all" />
+        </div>
+        <h3 className="text-2xl font-bold text-brand-900 mt-4 lg:group-hover:ml-2 transition-all">
           {title}
         </h3>
-        <p className="text-lg font-light text-ironGray lg:group-hover:ml-6 transition-all">
+        <p className="text-lg font-light text-ironGray lg:group-hover:ml-2 transition-all">
           {description}
         </p>{" "}
       </a>
