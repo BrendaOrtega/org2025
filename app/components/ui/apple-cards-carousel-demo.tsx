@@ -50,38 +50,38 @@ const DummyContent = () => {
 const data = [
   {
     category: "Pagos",
-    title: "Integración de pasarelas de pagos como Stripe o PayPal",
-    src: "/extras/card.png",
+    title: "Integramos pasarelas de pagos como Stripe o PayPal",
+    src: "/extras/card.webp",
     content: <DummyContent />,
   },
   {
     category: "Chatbots",
-    title: "Integración de chatbots IA para mejorar la atención al cliente",
-    src: "/extras/suport.png",
+    title: "Configuramos chatbots IA para mejorar la atención al cliente",
+    src: "/extras/suport.webp",
     content: <DummyContent />,
   },
   {
     category: "Notificaciones",
-    title: "Automatización de recordatorios",
-    src: "/extras/reminder.png",
+    title: "Creamos workflows para automatizar recordatorios",
+    src: "/extras/reminder.webp",
     content: <DummyContent />,
   },
   {
     category: "Analytics",
-    title: "Sistema de métricas y reportes en tiempo real",
-    src: "/extras/figure.png",
+    title: "Creamos dashboards para visualizar métricas y reportes en tiempo real",
+    src: "/extras/figure.webp",
     content: <DummyContent />,
   },
   {
     category: "Blog",
     title: "Agregamos un blog personal a tu sitio web para tus compartir conocimientos y noticias",
-    src: "/extras/blog.png",
+    src: "/extras/blog.webp",
     content: <DummyContent />,
   },
   {
     category: "E-commerce",
     title: "Agregamos un e-commerce a tu sitio web para vender tus productos",
-    src: "/extras/store.png",
+    src: "/extras/store.webp",
     content: <DummyContent />,
   },
 ];
