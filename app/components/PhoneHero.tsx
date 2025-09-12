@@ -82,8 +82,7 @@ const Paragraph = ({ scrollYProgress }: { scrollYProgress: MotionValue }) => {
           </motion.span>
         </div>
         <p className=" max-w-2xl text-brand-900 text-3xl md:text-4xl xl:text-5xl w-[90%] mx-auto font-bold text-center !leading-tight mt-12">
-          El mejor aliado para diseñar y desarrollar software para el éxito de
-          tu empresa
+        Somo el mejor partner para lanzar productos digitales que enamoran y hacen crecer tu negocio
         </p>
       </motion.main>
     </section>

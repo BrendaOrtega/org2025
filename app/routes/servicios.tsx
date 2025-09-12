@@ -219,9 +219,8 @@ const ServicesList = () => {
               Diseño de producto
             </h2>
             <p className="text-ironGray text-base md:text-xl font-light mt-6">
-              Creamos productos memorables para empresas y consumidores, además
-              de brindar soluciones de diseño integrales para una iteración de
-              productos escalable.
+            De la idea al producto memorable: diseñamos y desarrollamos productos digitales 
+            que no solo conectan con tus usuarios, sino que también crecen y escalan junto con tu negocio.
             </p>{" "}
             <div className=" flex flex-col gap-3 mt-12">
               <Item text="User Research & Testing" />
@@ -240,10 +239,8 @@ const ServicesList = () => {
               Desarrollo de Software a la medida
             </h2>
             <p className="text-ironGray text-base md:text-xl font-light mt-6">
-              Nuestros equipos de diseño y desarrollo trabajan conjuntamente
-              para crear sitios y aplicaciones web y móviles que brindan
-              experiencias y funcionalidades exepcionales basadas en tus
-              necesidades.
+            Diseño y desarrollo de la mano: construimos sitios y 
+            aplicaciones que combinan funcionalidad y experiencia increíble, siempre pensados para tu negocio.
             </p>{" "}
             <div className=" flex flex-col gap-3 mt-12">
               <Item text="Desarrollo de aplicaciones móviles" />
@@ -262,9 +259,8 @@ const ServicesList = () => {
               Sitios web
             </h2>
             <p className="text-ironGray text-base md:text-xl font-light mt-6">
-              Consideramos a los sitios web el canal más importante para acercar
-              tu marca a tus clientes. Así que nos enfocamos en que tu sitio
-              transmita la esencia de tu marca.
+            Más que un sitio web, es tu mejor herramienta para acercar tu marca a las personas. 
+            Nos enfocamos en que transmita quién eres, lo que te hace especial y conecte genuinamente con tus clientes.
             </p>{" "}
             <div className=" flex flex-col gap-3 mt-12">
               <Item text="Diseño y desarrollo web" />
@@ -282,11 +278,7 @@ const ServicesList = () => {
               Aplicciones Móviles
             </h2>
             <p className="text-ironGray text-base md:text-xl font-light mt-6">
-              Ya sea una aplicación híbrida o nativa, nos encargamos de evaluar
-              la mejor solución para ti y tus clientes, diseñaremos y
-              desarrollaremos aplicaciones que mejoren tu tasa de conversión y
-              la experiencia de usuario de tus clientes al interactuar con tu
-              marca.
+            Diseñamos y desarrollamos apps —híbridas o nativas— pensando siempre en dos cosas: que tu negocio crezca y que tus clientes tengan una experiencia increíble con tu marca.
             </p>{" "}
             <div className=" flex flex-col gap-3 mt-12">
               <Item text="Diseño y desarrollo de apps" />

@@ -47,8 +47,7 @@ const SaasContent = () => {
         className="text-ironGray text-lg md:text-2xl font-light mt-6"
       >
         Cuando no estamos trabajando con nuestros clientes, estamos
-        desarrollando nuestros propios Saas y aplicaciones web, échales un
-        vistazo y pruébalos.
+        desarrollando nuestros propios Saas y aplicaciones web. Échales un vistazo y pruébalos tú mismo.
       </motion.p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-x-12 xl:gap-x-56 mt-12 md:mt-20 pb-64">
         <Card
