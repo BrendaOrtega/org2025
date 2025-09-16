@@ -123,7 +123,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white text-4xl lg:text-5xl xl:text-7xl font-bold mt-8 md:mt-12"
           >
-            Automatiza tu negocio con IA y multiplica tus resultados
+         Haz que tu negocio trabaje solo (casi).
           </motion.h1>
 
           <motion.p
@@ -132,8 +132,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lightGray text-lg md:text-2xl font-light mt-6"
           >
-            Deja que la IA trabaje por ti: automatiza procesos, reduce errores y libera a tu equipo de tareas repetitivas. Enfócate en crecer y nosotros nos encargamos de la tecnología.
-          </motion.p>
+Deja que la IA se encargue de lo repetitivo: menos errores, más eficiencia y un equipo libre para enfocarse en lo que realmente importa: crecer.          </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
